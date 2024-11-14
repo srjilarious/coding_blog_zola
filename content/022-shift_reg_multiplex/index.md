@@ -1,6 +1,8 @@
 +++
 date = 2023-04-23
 title = "FPGA design for Software Engineers, part 4 - Multiplexed Seven Segment Displays"
+
+[taxonomies]
 tags = ["FPGA", "Verilog"]
 +++
 
@@ -23,7 +25,7 @@ So we can drive a single seven segment display with only 3 pins of our FPGA usin
 
 In our first example, we'll daisy chain the segments together, so that each seven segment display is driven by its own shift register:
 
-![Daisy Chained Seven Segment Display Breadboard Layout](/022-shift_reg_multiplex/daisy_chained_seven_segs_breadboard.png)
+{{ img(alt="Daisy Chained Seven Segment Display Breadboard Layout", src="daisy_chained_seven_segs_breadboard.png") }}
 
 By chaining each register's shift out bit into the next register's data in bit, we effectively create a longer shift register.
 
@@ -123,7 +125,7 @@ In our simulation code, everything is mostly the same apart from having an extra
 
 If you build and run the simulation you should see two segments counting up:
 
-![Daisy Chained Seven Segment Simulation](/022-shift_reg_multiplex/multi_seg_daisy_chained_simulation.png)
+{{ img(alt="Daisy Chained Seven Segment Simulation", src="multi_seg_daisy_chained_simulation.png") }}
 
 ## Building the circuit
 
@@ -131,14 +133,11 @@ Breadboarding out the circuit is straight forward, if not a touch tedious. You n
 
 If you follow the breadboard schematic above, you will end up with the following:
 
-![Daisy-chained Seven Segment Display on Actual Breadboard](/022-shift_reg_multiplex/daisy_chained_seven_segs.jpeg)
+{{ img(alt="Daisy-chained Seven Segment Display on Actual Breadboard", src="daisy_chained_seven_segs.jpeg") }}
 
 If you deploy the circuit, you'll see the digits couting up as you would expect:
 
-<video width="90%" controls>
-  <source src="/022-shift_reg_multiplex/daisy_chained_seven_segs.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+{{ video(sources=["daisy_chained_seven_segs.mp4"], class="ci")}}
 
 # Another Way: Time Multiplexing
 
@@ -344,7 +343,7 @@ Things to note in the code:
 
 Running the simulation, you'll see the digits counting up very fast so that we can see the third digit change in a reasonable amount of time:
 
-![Time multiplexed Simulation](/022-shift_reg_multiplex/time_multiplexed_simulation.png)
+{{ img(alt="Time multiplexed Simulation", src="time_multiplexed_simulation.png") }}
 
 ## Building the circuit
 
@@ -354,7 +353,7 @@ So we have a signal from our one-hot encoder shift register to tell us whether a
 
 We can make use of a transistor as a switch. In this case I'm using Bipolar Junction transistors, so I connect my NPN ones up such that the collector is connected to the ground rail, and the emitter is connected to the ground/common pin of a seven segment display. The base is connected to the enable signal for that display, meaning that when that signal is low, the transistor won't allow current to flow, and when it is high it will. This lets us disconnect the seven segment display from the circuit by breaking its path to ground through the transistor as a switch.
 
-![Laying out the time-multiplexed seven segment display circuit](/022-shift_reg_multiplex/time_multiplexed_seven_segs_breadboard.png)
+{{ img(alt="Laying out the time-multiplexed seven segment display circuit", src="time_multiplexed_seven_segs_breadboard.png") }}
 
 ## Issues I ran into
 
@@ -382,14 +381,11 @@ I first built up this circuit about three years ago, and didn't get around to ta
 
 ## The Time-Multiplexed Breadboard Circuit
 
-![Time-Multiplexed Seven Segment Circuit](/022-shift_reg_multiplex/time_multiplexed_seven_segs.jpeg)
+{{ img(alt="Time-Multiplexed Seven Segment Circuit", src="time_multiplexed_seven_segs.jpeg") }}
 
 Deploying this, you should see the counter spanning across all three segments.
 
-<video width="90%" controls>
-  <source src="/022-shift_reg_multiplex/time_multiplexed_seven_segs.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+{{ video(sources=["time_multiplexed_seven_segs.mp4"], class="ci")}}
 
 # Next Time
 

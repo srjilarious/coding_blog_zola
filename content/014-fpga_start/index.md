@@ -1,7 +1,9 @@
 +++
-tags = ["FPGA", "Verilog"]
 date = 2019-10-16
 title = "FPGA Design for Software Engineers, Part 1 - Verilog and State Machines"
+
+[taxonomies]
+tags = ["FPGA", "Verilog"]
 +++
 
 Over the last few years I've gotten more interested in electronics and FPGA design.  I've also noticed that a lot of other software folks seem interested in doing the same, but often don't know where to start.  So, I think I have some interesting advice for software engineers that feel like dipping their toes into the hardware world from the point of view of a software engineer.
@@ -117,7 +119,7 @@ For modules that are not clock driven, called *combinational circuits* (or somet
 
 But enough chatting, let's see some actual Verilog code.  Here is a module that take two inputs wires and produces an `xor` of them as one ouput and an `and` of them for the other output signal:
 
-{{<highlight verilog>}}
+```verilog
 // This declares a module named 'half_adder'
 // Between the parentheses are the declaration of 'ports' which are inputs 
 // and outputs to this module.  I've prepended an i_ for inputs and o_ for outputs,
@@ -141,7 +143,7 @@ module half_adder
     assign o_value = i_a ^ i_b;
     assign o_carry = i_a & i_b;
 endmodule
-{{</highlight>}}
+```
 
 This module defines a half-adder which takes two bits and produces the output of adding those two bits together also allowing for overflow and carrying the bit out to the next adder block in line.
 
@@ -155,7 +157,7 @@ For clock driven modules, called *sequential circuits*, it's a lot like having a
 
 Here's a simple module that takes a clock signal and has an update block that will run every time the clock changes to a `1`.  This change from `0` to `1` is also known as the positive edge of the clock signal as it changes from a low to high value.
 
-{{<highlight verilog>}}
+```verilog
 module counter
     (
         i_clk
@@ -180,7 +182,7 @@ module counter
     end
 
 endmodule
-{{</highlight>}}
+```
 
 A module can contain multiple blocks, sequential or combinational.  The `assign` syntax in the first example is one way to lay out combinational connections, the other is with `always @(*)` blocks, which are basically the same thing.
 
@@ -204,7 +206,7 @@ The testbench code in `main.cpp` uses a template class for handling some basics 
 
 If we look at the `top.v` module we can see the following:
 
-{{<highlight verilog>}}
+```verilog
 // look in pins.pcf for all the pin names on the TinyFPGA BX board
 module top (
     input CLK       // 16MHz clock
@@ -225,21 +227,21 @@ module top (
     // light up the LED, using the 20th bit of our counter.
     assign LED = num_counter[19];
 endmodule
-{{</highlight>}}
+```
 
 The module defines an input clock signal, the LED output signal and an output for the USB Pull up resistor, which was taken as is from the TinyFPGA-BX blinky exmaple.  We have a counter that increases by one every clock cycle and we see that on the last line of the module the LED should be on whenever the counter's 20th bit is a `1` and be off whenever the bit is a `0`.  Go into your terminal and run `make` to build `blinky` and then run it.  It's compiled into a normal executable with Verilator, so you don't need the FPGA hooked up or anything at this point.  
 
 It might take a few seconds for it to run, and afterwards you should see a `trace.vcd` file get created.  Let's view the waveform in GtkWave.  Open up GtkWave and choose `File` -> `Open New Tab`, navigate to the `trace.vcd` file and open it.  You'll see the following if you expand the `TOP` item in the tool window on the left side:
 
-![Initial Waveform view in GtkWave](/014-fpga_start/gtk_wave_00.png)
+{{ img(alt="Initial Waveform view in GtkWave", src="gtk_wave_00.png") }}
 
 You can then select the `CLK`, `LED`, and `num_counter` signals, right click and choose `Recurse Import` -> `Append` to add the waves to the main portion of the window.
 
-![Adding signals to the waveform view](/014-fpga_start/gtk_wave_01.png)
+{{ img(alt="Adding signals to the waveform view", src="gtk_wave_01.png") }}
 
 What you'll see is the following:
 
-![Initial view of waveform](/014-fpga_start/gtk_wave_02.png)
+{{ img(alt="Initial view of waveform", src="gtk_wave_02.png") }}
 
 Hmm, looks like our LED isn't blinking.  What's going on?  The problem is we're zoomed in way too close.  We designed the blinking to be based on a 16Mhz input clock, and the LED turns on with the 20th bit, which means it takes 1048576 clock ticks for the LED to change.  
 
@@ -247,7 +249,7 @@ We therefore expect in real life the LED to change states (1/16Mhz)*1,048,576 = 
 
 If we zoom out our simulation we see:
 
-![Zoomed out view of waveform](/014-fpga_start/gtk_wave_03.png)
+{{ img(alt="Zoomed out view of waveform", src="gtk_wave_03.png") }}
 
 Note that in our simulation we haven't set the tracing timescale to correspond to our real world clock, so you can't trust the time values in this case.
 
@@ -257,23 +259,17 @@ We can now test our design on the real hardware using the `apio` program that th
 
 When you plug the board into your computer it will initially be in a waiting state, expecting you to upload a bitstream with the user LED fading in and out:
 
-<video width="512" controls>
-  <source src="/014-fpga_start/fpga_01_waiting.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+{{ video(sources=["fpga_01_waiting.mp4"], class="ci") }}
 
 With the board connected to your system with a USB cable, you can run `apio build` and then `apio upload`.  As I'm using windows, even though I run the simulator from a bash prompt, I run the apio commands in `cmd.exe`.  I haven't taken the time to see if I could get the USB connection working through the WSL layer.
 
 Running `apio upload` should result in output similar to the following:
 
-![Zoomed out view of waveform](/014-fpga_start/apio_upload_cmd.png)
+{{ img(alt="Zoomed out view of waveform", src="apio_upload_cmd.png") }}
 
 and you should see a rapidly blinking LED like in the video below:
 
-<video width="512" controls>
-  <source src="/014-fpga_start/fpga_02_blinky.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+{{ video(sources=["fpga_02_blinky.mp4"], class="ci") }}
 
 # Performing a sequence of steps in Hardware
 
@@ -291,7 +287,7 @@ You can follow along in the `01_state_machine` example in the repo.  You can als
 
 First lets declare some constants for our states and a numbr of ticks per state.
 
-{{<highlight verilog>}}
+```verilog
 // We'll use four update ticks per state.
 localparam NUM_CYCLES_PER_STATE = 4*NUM_CYCLES_PER_UPDATE;
 
@@ -299,7 +295,7 @@ localparam NUM_CYCLES_PER_STATE = 4*NUM_CYCLES_PER_UPDATE;
 localparam INIT_STATE = 0;
 localparam A_STATE = 1;
 localparam B_STATE = 2;
-{{</highlight>}}
+```
 
 In Verilog, you can use the `localparam` keyword to define a constant for your module.  There also exists a `parameter` keyword, but that is for adding parameterization to modules when they are instantiated, such as creating a 32 bit adder instead of an 8 bit adder.
 
@@ -307,7 +303,7 @@ You may also notice that we're using a constant named `NUM_CYCLES_PER_UPDATE`.  
 
 The preprocessor in verilog starts with a backtick, and similar to C there are the `idef`, `ifndef`, `else`, and `endif` directives.
 
-{{<highlight verilog>}}
+```verilog
 `ifdef SIMULATION
     // When running the simulation, we will lower the number of cycles to make 
     // it easier to read the waveform output.
@@ -323,13 +319,13 @@ The preprocessor in verilog starts with a backtick, and similar to C there are t
     // We want the blink pattern to be 4 times per update tick, aka 2 bits less.
     localparam LED_BLINK_BIT = 22;
 `endif
-{{</highlight>}}
+```
 
 In this case, we'll define the `SIMULATION` variable for the preprocessor in our `Makefile` when we call Verilator, and when we use apio to run the example on the TinyFPGA BX board, we won't have this defined and we'll synthesize the design with the values in the `else` branch.
 
 With our constants defined, we can now get to the meat of this example, which is broken up into two processes.  The first process is where we update our counter and handle state transitions.
 
-{{<highlight verilog>}}
+```verilog
 // Handle counter and switching between state
 always @(posedge CLK) begin
     if(counter < NUM_CYCLES_PER_STATE) begin
@@ -347,13 +343,13 @@ always @(posedge CLK) begin
         endcase
     end
 end
-{{</highlight>}}
+```
 
 You'll notice we were able to comma separate the first two states in the case statement in order to run the same block in those cases.  You can't do the same thing with the default label though, so we just let the B_STATE fall through to the default case there.
 
 In the second process we look at the current state and assign the LED the value for that state, using a bit in our counter for the blinking case.
 
-{{<highlight verilog>}}
+```verilog
 // Determine LED behavior from the current state.
 always @(posedge CLK) begin
     case (curr_state)
@@ -370,24 +366,21 @@ always @(posedge CLK) begin
             LED <= 0;
     endcase
 end
-{{</highlight>}}
+```
 
 Once we run `make` and then the resulting `state_machine_01` executable, we can view the `trace.vcd` waveform and should see the following once the relevant signals are added and we zoom out a bit:
 
-![Simple state machine waveform](/014-fpga_start/gtk_wave_state_machine_01.png)
+{{ img(alt="Simple state machine waveform", src="gtk_wave_state_machine_01.png") }}
 
 We see our circuit runs as expected moving between states and eventually resetting back to the initial state.  We also see that the LED behavior changes as we move from one state to the other.  If we zoom in a bit, we can see the clock cycles more clearly and the LED toggling on and off in the `A` state.
 
-![Simple state machine waveform zoomed](/014-fpga_start/gtk_wave_state_machine_02.png)
+{{ img(alt="Simple state machine waveform zoomed", src="gtk_wave_state_machine_02.png") }}
 
 ## Deploying to the TinyFPGA-BX board
 
 Similarly to the LED example, we can run `apio build` and `apio upload` to synthesize and load our design onto our TinyFPGA-BX board.
 
-<video width="512" controls>
-  <source src="/014-fpga_start/fpga_03_state_machine.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+{{ video(sources=["fpga_03_state_machine.mp4"], class="ci") }}
 
 # Conclusion
 

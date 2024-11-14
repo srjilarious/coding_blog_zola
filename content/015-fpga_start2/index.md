@@ -1,7 +1,9 @@
 +++
-tags = ["FPGA"]
 date = 2020-03-21
 title = "FPGA Design for Software Engineers, Part 2 - Simulation and Build Tools"
+
+[taxonomies]
+tags = ["FPGA"]
 +++
 
 It's been a while since the last article, but it was well received so thanks to everyone for the great feedback!
@@ -231,7 +233,7 @@ To finish the entire workflow, we'll flash the `top.bin` we generated above thro
 
 WSL supports serial ports by way of `/dev/ttyS0` where the `0` is replaced with the Windows COM port number you see when you attached the FPGA board to your system and look in Device Manager
 
-![DeviceManager Showing our board's COM port](/015-fpga_start2/device_manager_com_port.png)
+{{ img(alt="DeviceManager Showing our board's COM port", src="device_manager_com_port.png") }}
 
 Seeing that our board is on COM3 in this case, we know to use `/dev/ttyS3`.  So we can load and boot the bitstream with:
 
@@ -438,7 +440,7 @@ DISPLAY=:0 ./bin/state_machine_sfml
 
 You should see the following window pop up:
 
-![New and Improved SFML State Machine Simulation](/015-fpga_start2/state_machine_sfml.png)
+{{ img(alt="New and Improved SFML State Machine Simulation", src="state_machine_sfml.png") }}
 
 # Conclusion
 

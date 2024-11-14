@@ -1,7 +1,9 @@
 +++
-tags = ["FPGA"]
 date = 2022-11-14
 title = "FPGA design for Software Engineers - Build System Updates, ECP5 Support"
+
+[taxonomies]
+tags = ["FPGA"]
 +++
 
 It's been a while since the [last article](/post/018_fpga_docker_build) and I've recently come back to playing with my FPGA repo.  Given the amount of time that has passed there were some updates needed for the `Dockerfile` and a couple of improvements I wanted to make.
@@ -135,7 +137,7 @@ Looking at the [manual](https://github.com/emard/ulx3s/blob/master/doc/MANUAL.md
 
 For `00_blinky` on the ULX3S, since there are 8 LEDs available, I map a larger part of the counter to the LEDs.  I also added a check for the second user button being down to pause the counter.
 
-![ULX3S Blinky](/019-fpga_build_updates/ulx3s_blinky.jpg)
+{{ img(alt="ULX3S Blinky", src="ulx3s_blinky.jpg") }}
 
 ## State Machine Updates
 
@@ -145,7 +147,7 @@ One nice benefit of this setup is that the state_machine module can be parameter
 
 For the ECP5 version, the state machine LED is mapped to all 8 of the user leds:
 
-![ULX3S State Machine](/019-fpga_build_updates/ulx3s_state_machine.jpg)
+{{ img(alt="ULX3S State Machine", src="ulx3s_state_machine.jpg") }}
 
 ## TestBench.h changes
 

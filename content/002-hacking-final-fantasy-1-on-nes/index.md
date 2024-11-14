@@ -69,11 +69,11 @@ The last 16 bytes within the block are 2 bytes for each level, with the first by
 
 Here you can see a white wizard that I've given the first 3 spells of each level to (the repeating 01 02 03) and that has 9 / 9 casts for each level:
 
-![Character Magic Data in Hex Editor](ff1_hack_magic_data_hex.png)
+{{ img(alt="Character Magic Data in Hex Editor", src="ff1_hack_magic_data_hex.png") }}
 
 And the white wizard's magic table in-game looks like:
 
-![Character Magic Table in Game](ff1_hack_white_mage_table.png)
+{{ img(alt="Character Magic Table in Game", src="ff1_hack_white_mage_table.png") }}
 
 ### White Magic Spell table
 
@@ -166,7 +166,7 @@ Playing around with the values, I ended up with weapons like:
 
 and my armor setup looked like this, although I wasn't trying to find the best setup:
 
-![Armor in Game](ff1_hack_armor.png)
+{{ img(alt="Armor in Game", src="ff1_hack_armor.png") }}
 
 ## Other Misc Game Data
 

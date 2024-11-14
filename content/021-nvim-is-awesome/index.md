@@ -1,7 +1,9 @@
 +++
-tags = ["Vim"]
 date = 2023-04-18
 title = "Neovim with a Little Bit of Config is Amazing"
+
+[taxonomies]
+tags = ["Vim"]
 +++
 
 I've recently switched from using Visual Studio Code as my main editor of choice to using Neovim with the awesome [Astronvim](https://astronvim.com/) configuration and some of my own tweaks on top. It ends up functioning as a great development environment with code hints, debugging, file finder and at the same time uses much less memory. It even has one killer feature over VS Code.

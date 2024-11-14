@@ -1,7 +1,9 @@
 +++
-tags = ["Linux"]
 date = 2020-12-24
 title = "Switching to Kubuntu 20.10 as primary OS"
+
+[taxonomies]
+tags = ["Linux"]
 +++
 
 About a week ago, I decided to give another go at using Linux as my primary OS.  This came about after my brother mentioned he had recently done the same and was really enjoying it.  
@@ -18,7 +20,7 @@ It also used to be that battery management on Linux would cut my system usage by
 
 Finally, I used to play video games on my computer mostly, but I now prefer to play on my Switch, or one of my older consoles I've acquired such as a SNES or NES.  Steam on Linux has also improved the last few years so a number of titles that I have yet to play look like they should work in any case.
 
-![Screenshot of my current setup](/017-kubuntu/kubuntu_screenshot.png)
+{{ img(alt="Screenshot of my current setup", src="kubuntu_screenshot.png") }}
 
 
 ## Annoyances with Windows 10

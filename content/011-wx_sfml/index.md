@@ -1,8 +1,9 @@
 +++
-tags = ["C++", "Graphics"]
 date = 2019-03-05
 title = "Wx 3.1 with embedded SFML 2.5 control"
-Categories = ["C++", "Wx", "SFML"]
+
+[taxonomies]
+tags = ["C++", "Graphics"]
 +++
 
 I've been working on a project where I wanted to embed an SFML drawing context in a wxWidgets window.  I wanted to be able to write a GUI application, but didn't want to have all of the UI be embedded within the SFML window using something like imgui.
@@ -19,7 +20,7 @@ I've made a repo on GitLab where you can try building it yourself: https://gitla
 
 Currently it's just a simple base class for the SFML canvas, with an overridden implementation that draws a sprite.  I also added a wx button that can change the scale of the sprite to show how the two can work together seamlessly.
 
-![wx_sfml repo running](/011-wx_sfml/wx_sfml_screen.png)
+{{ img(alt="wx_sfml repo running", src="wx_sfml_screen.png") }}
 
 ## My Level Editor Use Case 
 
@@ -29,7 +30,7 @@ For the level editor, this means having various controls embedded within a large
 
 By integrating my engine code with a larger GUI framework, that means I get to have list views, property editors, buttons, menus and everything else with very little extra work.
 
-![Level Editor Editing a Map](/011-wx_sfml/level_editor_1.png)
+{{ img(alt="Level Editor Editing a Map", src="level_editor_1.png") }}
 
 I'll have more to say about the Nintendo simulator project and the resulting game I'm working on in the future.
 

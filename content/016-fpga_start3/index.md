@@ -1,7 +1,9 @@
 +++
-tags = ["FPGA", "Verilog"]
 date = 2020-04-20
 title = "FPGA Design for Software Engineers, Part 3 - Seven Segment Displays"
+
+[taxonomies]
+tags = ["FPGA", "Verilog"]
 +++
 
 {{< mermaid >}}
@@ -10,7 +12,7 @@ title = "FPGA Design for Software Engineers, Part 3 - Seven Segment Displays"
 
  A seven segment display is a set of LEDs arranged like an eight plus a decimal point like you see on cheap alarm clocks and the like.
 
-![A typical seven segment display](/016-fpga_start3/labelled_seven_segment_display_standard.png)
+{{ img(alt="A typical seven segment display", src="labelled_seven_segment_display_standard.png") }}
 
 <!--more-->
 
@@ -35,7 +37,7 @@ One thing to keep in mind when laying out your circuit is whether you have commo
 
 The main idea is that we take in 4 bits as a single hex digit and output the 8 values for each of the segments, and the decimal point, that we want to light up on the seven segment display.  If we assign a bit to each of the segments and decimal point, we can then come up with our mapping.  First lets look at the pinout of the seven segment displays I'm using:
 
-![A typical seven segment display](/016-fpga_start3/labelled_seven_segment_display_a_filled_pinout.png)
+{{ img(alt="A typical seven segment display", src="labelled_seven_segment_display_a_filled_pinout.png") }}
 
 The `CC` pin here on the top and bottom are the common cathode, and will be hooked to ground.
 
@@ -210,7 +212,7 @@ DISPLAY=:0 ./seven_seg_parallel
 
 You should see the following window pop up with our segment display counting up in hexadecimal:
 
-![Parallel Seven Segment Display Simulation](/016-fpga_start3/seven_seg_sim.png)
+{{ img(alt="Parallel Seven Segment Display Simulation", src="seven_seg_sim.png") }}
 
 # Laying it out on a breadboard
 
@@ -218,7 +220,7 @@ So far we've been strictly in the realm of simulation or using the built in LED.
 
 To start with we'll look at the schematic view to see how things are hooked together.  This was drawn up in [KiCad](https://www.kicad-pcb.org/):
 
-![Parallel seven segment display schematic](/016-fpga_start3/seven_seg_parallel_schematic.png)
+{{ img(alt="Parallel seven segment display schematic", src="seven_seg_parallel_schematic.png") }}
 
 We will power the TinyFPGA board itself through USB, and we can use the GND pins on the TinyFPGA board to complete the circuit for the LEDs.  The output pins need to go through current-limiting resistors when paired with the LEDS in the seven segment display, or else when we pull a pin high it will be short-circuit and we could burn up our chip. 
 
@@ -226,7 +228,7 @@ A minor note, but in the schematic I'm using a pin compatible part with package 
 
 When we lay it out in real life, it will look something like the following.  Here I'm using the program Fritzing to diagram out how the breadboard looks and we'll break it down as the layouts get more complicated in the future.
 
-![Laying out the parallel seven segment display](/016-fpga_start3/seven_seg_parallel_bb.png)
+{{ img(alt="Laying out the parallel seven segment display", src="seven_seg_parallel_bb.png") }}
 
 If we look at the [Ice40 datasheet](http://www.latticesemi.com/view_document?document_id=49312), and look at the I/O DC electrical characteristics table in section 4.14 on page 25, we see that the max current for a normal pin is 8 milliamps for the 3.3V the board uses.  We're not configuring the pins as high current LED outputs in this case, so we'll use the lowest number in that table. 
 
@@ -234,10 +236,7 @@ Given Ohm's Law, we can choose the value of the resistor so that we get a curren
 
 If we deploy the design to our circuit above, we'll see our implementation running in meat space
 
-<video width="512" controls>
-  <source src="/016-fpga_start3/seven_seg_parallel.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+{{ video(sources=["seven_seg_parallel.mp4"], class="ci")}}
 
 # Driving a seven segment display with fewer pins
 
@@ -491,18 +490,15 @@ If you build and run the `03_seven_seg_shift_reg` example simulation, you'll see
 
 We now need to add the 74HC595 chip to our circuit and wire things up, now just using pins 1, 2, 3 from the FPGA.  The following schematic shows how it sits between the FPGA `PIN`s and the set of resistors feeding to the seven segment display.
 
-![Shift Register Seven Segment Display Schematic](/016-fpga_start3/seven_seg_shift_schematic.png)
+{{ img(alt="Shift Register Seven Segment Display Schematic", src="seven_seg_shift_schematic.png") }}
 
 Notice that we have two extra pins to concern ourselves with here: the output enable and the shift register's reset pin.  The reset pin should be tied high, i.e. a wire connecting it to Vcc, and the output enable should be tied low, i.e. a wire connecting it directly to ground.  This way our circuit will be able to output values and will not be constantly held in reset.
 
 To lay this out on a breadboard, we'll want to lay it out something like this:
 
-![Shift Register Seven Segment Display Breadboard Circuit](/016-fpga_start3/shift_reg_bb.png)
+{{ img(alt="Shift Register Seven Segment Display Breadboard Circuit", src="shift_reg_bb.png") }}
 
-<video width="512" controls>
-  <source src="/016-fpga_start3/seven_seg_shift_reg.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+{{ video(sources=["seven_seg_shift_reg.mp4"], class="ci")}}
 
 ## Issues I ran into
 
