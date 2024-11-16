@@ -70,15 +70,15 @@ menu_footer = [
 
 toc = true
 recent = true # TOC / index
-recent_items = 15
+recent_items = 5
 series = true
 series_items = 9 # Max number of items to display in series list, use 0 to disable
 #Series_parts = "$NUMBER_OF_PARTS part Series"
 
 #arrow_pagination = true # If set to true then the pagination will use the old arrows mode, be sure to also enable the icons.
 
-meta_index = { position="bottom", size="s90", author=false, readtime=false, readstring="min", date=true, updated=false, categories_tags=true, divider="" }
-meta_post = { position="top", size="s95", author=true, readtime=false, readstring="min read", date=true, updated=true, categories_tags=true, divider="" }
+meta_index = { position="bottom", size="s90", author=false, readtime=true, readstring="min", date=true, updated=false, categories_tags=true, divider="" }
+meta_post = { position="top", size="s95", author=true, readtime=true, readstring="min read", date=true, updated=true, categories_tags=true, divider="" }
 
 hide_section_dates = false # hides the date for sections that use posts.html as their template.
 hide_page_nextprev_titles = false # hides the next/previous titles for pages that use page.html as their template.
@@ -94,7 +94,7 @@ logo = { file="logo.png", width="48", height="48", alt="Abridge", text=" Walk N'
 # textlogo = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#f90" viewBox="0 0 96 96" width="28" height="28"><path stroke-width="14" d="M14 99 46 7h4l32 92"/><path stroke-width="9" d="M-3 82c43-26 59-26 102 0"/><path stroke-linecap="round" stroke-width="1.5" d="M94 72v7m-5-9.8v7m-5-9.8v7.1M79 64v7M63 57.7v7m-5-8.2v7m-5-7.8v7m-5-7.2v7m-5-6.7v7m-5-6.3v7m-5-5.8v7M17 64v7m-5-4.6v7m-5-4.2v7M2 72v7"/></svg>bridge'
 
 sitedesc = false # enables or disables the display of the site description below the logo.
-headhr = false # show or hide horizontal rule below header
+headhr = true # show or hide horizontal rule below header
 foothr = true # show or hide horizontal rule above footer
 
 ### $CURRENT_YEAR and $SITE_TITLE can be used anywhere within the copyright, you can change their position or you can also delete them and type whatever you want instead.
@@ -112,7 +112,7 @@ foothr = true # show or hide horizontal rule above footer
 title_separator = "|"  # Separator between title and title_addition, set as |, -, _, etc
 title_addition = "Walk N' Sqauwk" # a default value for title addition (for SEO aim for 50-70 characters including the title and separator 'Abridge | title_addition')
 author = "Jeff DeWall" # Put Your Name here
-keywords = "Abridge, Abridge.css, Zola, Theme, Zola Theme, getzola, Semantic Html, Fast, lightweight" # used for the primary site index
+keywords = "Zig, Rust, Elixir, Python, Japanese, German, Coding" # used for the primary site index
 banner = "banner.png" # Used as default image for OpenGraph/Twitter if page specific image is undefined.
 twitter_meta = "your-user-name" # for SEO: twitter:site and twitter:creator
 google = "Your Google Site verification code."
@@ -129,28 +129,28 @@ seo = true  # enable or disable seo-related meta tags: opengraph, facebook, twit
 ###############################################################################
 
 feed = true # this adds the RSS feed icon in the footer.
-mail = "name@example.com"
-mastodon = "https://mastodon.example.com/@username"
+mail = "srjilarious@fastmail.net"
+mastodon = "https://mastodon.social/@srjilarious"
 # element = "matrix.example.com"
 #buymeacoffee = "your-user-name"
-kofi = "your-user-name"
+# kofi = "your-user-name"
 #discord = "your-discord" # Everything after https://discord.com/   eg: invite/my-server  *or*  servers/my-server-id
 #twitter = "your-user-name"
 #facebook = "your-user-name"
 #linkedin = "your-user-name"
-#gitlab = "your-user-name"
-github = "your-user-name"
+gitlab = "sr.jilarious"
+github = "srjilarious"
 #codeberg = "your-user-name" # Everything after https://codeberg.org/   eg: username  *or*  username/repository
 #github_sponsor = "your-user-name"
 #bitbucket = "your-user-name"
 #python = "your-user-name"
 #docker = "your-user-name"
 #stack = "your-user-name"
-instagram = "your-user-name"
+# instagram = "your-user-name"
 #pixelfed = "https://pixelfed.example.com/" # Heaviest icon, off by default
 #pinterest = "your-user-name"
-twitch = "your-user-name"
-youtube = "channel/your-channel-id"
+# twitch = "your-user-name"
+# youtube = "channel/your-channel-id"
 #peertube = "https://peertube.example.com/@username"
 #researchgate = "your-profile-id"
 #telegram = "your-user-name"
