@@ -6,8 +6,6 @@ title = "FPGA Design for Software Engineers, Part 3 - Seven Segment Displays"
 tags = ["FPGA", "Verilog"]
 +++
 
-{{< mermaid >}}
-
 [Last time](/post/015_fpga_design_p2) we took a break from Verilog and hardware design to improve our build system.  This time we're back to Verilog and for our next FPGA project we'll create a seven segment driver circuit that will allow us to output hex characters to a single display. 
 
  A seven segment display is a set of LEDs arranged like an eight plus a decimal point like you see on cheap alarm clocks and the like.
@@ -16,11 +14,12 @@ tags = ["FPGA", "Verilog"]
 
 <!--more-->
 
-1. [Verilog and State Machines](/post/014-tiny-fpga-bx)
+1. [Verilog and State Machines](@/014-fpga-start/index.md)
 2. [Simulation and Build Tools](/post/015_fpga_design_p2)
 3. Seven Segment Displays
 4. [Docker Builds](/post/018_fpga_docker_build)
 5. [Build System Updates, ECP5 Support](/post/019_fpga_build_updates)
+6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
 
 ## Updates Feb 23, 2021
 As mentioned at the end of [this article](/post/018_fpga_docker_build), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.
@@ -256,7 +255,7 @@ On the outside, on our breadboard, we'll hook that up to a 74HC595 serial in, pa
 
 In terms of implementation of our shift register module, we also need to have an input to trigger us to start shifting out the current byte.  We then move through a state machine that shifts out each bit of our byte and finally triggers the latch signal before moving back to a waiting state.
 
-{{< mermaid-diagram >}}
+{% mermaid() %}
 stateDiagram
     [*] --> WAIT_STATE
     WAIT_STATE --> SHIFT_STATE
@@ -264,7 +263,7 @@ stateDiagram
     SHIFT_TICK --> SHIFT_STATE
     SHIFT_TICK --> STORE_STATE
     STORE_STATE --> WAIT_STATE
-{{< /mermaid-diagram >}}
+{% end %}
 
 The code for the shift register is in `/lib/shift_reg_output.v`:
 

@@ -12,11 +12,11 @@ This time we'll continue from the [last design article](/post/016_fpga_design_p3
 
 ### Article Series
 
-1. [Verilog and State Machines](/post/014-tiny-fpga-bx)
-2. [Simulation and Build Tools](/post/015_fpga_design_p2)
-3. [Seven Segment Displays](/post/016_fpga_design_p3)
-4. [Docker Builds](/post/018_fpga_docker_build)
-5. [Build System Updates, ECP5 Support](/post/019_fpga_builds_updates)
+1. [Verilog and State Machines](@/014-fpga-start/index.md)
+2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
+3. [Seven Segment Displays](@/016-fpga-start3/index.md)
+4. [Docker Builds](@/018-fpga-docker-build.md)
+5. [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md)
 6. Time-Multiplexed Seven Segment Displays
 
 # Driving multiple displays

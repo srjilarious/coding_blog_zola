@@ -12,11 +12,13 @@ It's been a while since the [last article](/post/018_fpga_docker_build) and I've
 
 ### Article Series
 
-1. [Verilog and State Machines](/post/014-tiny-fpga-bx)
-2. [Simulation and Build Tools](/post/015_fpga_design_p2)
-3. [Seven Segment Displays](/post/016_fpga_design_p3)
-4. [Docker Builds](/post/018_fpga_docker_build)
+1. [Verilog and State Machines](@/014-fpga-start/index.md)
+2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
+3. [Seven Segment Displays](@/016-fpga-start3/index.md)
+4. [Docker Builds](@/018-fpga-docker-build.md)
 5. Build System Updates, ECP5 Support
+6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
+
 
 # Build System Updates
 

@@ -3,7 +3,7 @@ title = "Contact"
 description = "To reach us please use the contact form on this page."
 path = "contact"
 template = "pages.html"
-draft = false
+draft = true
 +++
 
 <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>

@@ -16,11 +16,13 @@ The next article, which is already basically written, will be back to hardware d
 
 ### Article Series
 
-1. [Verilog and State Machines](/post/014-tiny-fpga-bx)
+1. [Verilog and State Machines](@/014-fpga-start/index.md)
 2. Simulation and Build Tools
-3. [Seven Segment Displays](/post/016_fpga_design_p3)
-4. [Docker Builds](/post/018_fpga_docker_build)
-5. [Build System Updates, ECP5 Support](/post/019_fpga_build_updates)
+3. [Seven Segment Displays](@/016-fpga-start3/index.md)
+4. [Docker Builds](@/018-fpga-docker-build.md)
+5. [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md)
+6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
+
 
 ## Updates Feb 23, 2021
 As mentioned at the end of [this article](/post/018_fpga_docker_build), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](/post/018_fpga_docker_build) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_2`.

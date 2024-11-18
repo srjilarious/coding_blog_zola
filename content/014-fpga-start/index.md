@@ -15,11 +15,11 @@ In this post I'll go over FPGAs in general, the basics of the Verilog language, 
 ### Article Series
 
 1. Verilog and State Machines
-2. [Simulation and Build Tools](/post/015_fpga_design_p2)
-3. [Seven Segment Displays](/post/016_fpga_design_p3)
-4. [Docker Builds](/post/018_fpga_docker_build)
-5. [Build System Updates, ECP5 Support](/post/019_fpga_build_updates)
-
+2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
+3. [Seven Segment Displays](@/016-fpga-start3/index.md)
+4. [Docker Builds](@/018-fpga-docker-build.md)
+5. [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md)
+6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
 
 ## Updates Feb 23, 2021
 As mentioned at the end of [this article](/post/018_fpga_docker_build), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](/post/018_fpga_docker_build) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_1`.
