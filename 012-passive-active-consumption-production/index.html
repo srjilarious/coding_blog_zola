@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Passive and Active, Consuming and Producing | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/012-passive-active-consumption-production/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/012-passive-active-consumption-production/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/012-passive-active-consumption-production/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="Passive and Active, Consuming and Producing | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="Passive and Active, Consuming and Producing | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2019-04-22" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/012-passive-active-consumption-production/">Passive and Active, Consuming and Producing</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 3 min read <span class="rpad"></span> April 22, 2019 <span class="rpad"></span></span>
+
+    
+
+
+<p>I was thinking recently about the different things I choose to do in my free time and which ones bring me the most enjoyment.  I tend to have too many hobby projects going on at once and every three months or so, I naturally tend to cycle around.</p>
+<p>I realized I enjoyed my time the most when I had something to show for it: a written blog post, a finished circuit on a breadboard, or some module written towards some software project.</p>
+<p>It dawned on me that you can classify the things you choose to do as consuming or producing activities and that producing something tends to bring more enjoyment and fulfullment.</p>
+<p>But that doesn't feel like it models things well enough.  You can further classify you activities as passive or active versions of consuming or producing.  For instance, watching TV, reading, or playing a game are all typically passive consumption tasks: you don't need to engage your mind too much to process the content.</p>
+<p>However, if you are learning a second language and you watch TV or read a book in that language, you are now actively consuming the material.  You are building a skill while you consume.  You can similarly actively consume material based on how you approach it.  If you are disecting the thesis of a book, or learning some non-fictional material, you are also actively consuming.</p>
+<p>You can split producing activities into passive and active as well.  I place anything where you are creating something of value, to yourself or someone else, as an active producing one.  I also believe when you are building a skill you are actively producing.  For instance, working out intensely, learning a new instrument or song, or trying to have a discussion in a new language.  Even if what is produced is non-material and simply an experience.</p>
+<p>The active consuming and producing activities have some overlap, since you can view learning a subject from a book or video as helping to produce whatever skill they are teaching, such as a new programing language, or how to repair something.</p>
+<p>Passive producing activities are where you are not really needing to push yourself, and the results of your actions are not really consumed themselves.  Things like journaling, doing practice sketching, playing songs you know really well on an instrument, or even working out with weights but just not that intensely.</p>
+<p>The hierarchy of which tasks bring the most fulfillment are passive consumption at the bottom with active consumption blending with passive production and active production being the most fulfilling.  So the next time you have free time on your hands, think about whether you are being actively productive with your time.  Perhaps it will motivate you to work on that side project you've been putting off.</p>
+<p>Another axis I haven't thought much about is socializing and how that might fit in.  My initial feeling is that it is an orthogonal property of activities and that it brings value in its own right.  I also imagine passive and active socializing making sense.  For instance being around people but not interacting versus having and help driving an interesting conversation.</p>
+<p>For myself, Breaking my activities into passive/active and cosuming/producing been a useful model to help me allocate time towards my more fulfulling projects the last year. Perhaps others will find it similarly motivating.</p>
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/013-bitfeld-widths-cpp/">&#8249; Bitfield widths in C&#x2F;C++ structures</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/011-wx-sfml/"> Wx 3.1 with embedded SFML 2.5 control &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Walk N&#x27; Squawk - RetroGaming</title>
+    <subtitle>A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.walknsqualk.com/tags/retrogaming/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2017-03-19T00:00:00+00:00</updated>
+    <id>https://www.walknsqualk.com/tags/retrogaming/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Hacking Final Fantasy 1 on the NES</title>
+        <published>2017-03-19T00:00:00+00:00</published>
+        <updated>2017-03-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/002-hacking-final-fantasy-1-on-nes/"/>
+        <id>https://www.walknsqualk.com/002-hacking-final-fantasy-1-on-nes/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/002-hacking-final-fantasy-1-on-nes/">&lt;p&gt;A few years ago I was inspired to hack around on some of my old favorite NES games after watching the video from Double Fine where the developer Brandon Dillon hacks around on the original Legend of Zelda.  You can watch the video &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;youtu.be&#x2F;FolqIgQRtl0?t=1s&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I decided I wanted to hack Final Fantasy 1, one of my favorite games growing up, that I put in more than 100 hours playing.  I used fceux as my NES emulator, same as in the video and followed mostly the same patterns.&lt;&#x2F;p&gt;
+&lt;p&gt;I kept some notes on how I did it and thought others might find the process as interesting and fun as I did.  I ended up losing most of the notes from a few years ago, so I went back and rediscovered the different memory locations and values to use again.&lt;&#x2F;p&gt;
+&lt;p&gt;I searched in the RAM Search window for values, particularly as something in-game would change, such as when you buy a weapon or a spell, in order to track down the correct memory locations.  Then I would use the Hex Editor tool to look at the NES RAM and try poking different locations.&lt;&#x2F;p&gt;
+&lt;p&gt;Note that values that need more than one byte are stored little-endian, so the lower byte shows up first in memory.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;character-data-and-stats&quot;&gt;Character Data and Stats&lt;&#x2F;h2&gt;
+&lt;p&gt;The character data is organized into four blocks, once for each character, one after the other starting at 0x6100.  I was able to find this by searching for my character&#x27;s names in RAM.  The trick is finding the value associated with the letters, which you can do by looking at the PPU memory and determining what tile goes to what letter.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_ppu.png&quot; alt=&quot;ff1_hack_ppu&quot; width=&quot;535&quot; height=&quot;427&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;You can see that a capital &#x27;A&#x27; is mapped to 0x8A.  I named my first character &#x27;AAAA&#x27; so searching through the Hex Editor in FCEUX for the hex &quot;8a8a8a8a&quot; brings us right to the first character&#x27;s block of data:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_hex_char_data.png&quot; alt=&quot;Character Name in Hex Editor&quot; width=&quot;678&quot; height=&quot;492&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Address&lt;&#x2F;th&gt;&lt;th&gt;Character Data&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;0x6100 - 0x613f&lt;&#x2F;td&gt;&lt;td&gt;1st character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x6140 - 0x617f&lt;&#x2F;td&gt;&lt;td&gt;2nd character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x6180 - 0x61bf&lt;&#x2F;td&gt;&lt;td&gt;3rd character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x61c0 - 0x61ff&lt;&#x2F;td&gt;&lt;td&gt;4th character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;Some interesting locations within a character block:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Address&lt;&#x2F;th&gt;&lt;th&gt;Attribute&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;character type&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x1&lt;&#x2F;td&gt;&lt;td&gt;character alive state (0: alive, 1:dead)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x2 - 0x5&lt;&#x2F;td&gt;&lt;td&gt;character name (using PPU tile indices)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x7 - 0x9&lt;&#x2F;td&gt;&lt;td&gt;experience points&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0xa - 0xb&lt;&#x2F;td&gt;&lt;td&gt;current hit points&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0xc - 0xd&lt;&#x2F;td&gt;&lt;td&gt;max hit points&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x10 - 0x14&lt;&#x2F;td&gt;&lt;td&gt;Str, Agl, Int, Vit, Luck&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x20 - 0x23&lt;&#x2F;td&gt;&lt;td&gt;Damage, Hit%, Absorb, Evade %&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;I found many of the above locations by looking at the Stats section for a character and then looking for the hex converted values within the block.  For instance, looking for my first character&#x27;s Str and Agl of 20, and 5 was a matter of looking for the hex values 14, 05 and finding them on the second line of the data block.  Then I messed with the values and saw what changed.&lt;&#x2F;p&gt;
+&lt;p&gt;When you start the game, you characters are child versions of their classes: fighter, black mage, etc.  Later in the game, after you get the Rat&#x27;s Tail, they become adults: knight, black wizard etc.  You can increase the character&#x27;s type value by 6 (the total number of character classes), and they will change to their adult version right away.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;magic&quot;&gt;Magic&lt;&#x2F;h2&gt;
+&lt;p&gt;What magic spells a character has, and the current&#x2F;max number of spells per level are stored in blocks for each character starting at 0x6300:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Address&lt;&#x2F;th&gt;&lt;th&gt;Character Magic Data&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;0x6300 - 0x632f&lt;&#x2F;td&gt;&lt;td&gt;1st character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x6340 - 0x636f&lt;&#x2F;td&gt;&lt;td&gt;2nd character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x6380 - 0x63af&lt;&#x2F;td&gt;&lt;td&gt;3rd character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x63c0 - 0x63ef&lt;&#x2F;td&gt;&lt;td&gt;4th character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;The first 32 bytes are what spells the character has for each level.  Each level gets 4 bytes, with the first 3 being the spell in that level&#x27;s slot, and the 4th byte being 0.  White spells for a level are numbered 0-4 and black spells are 5-8.&lt;&#x2F;p&gt;
+&lt;p&gt;The last 16 bytes within the block are 2 bytes for each level, with the first byte being the current number of casts left for the level, with the 2nd byte being the max.&lt;&#x2F;p&gt;
+&lt;p&gt;Here you can see a white wizard that I&#x27;ve given the first 3 spells of each level to (the repeating 01 02 03) and that has 9 &#x2F; 9 casts for each level:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_magic_data_hex.png&quot; alt=&quot;Character Magic Data in Hex Editor&quot; width=&quot;628&quot; height=&quot;280&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;And the white wizard&#x27;s magic table in-game looks like:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_white_mage_table.png&quot; alt=&quot;Character Magic Table in Game&quot; width=&quot;512&quot; height=&quot;448&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h3 id=&quot;white-magic-spell-table&quot;&gt;White Magic Spell table&lt;&#x2F;h3&gt;
+&lt;p&gt;| 1 | 2 | 3 | 4
+--- | --- | --- | --- | ---
+Lvl 1 | cure | harm | fog | ruse
+Lvl 2 | lamp | mute | alit | invs
+Lvl 3 | cur2 | hrm2 | afir | heal
+Lvl 4 | pure | fear | aice | amut
+Lvl 5 | cur3 | life | hrm3 | hel2
+Lvl 6 | soft | exit | fog2 | inv2
+Lvl 7 | cur4 | hrm4 | arub | hel3
+Lvl 8 | lif2 | fade | wall | xfer&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;black-magic-spell-table&quot;&gt;Black Magic Spell table&lt;&#x2F;h3&gt;
+&lt;p&gt;| 5 | 6 | 7 | 8
+--- | --- | --- | --- | ---
+Lvl 1 | fire | slep | lcok | lit
+Lvl 2 | ice | dark | tmpr | slow
+Lvl 3 | fir2 | hold | lit2 | lok2
+Lvl 4 | slp2 | fast | conf | ice2
+Lvl 5 | fir3 | bane | warp | slo2
+Lvl 6 | lit3 | rub | qake | stun
+Lvl 7 | ice3 | brak | sabr | blnd
+Lvl 8 | nuke | stop | zap! | xxxx&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;weapons-and-armor&quot;&gt;Weapons and Armor&lt;&#x2F;h2&gt;
+&lt;p&gt;By buying a rapier and then equipping&#x2F;unequipping I found the equip memory to be at 0x0300, there are 16 bytes available, matching the 4 slots for each character. Each weapon and armor has a number and to be equipped is a matter of setting the highest bit.  For example, if the rapier is 04, then 84 means an equipped rapier.&lt;&#x2F;p&gt;
+&lt;p&gt;Interestingly, the memory seems to be used for the equip menu, and is mirrored at 0x0b00, 0x1300, and 0x1b00 as well.  This same memory is used when equipping armor, so you can set the values while equipping, and they will stick when you leave the menu.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;weapons-list&quot;&gt;Weapons List&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Hex Code&lt;&#x2F;th&gt;&lt;th&gt;Weapon&lt;&#x2F;th&gt;&lt;th&gt;Hex Code&lt;&#x2F;th&gt;&lt;th&gt;Weapon&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;00&lt;&#x2F;td&gt;&lt;td&gt;Nothing&lt;&#x2F;td&gt;&lt;td&gt;15&lt;&#x2F;td&gt;&lt;td&gt;Ice Sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;01&lt;&#x2F;td&gt;&lt;td&gt;Wooden Nunchucks&lt;&#x2F;td&gt;&lt;td&gt;16&lt;&#x2F;td&gt;&lt;td&gt;Dragon sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;02&lt;&#x2F;td&gt;&lt;td&gt;Small dagger&lt;&#x2F;td&gt;&lt;td&gt;17&lt;&#x2F;td&gt;&lt;td&gt;Giant sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;03&lt;&#x2F;td&gt;&lt;td&gt;Wooden staff&lt;&#x2F;td&gt;&lt;td&gt;18&lt;&#x2F;td&gt;&lt;td&gt;Sun Sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;04&lt;&#x2F;td&gt;&lt;td&gt;Rapier&lt;&#x2F;td&gt;&lt;td&gt;19&lt;&#x2F;td&gt;&lt;td&gt;Coral sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;05&lt;&#x2F;td&gt;&lt;td&gt;Iron Hammer&lt;&#x2F;td&gt;&lt;td&gt;1a&lt;&#x2F;td&gt;&lt;td&gt;Were Sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;06&lt;&#x2F;td&gt;&lt;td&gt;Short Sword&lt;&#x2F;td&gt;&lt;td&gt;1b&lt;&#x2F;td&gt;&lt;td&gt;Rune sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;07&lt;&#x2F;td&gt;&lt;td&gt;Hand Axe&lt;&#x2F;td&gt;&lt;td&gt;1c&lt;&#x2F;td&gt;&lt;td&gt;Power staff&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;08&lt;&#x2F;td&gt;&lt;td&gt;Scimatar&lt;&#x2F;td&gt;&lt;td&gt;1d&lt;&#x2F;td&gt;&lt;td&gt;Light Axe&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;09&lt;&#x2F;td&gt;&lt;td&gt;Iron Nunchucks&lt;&#x2F;td&gt;&lt;td&gt;1e&lt;&#x2F;td&gt;&lt;td&gt;Heal staff&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0a&lt;&#x2F;td&gt;&lt;td&gt;Large Knfie&lt;&#x2F;td&gt;&lt;td&gt;1f&lt;&#x2F;td&gt;&lt;td&gt;Mage staff&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0b&lt;&#x2F;td&gt;&lt;td&gt;Iron Staff&lt;&#x2F;td&gt;&lt;td&gt;20&lt;&#x2F;td&gt;&lt;td&gt;Defense ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0c&lt;&#x2F;td&gt;&lt;td&gt;Sabre&lt;&#x2F;td&gt;&lt;td&gt;21&lt;&#x2F;td&gt;&lt;td&gt;Wizard staff&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0d&lt;&#x2F;td&gt;&lt;td&gt;Long Sword&lt;&#x2F;td&gt;&lt;td&gt;22&lt;&#x2F;td&gt;&lt;td&gt;Vorpal&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0e&lt;&#x2F;td&gt;&lt;td&gt;Great Axe&lt;&#x2F;td&gt;&lt;td&gt;23&lt;&#x2F;td&gt;&lt;td&gt;CatClaw&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0f&lt;&#x2F;td&gt;&lt;td&gt;Falchon&lt;&#x2F;td&gt;&lt;td&gt;24&lt;&#x2F;td&gt;&lt;td&gt;Thor Hammer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;10&lt;&#x2F;td&gt;&lt;td&gt;Silver dagger&lt;&#x2F;td&gt;&lt;td&gt;25&lt;&#x2F;td&gt;&lt;td&gt;Bane Sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;11&lt;&#x2F;td&gt;&lt;td&gt;Silver Sword&lt;&#x2F;td&gt;&lt;td&gt;26&lt;&#x2F;td&gt;&lt;td&gt;Katana&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;12&lt;&#x2F;td&gt;&lt;td&gt;Silver Hammer&lt;&#x2F;td&gt;&lt;td&gt;27&lt;&#x2F;td&gt;&lt;td&gt;XCalber&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;13&lt;&#x2F;td&gt;&lt;td&gt;Silver Axe&lt;&#x2F;td&gt;&lt;td&gt;28&lt;&#x2F;td&gt;&lt;td&gt;Masmune&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;14&lt;&#x2F;td&gt;&lt;td&gt;Flame sword&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;armor-list&quot;&gt;Armor List&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: right&quot;&gt;Hex Value&lt;&#x2F;th&gt;&lt;th&gt;Armor&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: right&quot;&gt;Hex Value&lt;&#x2F;th&gt;&lt;th&gt;Armor&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;01&lt;&#x2F;td&gt;&lt;td&gt;Cloth&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;15&lt;&#x2F;td&gt;&lt;td&gt;Ice shield&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;02&lt;&#x2F;td&gt;&lt;td&gt;Wooden Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;16&lt;&#x2F;td&gt;&lt;td&gt;Opal shield&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;03&lt;&#x2F;td&gt;&lt;td&gt;Chain Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;17&lt;&#x2F;td&gt;&lt;td&gt;Aegis Shield&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;04&lt;&#x2F;td&gt;&lt;td&gt;Iron Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;18&lt;&#x2F;td&gt;&lt;td&gt;Buckler&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;05&lt;&#x2F;td&gt;&lt;td&gt;Steel Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;19&lt;&#x2F;td&gt;&lt;td&gt;ProCape&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;06&lt;&#x2F;td&gt;&lt;td&gt;Silver Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1a&lt;&#x2F;td&gt;&lt;td&gt;Cap&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;07&lt;&#x2F;td&gt;&lt;td&gt;Flame Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1b&lt;&#x2F;td&gt;&lt;td&gt;Wooden helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;08&lt;&#x2F;td&gt;&lt;td&gt;Ice Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1c&lt;&#x2F;td&gt;&lt;td&gt;Iron helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;09&lt;&#x2F;td&gt;&lt;td&gt;Opal Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1d&lt;&#x2F;td&gt;&lt;td&gt;Silver helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0A&lt;&#x2F;td&gt;&lt;td&gt;Dragon Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1e&lt;&#x2F;td&gt;&lt;td&gt;Opal helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0b&lt;&#x2F;td&gt;&lt;td&gt;Copper ring&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1f&lt;&#x2F;td&gt;&lt;td&gt;Heal helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0c&lt;&#x2F;td&gt;&lt;td&gt;Silver ring&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;20&lt;&#x2F;td&gt;&lt;td&gt;Ribbon&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0d&lt;&#x2F;td&gt;&lt;td&gt;Gold ring&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;21&lt;&#x2F;td&gt;&lt;td&gt;Gloves&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0e&lt;&#x2F;td&gt;&lt;td&gt;Opal Ring&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;22&lt;&#x2F;td&gt;&lt;td&gt;Copper bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0f&lt;&#x2F;td&gt;&lt;td&gt;White Shirt&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;23&lt;&#x2F;td&gt;&lt;td&gt;Iron bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;10&lt;&#x2F;td&gt;&lt;td&gt;Black shirt&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;24&lt;&#x2F;td&gt;&lt;td&gt;Silver bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;11&lt;&#x2F;td&gt;&lt;td&gt;Wooden shield&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;25&lt;&#x2F;td&gt;&lt;td&gt;Zeus bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;12&lt;&#x2F;td&gt;&lt;td&gt;Iron shield&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;26&lt;&#x2F;td&gt;&lt;td&gt;Power bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;13&lt;&#x2F;td&gt;&lt;td&gt;Silver shield&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;27&lt;&#x2F;td&gt;&lt;td&gt;Opal bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;14&lt;&#x2F;td&gt;&lt;td&gt;Flame shield&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;28&lt;&#x2F;td&gt;&lt;td&gt;ProRing&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;Playing around with the values, I ended up with weapons like:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_weapons.png&quot; alt=&quot;Weapons in Game&quot; width=&quot;512&quot; height=&quot;448&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;and my armor setup looked like this, although I wasn&#x27;t trying to find the best setup:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_armor.png&quot; alt=&quot;Armor in Game&quot; width=&quot;512&quot; height=&quot;448&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h2 id=&quot;other-misc-game-data&quot;&gt;Other Misc Game Data&lt;&#x2F;h2&gt;
+&lt;p&gt;I ended up finding some general game data by searching for the gold amount of my party.
+Gold is stored in at least 3 bytes at 0x601c - 0x601e (highest byte is 601e).  Setting the value above 0x0F423F (999,999) will cause you to have more gold when buying items, but sometimes the display value can be messed up and display some random letters like 999,9N2.  I didn&#x27;t dig much more into this as having more gold wasn&#x27;t necessary.&lt;&#x2F;p&gt;
+&lt;p&gt;Memory location 0x6016, when changed to non-zero, triggers the cut scene when the heroes first cross the bridge after defeating Garland.&lt;&#x2F;p&gt;
+&lt;p&gt;By writing 1&#x27;s to the values in the generic game data block.  I narrowed down the light orb booleans to the addresses: 0x6032-0x6035. A zero means the orb has not yet been obtained, and any other values shows the orb as shining.&lt;&#x2F;p&gt;
+&lt;p&gt;The character&#x27;s world position: 0x0027 xpos, 0x0028 ypos.  You can teleport the player around by changing these values.  If you do so the map doesn&#x27;t update automatically, but you&#x27;ll see the new location tiles scroll in as you start to walk around or you can do a screen refresh by going into the party menu and then leaving.&lt;&#x2F;p&gt;
+&lt;p&gt;If you teleport onto a location, like a mountain or water, you&#x27;ll be stuck, but then you just need to teleport yourself by changing the world position some more.&lt;&#x2F;p&gt;
+&lt;p&gt;I wanted to find the airship right away, so I looked at a map online of FF1 and guesstimated where the world pos should be.  I teleported myself in the desert where the airship is, placing myself nearby at 0xD1, 0xE5 for the x and y coordinates respectively.&lt;&#x2F;p&gt;
+&lt;p&gt;Then looking back at the general game data block at 0x6000, I noticed a pair of coordinates DD, ED at 0x6005-0x6006 that looked like they could belong to the airship world position. So I tried setting the values around that to 1 to see if that would enable to the airship and setting the byte just before, which was 0, to 1, caused it to increment to 1f and the airship to appear at 0xDD, 0xED.&lt;&#x2F;p&gt;
+&lt;p&gt;In a new game, you could simply move the airship to your world position and enable it and it will appear right next to you.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;wrapping-up&quot;&gt;Wrapping up&lt;&#x2F;h2&gt;
+&lt;p&gt;This was a fun way to spend a few hours on a rainy Saturday revisiting one of my favorite games from my youth without investing as many hours playing.  It does make me feel a bit less inclined to play old RPGs now, knowing that I&#x27;m grinding just to increase a few bytes of memory.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope you&#x27;ve found this interesting and try hacking around on an old game from your past and share the details.  Happy hacking!&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+</feed>

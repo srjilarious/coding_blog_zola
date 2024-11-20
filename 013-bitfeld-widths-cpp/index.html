@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Bitfield widths in C/C++ structures | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/013-bitfeld-widths-cpp/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/013-bitfeld-widths-cpp/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/013-bitfeld-widths-cpp/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="Bitfield widths in C&#x2F;C++ structures | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="Bitfield widths in C&#x2F;C++ structures | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2019-09-02" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/013-bitfeld-widths-cpp/">Bitfield widths in C&#x2F;C++ structures</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 3 min read <span class="rpad"></span> September 02, 2019 <span class="rpad"></span></span>
+
+    
+
+
+<p>Recently, I learned about a feature in C and C++ that I hadn't run into before: bit widths for fields in structures.  The idea is that you can specify how many bits a particular field should have allocated to it.  For example, you can have a field that is only 5 bits wide and therefore only takes values in [0, 32).  You could then have a field that is 3 bits wide that is placed next to the first field in memory.</p>
+<p>I decided to play around with them a bit, trying to create a packed <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/RGB565">RGB 565</a> structure using bitfield widths rather than doing the bitmasking and shifting by hand.  I noticed a couple of interesting things in the process:</p>
+<ol>
+<li>It's implementation dependent as to what order the fields show up; left-to-right or right-to-left in memory.</li>
+<li>It's implementation dependent as to whether fields span across type size boundaries.</li>
+</ol>
+<p>You can read more in depth details <a rel="noopener" target="_blank" href="https://en.cppreference.com/w/cpp/language/bit_field">here on cppreference</a></p>
+<h2 id="an-example">An example</h2>
+<p>Here is the code I hacked together to see how it works.  There are three versions of basically the same RGB565 structure, but with minor changes, first with field type, and then with order:</p>
+<pre class="z-code"><code><span class="z-text z-plain">#include &lt;cstdio&gt;
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">struct rgb565_a {
+</span><span class="z-text z-plain">    unsigned char r : 5;
+</span><span class="z-text z-plain">    unsigned char g : 6;
+</span><span class="z-text z-plain">    unsigned char b : 5;
+</span><span class="z-text z-plain">};
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">struct rgb565_b {
+</span><span class="z-text z-plain">    unsigned short r : 5;
+</span><span class="z-text z-plain">    unsigned short g : 6;
+</span><span class="z-text z-plain">    unsigned short b : 5;
+</span><span class="z-text z-plain">};
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">struct rgb565_c {
+</span><span class="z-text z-plain">    unsigned short b : 5;
+</span><span class="z-text z-plain">    unsigned short g : 6;
+</span><span class="z-text z-plain">    unsigned short r : 5;
+</span><span class="z-text z-plain">};
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">template &lt;typename T, typename RawVal&gt;
+</span><span class="z-text z-plain">void printStructInfo() {
+</span><span class="z-text z-plain">    printf(&quot;-----------------------------\n&quot;);
+</span><span class="z-text z-plain">    printf(&quot;sizeof %s = %lu\n&quot;, __PRETTY_FUNCTION__, sizeof(T));
+</span><span class="z-text z-plain">    
+</span><span class="z-text z-plain">    T val;
+</span><span class="z-text z-plain">    val.r = 15;
+</span><span class="z-text z-plain">    val.g = 63;
+</span><span class="z-text z-plain">    val.b = 31;
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    printf(&quot;packed struct contains: %d, %d, %d\n&quot;, val.r, val.g, val.b);
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    RawVal rawVal = *(RawVal*)&amp;val;
+</span><span class="z-text z-plain">    printf(&quot;raw value is 0x%x\n\n\n&quot;, rawVal);
+</span><span class="z-text z-plain">}
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">int main() {
+</span><span class="z-text z-plain">    printStructInfo&lt;rgb565_a, unsigned short&gt;();
+</span><span class="z-text z-plain">    printStructInfo&lt;rgb565_b, unsigned short&gt;();
+</span><span class="z-text z-plain">    printStructInfo&lt;rgb565_c, unsigned short&gt;();
+</span><span class="z-text z-plain">}
+</span></code></pre>
+<p>Running this with GCC 7.4.0 you get:</p>
+<pre class="z-code"><code><span class="z-text z-plain"> $ g++ ./bitfield_tests.cpp 
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain"> $ ./a.out
+</span><span class="z-text z-plain">-----------------------------
+</span><span class="z-text z-plain">sizeof void printStructInfo() [with T = rgb565_a; RawVal = short unsigned int] = 3
+</span><span class="z-text z-plain">packed struct contains: 15, 63, 31
+</span><span class="z-text z-plain">raw value is 0x3f6f
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">-----------------------------
+</span><span class="z-text z-plain">sizeof void printStructInfo() [with T = rgb565_b; RawVal = short unsigned int] = 2
+</span><span class="z-text z-plain">packed struct contains: 15, 63, 31
+</span><span class="z-text z-plain">raw value is 0xffef
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">-----------------------------
+</span><span class="z-text z-plain">sizeof void printStructInfo() [with T = rgb565_c; RawVal = short unsigned int] = 2
+</span><span class="z-text z-plain">packed struct contains: 15, 63, 31
+</span><span class="z-text z-plain">raw value is 0x7fff
+</span></code></pre>
+<p>What you see is that the first structure is having each field placed into its own byte, not spanning the <code>g</code> field across the first and second bytes.</p>
+<p>The second structure shows that the structure is packed little endian on my machine, meaning <code>r</code> is in the lower bits, <code>g</code> in the middle, and <code>b</code> in the upper bits, so actually a BGR565 structure.</p>
+<p>The last one is what I actually wanted: 16 bits packed tightly together, with red in the upper bits and blue in the bottom.</p>
+<h2 id="summary">Summary</h2>
+<p>Letting the compiler do the bitmasking and shifting for you looks like a useful feature on the surface, but I'd be careful to have a unit test when using this in production.  I'd want to make sure that on any particular architecture I build for, that I would get the raw values that I expect so I wouldn't end up with red and blue switched around when changing compilers or targets.</p>
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/014-fpga-start/">&#8249; FPGA Design for Software Engineers, Part 1 - Verilog and State Machines</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/012-passive-active-consumption-production/"> Passive and Active, Consuming and Producing &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

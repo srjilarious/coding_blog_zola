@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Wx 3.1 with embedded SFML 2.5 control | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/011-wx-sfml/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/011-wx-sfml/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/011-wx-sfml/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="Wx 3.1 with embedded SFML 2.5 control | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="Wx 3.1 with embedded SFML 2.5 control | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2019-03-05" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/011-wx-sfml/">Wx 3.1 with embedded SFML 2.5 control</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 3 min read <span class="rpad"></span> March 05, 2019 <span class="rpad"></span> #<a href="https://www.walknsqualk.com/tags/c/">C++</a>  #<a href="https://www.walknsqualk.com/tags/graphics/">Graphics</a> </span>
+
+    
+
+
+<p>I've been working on a project where I wanted to embed an SFML drawing context in a wxWidgets window.  I wanted to be able to write a GUI application, but didn't want to have all of the UI be embedded within the SFML window using something like imgui.</p>
+<p>I thought it could be useful to others to have a simple example of how to do the same thing.</p>
+<h2 id="simple-example-version">Simple Example version</h2>
+<p>I took the code from the SFML 1.6 tutorial <a rel="noopener" target="_blank" href="https://www.sfml-dev.org/tutorials/1.6/graphics-wxwidgets.php">here</a> and updated it slightly to work with SFML 2.5 and wxWidgets 3.1.  As part of this I played around with using <a rel="noopener" target="_blank" href="https://conan.io/">conan</a> to pull down the SFML and wxWidgets dependencies and integrate them with CMake for generating my build files.</p>
+<p>I've only tested under Windows 10, and have currently commented out the GTK portions, that according to a <a rel="noopener" target="_blank" href="https://stackoverflow.com/questions/25630032/why-cant-wxwidgets-and-sfml-play-nice">Stack Overflow question</a> don't work anymore.  I'll need to spend some time trying to build under linux at some point, but that's not a priority for me at the moment.</p>
+<p>I've made a repo on GitLab where you can try building it yourself: https://gitlab.com/sr.jilarious/wx_sfml</p>
+<p>Currently it's just a simple base class for the SFML canvas, with an overridden implementation that draws a sprite.  I also added a wx button that can change the scale of the sprite to show how the two can work together seamlessly.</p>
+ <img src="wx_sfml_screen.png" alt="wx_sfml repo running" width="642" height="538" loading="lazy" />
+<h2 id="my-level-editor-use-case">My Level Editor Use Case</h2>
+<p>In my case I'm working on a level editor for a Nintendo simulator.  I want to prototype a game before porting it over to 6502 assembly and run it on the actual NES.  It's a lot faster to iterate on the game logic and see if something is fun if I can just use all the niceties of C++.</p>
+<p>For the level editor, this means having various controls embedded within a larger GUI, where I want to access portions of my game logic and drawing code using SFML.  For instance, I have a meta-tile editor drawn with SFML where I can build up 2x2 or 4x4 meta-tiles that are built up from the 8x8 pixel tile building blocks available on the NES.  Similarly I have a map editor drawn using SFML with my engine code that lets me lay out meta-tiles in layers to build up maps, place objects, etc.</p>
+<p>By integrating my engine code with a larger GUI framework, that means I get to have list views, property editors, buttons, menus and everything else with very little extra work.</p>
+ <img src="level_editor_1.png" alt="Level Editor Editing a Map" width="1254" height="843" loading="lazy" />
+<p>I'll have more to say about the Nintendo simulator project and the resulting game I'm working on in the future.</p>
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/012-passive-active-consumption-production/">&#8249; Passive and Active, Consuming and Producing</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/010-classic-techbooks-at-archive-org/"> Electronics and great technical books on archive.org &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Walk N&#x27; Squawk - Zig</title>
+    <subtitle>A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.walknsqualk.com/tags/zig/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-01-07T00:00:00+00:00</updated>
+    <id>https://www.walknsqualk.com/tags/zig/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Rust vs. Zig and testz</title>
+        <published>2024-01-07T00:00:00+00:00</published>
+        <updated>2024-01-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/023-zig-and-testz/"/>
+        <id>https://www.walknsqualk.com/023-zig-and-testz/</id>
+        
+        <summary type="html">&lt;p&gt;Earlier this year I made the switch from using C++ on my hobby projects to trying out &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt;. I spent about 6 months of hobby night-time programming time porting over my 2D game engine and the bulk of my 6502 CPU emulator project. There are a lot of aspects of Rust that are great, but I got tired of fighting the borrow checker left and right. I still feel like I have a hard time expressing myself in Rust.&lt;&#x2F;p&gt;
+&lt;p&gt;I had heard about and looked at the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ziglang.org&#x2F;&quot;&gt;Zig programming language&lt;&#x2F;a&gt; before and really liked some of its core concepts such as &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ziglang.org&#x2F;documentation&#x2F;master&#x2F;#comptime&quot;&gt;&lt;code&gt;comptime&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; for doing meta-programming in a much cleaner way than I&#x27;ve seen before. This was back when it was around 0.7 and it was pretty rough around the edges in many other areas though.&lt;&#x2F;p&gt;
+&lt;p&gt;I had another look towards the end of summer and found with version 0.11 it struck a chord with me and I&#x27;ve been using it ever since, getting further into a new porting exercise for my 2D game engine and 6502 CPU emulator in less than half the time it took me in Rust. I also wrote a small unit testing library for Zig called &lt;code&gt;testz&lt;&#x2F;code&gt; to improve my testing development flow.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

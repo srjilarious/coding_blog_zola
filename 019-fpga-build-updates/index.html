@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>FPGA design for Software Engineers - Build System Updates, ECP5 Support | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/019-fpga-build-updates/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/019-fpga-build-updates/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/019-fpga-build-updates/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="FPGA design for Software Engineers - Build System Updates, ECP5 Support | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="FPGA design for Software Engineers - Build System Updates, ECP5 Support | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2022-11-14" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/019-fpga-build-updates/">FPGA design for Software Engineers - Build System Updates, ECP5 Support</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 6 min read <span class="rpad"></span> November 14, 2022 <span class="rpad"></span> #<a href="https://www.walknsqualk.com/tags/fpga/">FPGA</a> </span>
+
+    
+
+
+<p>It's been a while since the <a href="https://www.walknsqualk.com/018-fpga-docker-build/">last article</a> and I've recently come back to playing with my FPGA repo.  Given the amount of time that has passed there were some updates needed for the <code>Dockerfile</code> and a couple of improvements I wanted to make.</p>
+<span id="continue-reading"></span><h3 id="article-series">Article Series</h3>
+<ol>
+<li><a href="https://www.walknsqualk.com/014-fpga-start/">Verilog and State Machines</a></li>
+<li><a href="https://www.walknsqualk.com/015-fpga-start2/">Simulation and Build Tools</a></li>
+<li><a href="https://www.walknsqualk.com/016-fpga-start3/">Seven Segment Displays</a></li>
+<li><a href="https://www.walknsqualk.com/018-fpga-docker-build/">Docker Builds</a></li>
+<li>Build System Updates, ECP5 Support</li>
+<li><a href="https://www.walknsqualk.com/022-shift-reg-multiplex/">Time-Multiplexed Seven Segment Displays</a></li>
+</ol>
+<h1 id="build-system-updates">Build System Updates</h1>
+<p>I updated the <code>Dockerfile</code> to use Ubuntu 22.04 as the base image, and cleaned up the package installation so that it does <code>apt install</code> just once rather than having it scattered around.  Also thanks to <a rel="noopener" target="_blank" href="https://github.com/asahsieh">@asahsieh</a> for the PR that fixed being able to <code>git clone</code> from veripool without disabling SSL.</p>
+<p>While doing this I removed a bunch of half-finished projects or ones that I haven't yet written up blog posts about yet.</p>
+<h2 id="conanfile-txt-no-more">Conanfile.txt No More</h2>
+<p>I recently started using <code>conan.cmake</code> in other CMake based projects for using conan.  It removes the extra step of doing <code>conan install ..</code> and instead puts everything into your CMake files, which is nice.  I had been using the <code>conan_cmake_run</code> macro, but it seems that it's now deprecated, moving towards a bit more verbose setup, but one that should be more future proof for Conan 2.0.</p>
+<p>So now in a demo/example, you'll see a block like the following to setup the extra simulation packages:</p>
+<pre data-lang="cmake" class="language-cmake z-code"><code class="language-cmake" data-lang="cmake"><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">conan_cmake_configure</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">REQUIRES</span> 
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">      <span class="z-meta z-string z-unquoted z-cmake">spdlog/1.9.2</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">      <span class="z-meta z-string z-unquoted z-cmake">sfml/2.5.1</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">GENERATORS</span> 
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">      <span class="z-meta z-string z-unquoted z-cmake">cmake_find_package</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">IMPORTS</span> <span class="z-string z-quoted z-double z-cmake"><span class="z-punctuation z-definition z-string z-begin z-cmake">&quot;</span>bin, *.dll -&gt; ./bin<span class="z-punctuation z-definition z-string z-end z-cmake">&quot;</span></span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">IMPORTS</span> <span class="z-string z-quoted z-double z-cmake"><span class="z-punctuation z-definition z-string z-begin z-cmake">&quot;</span>lib, *.dylib* -&gt; ./bin<span class="z-punctuation z-definition z-string z-end z-cmake">&quot;</span></span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">OPTIONS</span> <span class="z-meta z-string z-unquoted z-cmake">sfml:graphics=True</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">OPTIONS</span> <span class="z-meta z-string z-unquoted z-cmake">sfml:shared=True</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">  <span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">conan_cmake_autodetect</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">settings</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">conan_cmake_install</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">PATH_OR_REFERENCE</span> <span class="z-meta z-string z-unquoted z-cmake">.</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">BUILD</span> <span class="z-meta z-string z-unquoted z-cmake">missing</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">REMOTE</span> <span class="z-meta z-string z-unquoted z-cmake">conancenter</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">SETTINGS</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">settings</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">  <span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-find_package z-cmake">find_package</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">spdlog</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-find_package z-cmake">find_package</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">SFML</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span></code></pre>
+<p>The generator has changed to <code>cmake_find_package</code>, which means you now can use the standard <code>find_package</code> system from CMake for your dependencies, rather than the <code>${CONAN_LIBS_XYZ}</code> variables that were created before.</p>
+<h1 id="adding-lattice-ecp5-support">Adding Lattice ECP5 Support</h1>
+<p>I heard about the ECP5 line of FPGAs from Lattice while keeping an eye on the TinyFPGA EX board.  Unfortunately that project seems to be dead.  I found another board called the <a rel="noopener" target="_blank" href="https://www.crowdsupply.com/radiona/ulx3s">ULX3S</a> which has a few options for the size of the ECP5 you want to get, and these can have up to 84,000 LUTs versus the Ice40 on the TinyFPGA-BX which has only 8,000.</p>
+<p>Since that gives the opportunity for doing much larger designs in the future, I wanted to add support for the ECP5 line to the build system since Yosys also has support for them.</p>
+<p>After adding in the new tools to the Docker file, some copy/pasting and messing with a new <code>yosys_ecp5.cmake</code> script, You can now target the ECP5 FPGAs as well as the Ice40 FPGAs.</p>
+<p>To handle this, it made sense to move away from the <code>fpga_project</code> macro that did both the simulation and synthesis target setup and break it out more explicitly for each project.  This is because you will need a different top-level verilog for each FPGA you target, so rather than going crazy with parameters to the <code>fpga_project</code> macro, I just split it out into different target calls.</p>
+<p>You can see the <code>00_blinky</code> example for how this will look for supporting both ECP5 and Ice40 flows. Its <code>CMakeLists.txt</code> file now looke like:</p>
+<pre data-lang="cmake" class="language-cmake z-code"><code class="language-cmake" data-lang="cmake"><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-cmake_minimum_required z-cmake">cmake_minimum_required</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-variable z-parameter z-VERSION z-cmake">VERSION</span> <span class="z-meta z-string z-unquoted z-cmake">3.10</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-project z-cmake">project</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">blinky</span> <span class="z-variable z-parameter z-VERSION z-cmake">VERSION</span> <span class="z-meta z-string z-unquoted z-cmake">1.0.0</span> <span class="z-variable z-parameter z-LANGUAGES z-cmake">LANGUAGES</span> <span class="z-meta z-string z-unquoted z-cmake">CXX</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-comment z-line z-cmake"><span class="z-punctuation z-definition z-comment z-cmake">#</span> Include our cmake script that defines an fpga_project macro</span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-keyword z-control z-import z-cmake">include</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">../cmake/fpga_project.cmake</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-set z-cmake">set</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-variable z-other z-readwrite z-assignment z-cmake">SIM_SRC_FILES</span> 
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake">    <span class="z-meta z-string z-unquoted z-cmake">main.cpp</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake"> <span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-comment z-line z-cmake"><span class="z-punctuation z-definition z-comment z-cmake">#</span> Does setup, finding verilator and setting up conan.cmake macros.</span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">fpga_project_setup</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">conan_cmake_configure</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">  <span class="z-variable z-parameter z-generic z-cmake">REQUIRES</span> 
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-meta z-string z-unquoted z-cmake">spdlog/1.9.2</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">  <span class="z-variable z-parameter z-generic z-cmake">GENERATORS</span> 
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-meta z-string z-unquoted z-cmake">cmake_find_package</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">  <span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">conan_cmake_autodetect</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">settings</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">conan_cmake_install</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-variable z-parameter z-generic z-cmake">PATH_OR_REFERENCE</span> <span class="z-meta z-string z-unquoted z-cmake">.</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">                    <span class="z-variable z-parameter z-generic z-cmake">BUILD</span> <span class="z-meta z-string z-unquoted z-cmake">missing</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">                    <span class="z-variable z-parameter z-generic z-cmake">REMOTE</span> <span class="z-meta z-string z-unquoted z-cmake">conancenter</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">                    <span class="z-variable z-parameter z-generic z-cmake">SETTINGS</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">settings</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-find_package z-cmake">find_package</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">spdlog</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">fpga_simulation_project</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TARGET</span> <span class="z-meta z-string z-unquoted z-cmake">blinky_ice40_sim</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TOP_LEVEL_VERILOG</span> <span class="z-meta z-string z-unquoted z-cmake">blinky_ice40.v</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">SIM_SRC_FILES</span> <span class="z-meta z-string z-unquoted z-cmake">main_ice40.cpp</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">LINK_LIBS</span> <span class="z-meta z-string z-unquoted z-cmake">spdlog::spdlog</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">  <span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">fpga_simulation_project</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TARGET</span> <span class="z-meta z-string z-unquoted z-cmake">blinky_ecp5_sim</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TOP_LEVEL_VERILOG</span> <span class="z-meta z-string z-unquoted z-cmake">blinky_ecp5.v</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">SIM_SRC_FILES</span> <span class="z-meta z-string z-unquoted z-cmake">main_ecp5.cpp</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">LINK_LIBS</span> <span class="z-meta z-string z-unquoted z-cmake">spdlog::spdlog</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">  <span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">ice40_synthesis</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TARGET</span> <span class="z-meta z-string z-unquoted z-cmake">blinky_ice40</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TOP_LEVEL_VERILOG</span> <span class="z-meta z-string z-unquoted z-cmake">blinky_ice40.v</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">PCF_FILE</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">CMAKE_SOURCE_DIR</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span><span class="z-meta z-string z-unquoted z-cmake">/../support/tiny_fpga_bx_pins.pcf</span> 
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">  <span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">ecp5_synthesis</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TARGET</span> <span class="z-meta z-string z-unquoted z-cmake">blinky_ecp5</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TOP_LEVEL_VERILOG</span> <span class="z-meta z-string z-unquoted z-cmake">blinky_ecp5.v</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">LPF_FILE</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">CMAKE_SOURCE_DIR</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span><span class="z-meta z-string z-unquoted z-cmake">/../support/ulx3s_pins.lpf</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">  <span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span></code></pre>
+<p>Notice that here I've shown creating separate simulation targets for the ECP5 and the Ice40 versions.  As I work through other examples, I will instead have the actual logic in a main verilog file and separate top level verilog files that just map the board pins into the design.</p>
+<p>With ECP5, there is a different pin constraint file format used, called <code>.lpf</code>, and I've moved the Ice40 one and it into the <code>support/</code> folder and renamed them to match the board they go with.</p>
+<h2 id="uploading-a-design-to-the-ulx3s">Uploading a Design to the ULX3S</h2>
+<p>Looking at the <a rel="noopener" target="_blank" href="https://github.com/emard/ulx3s/blob/master/doc/MANUAL.md">manual</a> from ULX3S, I ended up cloning the <code>fujprog</code> <a rel="noopener" target="_blank" href="https://github.com/kost/fujprog">repo</a> and building it from source.  It was really fast and worked out of the box without issues.  I also tried <code>openFPGALoader</code> but it failed to upload the bitstream right away and I haven't investigated it any further so far.</p>
+<h2 id="blinky-updates">Blinky Updates</h2>
+<p>For <code>00_blinky</code> on the ULX3S, since there are 8 LEDs available, I map a larger part of the counter to the LEDs.  I also added a check for the second user button being down to pause the counter.</p>
+ <img src="ulx3s_blinky.jpg" alt="ULX3S Blinky" width="2048" height="1536" loading="lazy" />
+<h2 id="state-machine-updates">State Machine Updates</h2>
+<p><code>01_state_machine</code> has been updated so that the state machine itself is contained in its own <code>state_machine.v</code> module.  The Ice40 and ECP5 top level modules then just do the mapping of their pins into that module.</p>
+<p>One nice benefit of this setup is that the state_machine module can be parameterized for simulation by default, and then overriden in the board specfic top-level modules, removing the need for the <code>`ifdef SIMULATION</code> blocks from before.</p>
+<p>For the ECP5 version, the state machine LED is mapped to all 8 of the user leds:</p>
+ <img src="ulx3s_state_machine.jpg" alt="ULX3S State Machine" width="2048" height="1536" loading="lazy" />
+<h2 id="testbench-h-changes">TestBench.h changes</h2>
+<p>In order to make the simulations for different boards work properly, I had to have a way to cycle the clock pin for each board, but they are named differently depending on the board.</p>
+<p>Since that had always been a bit hacky anyways, I reworked the <code>TestBench</code> template class to expect to be subclassed to provide a <code>setClock</code> method.  This lets us refer to <code>CLK</code> on a TinyFPGA-BX and to <code>i_clk</code> on the ULX3S.</p>
+<p>I looked at different ways to handle this with template magic - thinking maybe passing a reference to the clock signals member from the verilated module would work.  The problem ended up being that the signals are implemented as references in the verilated module, and it turns out you can't have a pointer to a member that is a reference, so that approach ended up not working.</p>
+<p>So now instead of creating a pointer to your testbench module like this:</p>
+<pre data-lang="cpp" class="language-cpp z-code"><code class="language-cpp" data-lang="cpp"><span class="z-source z-c++"><span class="z-storage z-type z-c">int</span> <span class="z-meta z-function z-c++"><span class="z-meta z-toc-list z-full-identifier z-c++"><span class="z-entity z-name z-function z-c++">main</span></span></span><span class="z-meta z-function z-parameters z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-begin z-c++">(</span></span></span><span class="z-meta z-function z-parameters z-c++"><span class="z-meta z-group z-c++"><span class="z-storage z-type z-c">int</span> <span class="z-variable z-parameter z-c++">argc</span><span class="z-punctuation z-separator z-c++">,</span> <span class="z-storage z-type z-c">char</span> <span class="z-keyword z-operator z-c">*</span><span class="z-keyword z-operator z-c">*</span><span class="z-variable z-parameter z-c++">argv</span><span class="z-punctuation z-section z-group z-end z-c++">)</span></span></span><span class="z-meta z-function z-c++"> 
+</span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"></span><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++"><span class="z-punctuation z-section z-block z-begin z-c++">{</span></span></span><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">    <span class="z-meta z-function-call z-c++">Verilated<span class="z-punctuation z-accessor z-double-colon z-c++">::</span><span class="z-variable z-function z-c++">commandArgs</span><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-begin z-c++">(</span></span></span><span class="z-meta z-function-call z-c++"><span class="z-meta z-group z-c++">argc<span class="z-punctuation z-separator z-c++">,</span> argv</span></span><span class="z-meta z-function-call z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-end z-c++">)</span></span></span><span class="z-punctuation z-terminator z-c++">;</span>
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">    <span class="z-storage z-type z-c">auto</span> tb <span class="z-keyword z-operator z-assignment z-c">=</span> <span class="z-meta z-function-call z-c++">std<span class="z-punctuation z-accessor z-double-colon z-c++">::</span><span class="z-variable z-function z-c++">make_unique</span><span class="z-punctuation z-section z-generic z-begin z-c++">&lt;</span>TestBench<span class="z-punctuation z-section z-generic z-begin z-c++">&lt;</span>Vstate_machine<span class="z-punctuation z-section z-generic z-end z-c++">&gt;</span><span class="z-punctuation z-section z-generic z-end z-c++">&gt;</span><span class="z-meta z-function-call z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-begin z-c++">(</span></span></span></span><span class="z-meta z-function-call z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-end z-c++">)</span></span></span><span class="z-punctuation z-terminator z-c++">;</span>
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">    <span class="z-comment z-block z-c"><span class="z-punctuation z-definition z-comment z-c">/*</span> ... <span class="z-punctuation z-definition z-comment z-c">*/</span></span>
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++"></span></span><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++"><span class="z-punctuation z-section z-block z-end z-c++">}</span></span></span>
+</span></code></pre>
+<p>You instead subclass the Testbench template like this:</p>
+<pre data-lang="cpp" class="language-cpp z-code"><code class="language-cpp" data-lang="cpp"><span class="z-source z-c++"><span class="z-meta z-struct z-c++"><span class="z-storage z-type z-c++">struct</span> </span><span class="z-meta z-struct z-c++"><span class="z-entity z-name z-struct z-c++">TB</span></span><span class="z-meta z-struct z-c++"> <span class="z-punctuation z-separator z-c++">:</span> <span class="z-storage z-modifier z-c++">public</span> <span class="z-entity z-other z-inherited-class z-c++">TestBench</span><span class="z-punctuation z-section z-generic z-begin z-c++">&lt;</span>Vstate_machine<span class="z-punctuation z-section z-generic z-end z-c++">&gt;</span>
+</span></span><span class="z-source z-c++"><span class="z-meta z-struct z-c++"><span class="z-meta z-block z-c++"><span class="z-punctuation z-section z-block z-begin z-c++">{</span></span></span><span class="z-meta z-struct z-c++"><span class="z-meta z-block z-c++">
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-struct z-c++"><span class="z-meta z-block z-c++">    <span class="z-storage z-modifier z-c++">virtual</span> <span class="z-meta z-method z-destructor z-c++"><span class="z-entity z-name z-function z-destructor z-c++">~TB</span></span><span class="z-meta z-method z-parameters z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-begin z-c++">(</span></span></span><span class="z-meta z-method z-parameters z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-end z-c++">)</span></span></span><span class="z-meta z-method z-c++"> <span class="z-keyword z-operator z-assignment z-c++">=</span> <span class="z-storage z-modifier z-c++">default</span></span><span class="z-punctuation z-terminator z-c++">;</span>
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-struct z-c++"><span class="z-meta z-block z-c++">
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-struct z-c++"><span class="z-meta z-block z-c++">    <span class="z-comment z-line z-double-slash z-c"><span class="z-punctuation z-definition z-comment z-c">//</span> We overload the setClock signal method so we can reference different
+</span></span></span></span><span class="z-source z-c++"><span class="z-meta z-struct z-c++"><span class="z-meta z-block z-c++">    <span class="z-comment z-line z-double-slash z-c"><span class="z-punctuation z-definition z-comment z-c">//</span> clock signals for different FPGA boards.
+</span></span></span></span><span class="z-source z-c++"><span class="z-meta z-struct z-c++"><span class="z-meta z-block z-c++">    <span class="z-storage z-type z-c">void</span> <span class="z-meta z-method z-c++"><span class="z-entity z-name z-function z-c++">setClock</span></span><span class="z-meta z-method z-parameters z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-begin z-c++">(</span></span></span><span class="z-meta z-method z-parameters z-c++"><span class="z-meta z-group z-c++"><span class="z-support z-type z-stdint z-c">uint8_t</span> <span class="z-variable z-parameter z-c++">val</span><span class="z-punctuation z-section z-group z-end z-c++">)</span></span></span><span class="z-meta z-method z-c++"> </span><span class="z-meta z-method z-c++"><span class="z-meta z-block z-c++"><span class="z-punctuation z-section z-block z-begin z-c++">{</span></span></span><span class="z-meta z-method z-c++"><span class="z-meta z-block z-c++"> <span class="z-variable z-other z-readwrite z-member z-c++">mCore</span><span class="z-punctuation z-accessor z-arrow z-c++">-&gt;</span><span class="z-variable z-other z-readwrite z-member z-c++">i_clk</span> <span class="z-keyword z-operator z-assignment z-c">=</span> val<span class="z-punctuation z-terminator z-c++">;</span> </span></span><span class="z-meta z-method z-c++"><span class="z-meta z-block z-c++"><span class="z-punctuation z-section z-block z-end z-c++">}</span></span></span>
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-struct z-c++"><span class="z-meta z-block z-c++"></span></span><span class="z-meta z-struct z-c++"><span class="z-meta z-block z-c++"><span class="z-punctuation z-section z-block z-end z-c++">}</span></span></span><span class="z-punctuation z-terminator z-c++">;</span>
+</span><span class="z-source z-c++">
+</span><span class="z-source z-c++"><span class="z-storage z-type z-c">int</span> <span class="z-meta z-function z-c++"><span class="z-meta z-toc-list z-full-identifier z-c++"><span class="z-entity z-name z-function z-c++">main</span></span></span><span class="z-meta z-function z-parameters z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-begin z-c++">(</span></span></span><span class="z-meta z-function z-parameters z-c++"><span class="z-meta z-group z-c++"><span class="z-storage z-type z-c">int</span> <span class="z-variable z-parameter z-c++">argc</span><span class="z-punctuation z-separator z-c++">,</span> <span class="z-storage z-type z-c">char</span> <span class="z-keyword z-operator z-c">*</span><span class="z-keyword z-operator z-c">*</span><span class="z-variable z-parameter z-c++">argv</span><span class="z-punctuation z-section z-group z-end z-c++">)</span></span></span><span class="z-meta z-function z-c++"> 
+</span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"></span><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++"><span class="z-punctuation z-section z-block z-begin z-c++">{</span></span></span><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">    <span class="z-meta z-function-call z-c++">Verilated<span class="z-punctuation z-accessor z-double-colon z-c++">::</span><span class="z-variable z-function z-c++">commandArgs</span><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-begin z-c++">(</span></span></span><span class="z-meta z-function-call z-c++"><span class="z-meta z-group z-c++">argc<span class="z-punctuation z-separator z-c++">,</span> argv</span></span><span class="z-meta z-function-call z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-end z-c++">)</span></span></span><span class="z-punctuation z-terminator z-c++">;</span>
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">    TB tb<span class="z-punctuation z-terminator z-c++">;</span>
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++">    <span class="z-comment z-block z-c"><span class="z-punctuation z-definition z-comment z-c">/*</span> ... <span class="z-punctuation z-definition z-comment z-c">*/</span></span>
+</span></span></span><span class="z-source z-c++"><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++"></span></span><span class="z-meta z-function z-c++"><span class="z-meta z-block z-c++"><span class="z-punctuation z-section z-block z-end z-c++">}</span></span></span>
+</span></code></pre>
+<h1 id="conclusion">Conclusion</h1>
+<p>Now with the build system cleaned up and able to target different FPGAs and boards more easily, I'm looking forward to cleaning up and finally releasing the multiple seven segment display article I talked about <a href="https://www.walknsqualk.com/016-fpga-start3/">two years ago</a>.</p>
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/020-rust-unit-test-layout/">&#8249; Rust unit test layout</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/018-fpga-docker-build/"> FPGA Design for Software Engineers - Docker Builds &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

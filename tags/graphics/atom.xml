@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Walk N&#x27; Squawk - Graphics</title>
+    <subtitle>A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.walknsqualk.com/tags/graphics/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2019-03-05T00:00:00+00:00</updated>
+    <id>https://www.walknsqualk.com/tags/graphics/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Wx 3.1 with embedded SFML 2.5 control</title>
+        <published>2019-03-05T00:00:00+00:00</published>
+        <updated>2019-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/011-wx-sfml/"/>
+        <id>https://www.walknsqualk.com/011-wx-sfml/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/011-wx-sfml/">&lt;p&gt;I&#x27;ve been working on a project where I wanted to embed an SFML drawing context in a wxWidgets window.  I wanted to be able to write a GUI application, but didn&#x27;t want to have all of the UI be embedded within the SFML window using something like imgui.&lt;&#x2F;p&gt;
+&lt;p&gt;I thought it could be useful to others to have a simple example of how to do the same thing.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;simple-example-version&quot;&gt;Simple Example version&lt;&#x2F;h2&gt;
+&lt;p&gt;I took the code from the SFML 1.6 tutorial &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.sfml-dev.org&#x2F;tutorials&#x2F;1.6&#x2F;graphics-wxwidgets.php&quot;&gt;here&lt;&#x2F;a&gt; and updated it slightly to work with SFML 2.5 and wxWidgets 3.1.  As part of this I played around with using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;conan.io&#x2F;&quot;&gt;conan&lt;&#x2F;a&gt; to pull down the SFML and wxWidgets dependencies and integrate them with CMake for generating my build files.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve only tested under Windows 10, and have currently commented out the GTK portions, that according to a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;25630032&#x2F;why-cant-wxwidgets-and-sfml-play-nice&quot;&gt;Stack Overflow question&lt;&#x2F;a&gt; don&#x27;t work anymore.  I&#x27;ll need to spend some time trying to build under linux at some point, but that&#x27;s not a priority for me at the moment.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve made a repo on GitLab where you can try building it yourself: https:&#x2F;&#x2F;gitlab.com&#x2F;sr.jilarious&#x2F;wx_sfml&lt;&#x2F;p&gt;
+&lt;p&gt;Currently it&#x27;s just a simple base class for the SFML canvas, with an overridden implementation that draws a sprite.  I also added a wx button that can change the scale of the sprite to show how the two can work together seamlessly.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;wx_sfml_screen.png&quot; alt=&quot;wx_sfml repo running&quot; width=&quot;642&quot; height=&quot;538&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h2 id=&quot;my-level-editor-use-case&quot;&gt;My Level Editor Use Case&lt;&#x2F;h2&gt;
+&lt;p&gt;In my case I&#x27;m working on a level editor for a Nintendo simulator.  I want to prototype a game before porting it over to 6502 assembly and run it on the actual NES.  It&#x27;s a lot faster to iterate on the game logic and see if something is fun if I can just use all the niceties of C++.&lt;&#x2F;p&gt;
+&lt;p&gt;For the level editor, this means having various controls embedded within a larger GUI, where I want to access portions of my game logic and drawing code using SFML.  For instance, I have a meta-tile editor drawn with SFML where I can build up 2x2 or 4x4 meta-tiles that are built up from the 8x8 pixel tile building blocks available on the NES.  Similarly I have a map editor drawn using SFML with my engine code that lets me lay out meta-tiles in layers to build up maps, place objects, etc.&lt;&#x2F;p&gt;
+&lt;p&gt;By integrating my engine code with a larger GUI framework, that means I get to have list views, property editors, buttons, menus and everything else with very little extra work.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;level_editor_1.png&quot; alt=&quot;Level Editor Editing a Map&quot; width=&quot;1254&quot; height=&quot;843&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;I&#x27;ll have more to say about the Nintendo simulator project and the resulting game I&#x27;m working on in the future.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+</feed>
