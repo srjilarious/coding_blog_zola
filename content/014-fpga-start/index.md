@@ -22,10 +22,10 @@ In this post I'll go over FPGAs in general, the basics of the Verilog language, 
 6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
 
 ## Updates Feb 23, 2021
-As mentioned at the end of [this article](/post/018_fpga_docker_build), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](/post/018_fpga_docker_build) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_1`.
+As mentioned at the end of [this article](@/018-fpga-docker-build.md), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](/post/018_fpga_docker_build) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_1`.
 
 ## Updates Nov 14, 2022
-In the [Build System Updates, ECP5 Support](/post/019_fpga_build_updates) article, I mentioned a number of updates that will change what you see in the repo.  In particular, with ECP5 support and Docker used as the main build system, building looks different, and is much easier in my opinion.  
+In the [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md) article, I mentioned a number of updates that will change what you see in the repo.  In particular, with ECP5 support and Docker used as the main build system, building looks different, and is much easier in my opinion.  
 
 For exampe, rather than using `make` to build blinky below, you would use `dev.sh build 00_blinky`.
 

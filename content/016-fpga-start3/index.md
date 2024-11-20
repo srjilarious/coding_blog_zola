@@ -6,7 +6,7 @@ title = "FPGA Design for Software Engineers, Part 3 - Seven Segment Displays"
 tags = ["FPGA", "Verilog"]
 +++
 
-[Last time](/post/015_fpga_design_p2) we took a break from Verilog and hardware design to improve our build system.  This time we're back to Verilog and for our next FPGA project we'll create a seven segment driver circuit that will allow us to output hex characters to a single display. 
+[Last time](@/015-fpga-start2/index.md) we took a break from Verilog and hardware design to improve our build system.  This time we're back to Verilog and for our next FPGA project we'll create a seven segment driver circuit that will allow us to output hex characters to a single display. 
 
  A seven segment display is a set of LEDs arranged like an eight plus a decimal point like you see on cheap alarm clocks and the like.
 
@@ -15,14 +15,14 @@ tags = ["FPGA", "Verilog"]
 <!--more-->
 
 1. [Verilog and State Machines](@/014-fpga-start/index.md)
-2. [Simulation and Build Tools](/post/015_fpga_design_p2)
+2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
 3. Seven Segment Displays
-4. [Docker Builds](/post/018_fpga_docker_build)
-5. [Build System Updates, ECP5 Support](/post/019_fpga_build_updates)
+4. [Docker Builds](@/018-fpga-docker-build.md)
+5. [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md)
 6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
 
 ## Updates Feb 23, 2021
-As mentioned at the end of [this article](/post/018_fpga_docker_build), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.
+As mentioned at the end of [this article](@/018-fpga-docker-build.md), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.
 
 # Our first pass
 

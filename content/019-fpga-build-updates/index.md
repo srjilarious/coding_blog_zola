@@ -6,7 +6,7 @@ title = "FPGA design for Software Engineers - Build System Updates, ECP5 Support
 tags = ["FPGA"]
 +++
 
-It's been a while since the [last article](/post/018_fpga_docker_build) and I've recently come back to playing with my FPGA repo.  Given the amount of time that has passed there were some updates needed for the `Dockerfile` and a couple of improvements I wanted to make.
+It's been a while since the [last article](@/018-fpga-docker-build.md) and I've recently come back to playing with my FPGA repo.  Given the amount of time that has passed there were some updates needed for the `Dockerfile` and a couple of improvements I wanted to make.
 
 <!--more-->
 
@@ -194,7 +194,7 @@ int main(int argc, char **argv)
 
 # Conclusion
 
-Now with the build system cleaned up and able to target different FPGAs and boards more easily, I'm looking forward to cleaning up and finally releasing the multiple seven segment display article I talked about [two years ago](/post/016_fpga_design_p3).
+Now with the build system cleaned up and able to target different FPGAs and boards more easily, I'm looking forward to cleaning up and finally releasing the multiple seven segment display article I talked about [two years ago](@/016-fpga-start3/index.md).
 
 <div id="commento"></div>
 <script src="https://cdn.commento.io/js/commento.js"></script>

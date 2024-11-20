@@ -25,13 +25,13 @@ The next article, which is already basically written, will be back to hardware d
 
 
 ## Updates Feb 23, 2021
-As mentioned at the end of [this article](/post/018_fpga_docker_build), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](/post/018_fpga_docker_build) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_2`.
+As mentioned at the end of [this article](@/018-fpga-docker-build.md), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](@/018-fpga-docker-build.md) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_2`.
 
 Given the Docker build system is much easier to use, I recommend doing that instead of all the details spelled out here, which are abstracted away if you do that.
 
 # Back to the Original Article
 
-In the [last article](/post/014-tiny-fpga-bx) I recommended some free books you can find online for learning electronics.  SuhcoR recommended some other great books in the comments on programming.reddit that I can also echo if you're willing to invest in the hobby a bit:
+In the [last article](@/014-fpga-start/index.md) I recommended some free books you can find online for learning electronics.  SuhcoR recommended some other great books in the comments on programming.reddit that I can also echo if you're willing to invest in the hobby a bit:
 
 [Practical Electronics for Inventors](https://www.amazon.com/dp/1259587541)
 

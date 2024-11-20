@@ -4,17 +4,18 @@ date = 2021-02-20
 title = "FPGA Design for Software Engineers - Docker Builds"
 +++
 
-As I mentioned in the last [blog post](/post/017_switch_to_kubuntu) I recently switched my laptop over to using Linux as my main OS from Windows 10.  As part of that I was going through setting up all of my build tools for various projects and I realized the FPGA build system was a bit more cumbersome than it needed to be and, utilizing docker, it could be made more developer friendly.
+As I mentioned in the last [blog post](@/017-kubuntu/index.md) I recently switched my laptop over to using Linux as my main OS from Windows 10.  As part of that I was going through setting up all of my build tools for various projects and I realized the FPGA build system was a bit more cumbersome than it needed to be and, utilizing docker, it could be made more developer friendly.
 
 <!--more-->
 
 ### Article Series
 
-1. [Verilog and State Machines](/post/014-tiny-fpga-bx)
-2. [Simulation and Build Tools](/post/015_fpga_design_p2)
-3. [Seven Segment Displays](/post/016_fpga_design_p3)
+1. [Verilog and State Machines](@/014-fpga-start/index.md)
+2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
+3. [Seven Segment Displays](@/016-fpga-start3/index.md)
 4. Docker Builds
-5. [Build System Updates, ECP5 Support](/post/019_fpga_build_updates)
+5. [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md)
+6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
 
 # Docker Build Setup
 

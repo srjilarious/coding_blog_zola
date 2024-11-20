@@ -6,7 +6,7 @@ title = "FPGA design for Software Engineers, part 4 - Multiplexed Seven Segment 
 tags = ["FPGA", "Verilog"]
 +++
 
-This time we'll continue from the [last design article](/post/016_fpga_design_p3) and add in the ability to drive multiple seven segment displays.
+This time we'll continue from the [last design article](@/016-fpga-start3/index.md) and add in the ability to drive multiple seven segment displays.
 
 <!--more-->
 
