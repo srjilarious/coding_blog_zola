@@ -10,9 +10,11 @@ tags = ["FPGA", "Verilog"]
 
  A seven segment display is a set of LEDs arranged like an eight plus a decimal point like you see on cheap alarm clocks and the like.
 
-{{ img(alt="A typical seven segment display", src="labelled_seven_segment_display_standard.png") }}
-
 <!--more-->
+
+{{ img(alt="A typical seven segment display", src="labelled-seven-segment-display-standard.png") }}
+
+### Article Series
 
 1. [Verilog and State Machines](@/014-fpga-start/index.md)
 2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
