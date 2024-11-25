@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Rust vs. Zig and testz | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/023-zig-and-testz/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/023-zig-and-testz/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/023-zig-and-testz/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="Rust vs. Zig and testz | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="Rust vs. Zig and testz | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2024-01-07" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/023-zig-and-testz/">Rust vs. Zig and testz</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 9 min read <span class="rpad"></span> January 07, 2024 <span class="rpad"></span> #<a href="https://www.walknsqualk.com/tags/rust/">Rust</a>  #<a href="https://www.walknsqualk.com/tags/zig/">Zig</a> </span>
+
+    
+
+
+<p>Earlier this year I made the switch from using C++ on my hobby projects to trying out <a rel="noopener" target="_blank" href="https://www.rust-lang.org/">Rust</a>. I spent about 6 months of hobby night-time programming time porting over my 2D game engine and the bulk of my 6502 CPU emulator project. There are a lot of aspects of Rust that are great, but I got tired of fighting the borrow checker left and right. I still feel like I have a hard time expressing myself in Rust.</p>
+<p>I had heard about and looked at the <a rel="noopener" target="_blank" href="https://ziglang.org/">Zig programming language</a> before and really liked some of its core concepts such as <a rel="noopener" target="_blank" href="https://ziglang.org/documentation/master/#comptime"><code>comptime</code></a> for doing meta-programming in a much cleaner way than I've seen before. This was back when it was around 0.7 and it was pretty rough around the edges in many other areas though.</p>
+<p>I had another look towards the end of summer and found with version 0.11 it struck a chord with me and I've been using it ever since, getting further into a new porting exercise for my 2D game engine and 6502 CPU emulator in less than half the time it took me in Rust. I also wrote a small unit testing library for Zig called <code>testz</code> to improve my testing development flow.</p>
+<span id="continue-reading"></span><h2 id="rust-pros-and-cons">Rust Pros and Cons</h2>
+<p>Rust is a great language and things like <code>cargo</code> and the trait system are really nice. I still think C++'s biggest failure is not having a comprehensive and default package manager yet.</p>
+<p>Rust's trait system for defining interfaces and still allowing easy static method dispatch is a huge strength and something I'd like to see brought into Zig more explicitly.</p>
+<p>The issue I found with Rust was that the borrow checker is trying to save me from problems that I personally just don't run into often enough to make it worth it.</p>
+<p>I tend to work on simple utilities and game projects for fun - if they crash it isn't the end of the world. For secure software development, I love the fact that Rust exists with its strong guarantees around memory safety. I just wish there was a laxer mode where I didn't need to pepper lifetimes around as much or needed to use awkward multiple layers of generics to express a simple shared link between data structures.</p>
+<p>And, no, wrapping everything in <code>unsafe</code> is not a real answer.</p>
+<p>The zealotry of the community in Rust that you see in forums, although not something I've experienced myself directly, is an aspect that really turns me off of wanting to invest in the language as well.</p>
+<h2 id="example-rust-downside">Example Rust Downside</h2>
+<p>While working on my 2D game engine port in Rust, I wrote a tile map loader and renderer for <a rel="noopener" target="_blank" href="https://www.mapeditor.org/">Tiled</a> maps. I had been working on my CPU emulator project for a while and had a decent grasp of things, but as soon as I ventured into slightly more interesting memory layouts and memory sharing schemes, like a list structure that needs to have references to a sibling list's objects, things got a lot more difficult much more quickly.</p>
+<p>In a Tiled map, you have a bunch of tile <code>Layers</code> and they need to access a <code>TileSet</code>. A <code>TileSet</code> contains <code>Tiles</code> with properties that can be used in the layers so you can store attributes for your game, like if a tile should do damage, etc.</p>
+<p>Getting to the point of adding a function to the <code>Layer</code> to get a <code>Tile</code> object using the tile layer coordinate to look it up, took me around a week after getting all of the Tiled map XML parsing, lifetime handling and figuring out where to use <code>Rc&lt;RefCell&lt;T&gt;&gt;</code> to reference things properly between the <code>Layer</code> and <code>TileSet</code> (<a rel="noopener" target="_blank" href="https://whiztal.io/rust-tips-rc-box-arc-cell-refcell-mutex/">Here</a> is an article with some more information on Rust's different memory structures for those interested). It wasn't too bad within the module itself, but once I wanted to expose an optional reference to the <code>Tile</code> to the user of the module, I had to jump through some hoops:</p>
+<pre data-lang="rust" class="language-rust z-code"><code class="language-rust" data-lang="rust"><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-function z-rust"><span class="z-storage z-modifier z-rust">pub</span> <span class="z-storage z-type z-function z-rust">fn</span> </span><span class="z-entity z-name z-function z-rust">get_tile</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">(</span><span class="z-keyword z-operator z-rust">&amp;</span><span class="z-variable z-parameter z-rust">self</span>, <span class="z-variable z-parameter z-rust">x</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">i32</span>, <span class="z-variable z-parameter z-rust">y</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-storage z-type z-rust">i32</span></span><span class="z-meta z-function z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-end z-rust">)</span></span></span></span><span class="z-meta z-function z-rust"> <span class="z-meta z-function z-return-type z-rust"><span class="z-punctuation z-separator z-rust">-&gt;</span> <span class="z-meta z-generic z-rust"><span class="z-support z-type z-rust">Option</span><span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span><span class="z-meta z-generic z-rust">Ref<span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>&#39;<span class="z-keyword z-operator z-rust">_</span>, Tile<span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span><span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span></span> </span><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-keyword z-control z-rust">if</span> x <span class="z-keyword z-operator z-comparison z-rust">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">0</span> <span class="z-keyword z-operator z-logical z-rust">||</span> x <span class="z-keyword z-operator z-comparison z-rust">&gt;=</span> <span class="z-variable z-language z-rust">self</span><span class="z-punctuation z-accessor z-dot z-rust">.</span>size_tiles<span class="z-punctuation z-accessor z-dot z-rust">.</span>x <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        <span class="z-keyword z-control z-rust">return</span> <span class="z-support z-type z-rust">None</span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">    </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-keyword z-control z-rust">if</span> y <span class="z-keyword z-operator z-comparison z-rust">&lt;</span> <span class="z-constant z-numeric z-integer z-decimal z-rust">0</span> <span class="z-keyword z-operator z-logical z-rust">||</span> y <span class="z-keyword z-operator z-comparison z-rust">&gt;=</span> <span class="z-variable z-language z-rust">self</span><span class="z-punctuation z-accessor z-dot z-rust">.</span>size_tiles<span class="z-punctuation z-accessor z-dot z-rust">.</span>y <span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">        <span class="z-keyword z-control z-rust">return</span> <span class="z-support z-type z-rust">None</span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-block z-rust">    </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> idx <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-variable z-language z-rust">self</span><span class="z-punctuation z-accessor z-dot z-rust">.</span><span class="z-support z-function z-rust">tile_idx</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>x<span class="z-punctuation z-separator z-rust">,</span> y</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-storage z-type z-rust">let</span> tileset_ref<span class="z-punctuation z-separator z-rust">:</span> <span class="z-keyword z-operator z-bitwise z-rust">&amp;</span><span class="z-meta z-generic z-rust">RefCell<span class="z-punctuation z-definition z-generic z-begin z-rust">&lt;</span>TileSet<span class="z-punctuation z-definition z-generic z-end z-rust">&gt;</span></span> <span class="z-keyword z-operator z-assignment z-rust">=</span> <span class="z-keyword z-operator z-bitwise z-rust">&amp;</span><span class="z-variable z-language z-rust">self</span><span class="z-punctuation z-accessor z-dot z-rust">.</span>tileset<span class="z-punctuation z-accessor z-dot z-rust">.</span><span class="z-support z-function z-rust">as_ref</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-keyword z-operator z-rust">?</span><span class="z-punctuation z-accessor z-dot z-rust">.</span><span class="z-support z-function z-rust">borrow</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-terminator z-rust">;</span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust">    <span class="z-support z-type z-rust">Some</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span><span class="z-meta z-path z-rust">std<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">cell<span class="z-punctuation z-accessor z-rust">::</span></span><span class="z-meta z-path z-rust">Ref<span class="z-punctuation z-accessor z-rust">::</span></span>map<span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>tileset_ref<span class="z-punctuation z-accessor z-dot z-rust">.</span><span class="z-support z-function z-rust">borrow</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span><span class="z-punctuation z-separator z-rust">,</span> <span class="z-meta z-function z-closure z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-punctuation z-section z-parameters z-begin z-rust">|</span></span></span><span class="z-meta z-function z-closure z-rust"><span class="z-meta z-function z-parameters z-rust"><span class="z-variable z-parameter z-rust">ts</span><span class="z-punctuation z-separator z-rust">:</span> <span class="z-keyword z-operator z-rust">&amp;</span>TileSet<span class="z-punctuation z-section z-parameters z-end z-rust">|</span></span> </span><span class="z-meta z-function z-closure z-rust"><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-begin z-rust">{</span>
+</span></span></span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-group z-rust"><span class="z-meta z-group z-rust"><span class="z-meta z-function z-closure z-rust"><span class="z-meta z-block z-rust">        ts<span class="z-punctuation z-accessor z-dot z-rust">.</span><span class="z-support z-function z-rust">tile_by_index</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-begin z-rust">(</span>idx</span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span>
+</span></span></span></span></span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"><span class="z-meta z-group z-rust"><span class="z-meta z-group z-rust"><span class="z-meta z-function z-closure z-rust"><span class="z-meta z-block z-rust">    </span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span></span><span class="z-meta z-group z-rust"><span class="z-punctuation z-section z-group z-end z-rust">)</span></span>
+</span></span></span><span class="z-source z-rust"><span class="z-meta z-function z-rust"><span class="z-meta z-block z-rust"></span><span class="z-meta z-block z-rust"><span class="z-punctuation z-section z-block z-end z-rust">}</span></span></span>
+</span></code></pre>
+<p>In this case, I explicitly only cared about single-threaded use, hence the <code>Rc</code> rather than an <code>Arc</code>. But, getting everything working in the larger module still took me about a week, as I mentioned, and I found myself simply not enjoying the project and struggled to stay motivated.</p>
+<h2 id="same-exercise-in-zig">Same Exercise in Zig</h2>
+<p>To break things up, I started playing with <a rel="noopener" target="_blank" href="https://ziglang.org/">Zig</a>, going through the <a rel="noopener" target="_blank" href="https://github.com/ratfactor/ziglings">ziglings exercises</a> and making a couple of toy programs. Then I thought, I might as well do a port of my projects from Rust to compare the developer experiences.</p>
+<p>Zig is trailing Rust in terms of tooling, and for example the package management is really new and was hard to get working. However since Zig is basically a better version of C, it gets rid of many of the annoying aspects of C++, adding some modern syntax sugar and nice new features of its own while still being open enough to let me express things more easily than in Rust.</p>
+<p>I found I didn't need and rely on tooling in Zig as much as I was doing in Rust and still managed to have a higher velocity. I also found I could simply refer to the online docs or even jump into the standard library code and actually understand things pretty quickly when needed. I don't typically go that route in other languages as it almost always seems more daunting, but in this case it's been pretty easy to look at the standard library on Github to answer any questions I have.</p>
+<p>While writing the equivalent XML parsing and rendering logic for Tiled maps, I managed to have a working module in about <strong>3 hours</strong>. I ran into a <strong>single</strong> memory bug that caused a panic which took me about fifteen minutes to debug. I was returning a reference to a local variable that went out of scope and was easy to spot once I had the stack trace to look at.</p>
+<p>The Zig version of the function above ended up looking like:</p>
+<pre data-lang="zig" class="language-zig z-code"><code class="language-zig" data-lang="zig"><span class="z-source z-zig"><span class="z-storage z-modifier z-zig">pub</span> <span class="z-storage z-type z-function z-zig">fn</span> <span class="z-entity z-name z-function">tile</span><span class="z-punctuation z-section z-parens z-begin z-zig">(</span><span class="z-variable z-parameter z-zig">self</span><span class="z-punctuation z-separator z-zig">:</span> <span class="z-keyword z-operator z-arithmetic z-zig">*</span><span class="z-storage z-type z-zig">TileLayer</span><span class="z-punctuation z-separator z-zig">,</span> <span class="z-variable z-parameter z-zig">x</span><span class="z-punctuation z-separator z-zig">:</span> <span class="z-storage z-type z-zig">i32</span><span class="z-punctuation z-separator z-zig">,</span> <span class="z-variable z-parameter z-zig">y</span><span class="z-punctuation z-separator z-zig">:</span><span class="z-storage z-type z-zig">i32</span><span class="z-punctuation z-section z-parens z-end z-zig">)</span> <span class="z-keyword z-operator z-other z-zig">?</span><span class="z-keyword z-operator z-arithmetic z-zig">*</span><span class="z-storage z-type z-zig">Tile</span> <span class="z-punctuation z-section z-braces z-begin z-zig">{</span>
+</span><span class="z-source z-zig">    <span class="z-keyword z-control z-conditional z-zig">if</span><span class="z-punctuation z-section z-parens z-begin z-zig">(</span>self.tileset <span class="z-keyword z-operator z-logical z-zig">==</span> <span class="z-constant z-language z-zig">null</span><span class="z-punctuation z-section z-parens z-end z-zig">)</span> <span class="z-keyword z-control z-zig">return</span> <span class="z-constant z-language z-zig">null</span><span class="z-punctuation z-terminator z-zig">;</span>
+</span><span class="z-source z-zig">    <span class="z-keyword z-control z-conditional z-zig">if</span><span class="z-punctuation z-section z-parens z-begin z-zig">(</span>x <span class="z-keyword z-operator z-logical z-zig">&lt;</span> <span class="z-constant z-numeric z-integer z-zig">0</span> <span class="z-keyword z-operator z-word z-zig">or</span> x <span class="z-keyword z-operator z-logical z-zig">&gt;=</span> self.size.x<span class="z-punctuation z-section z-parens z-end z-zig">)</span> <span class="z-keyword z-control z-zig">return</span> <span class="z-constant z-language z-zig">null</span><span class="z-punctuation z-terminator z-zig">;</span>
+</span><span class="z-source z-zig">    <span class="z-keyword z-control z-conditional z-zig">if</span><span class="z-punctuation z-section z-parens z-begin z-zig">(</span>y <span class="z-keyword z-operator z-logical z-zig">&lt;</span> <span class="z-constant z-numeric z-integer z-zig">0</span> <span class="z-keyword z-operator z-word z-zig">or</span> y <span class="z-keyword z-operator z-logical z-zig">&gt;=</span> self.size.y<span class="z-punctuation z-section z-parens z-end z-zig">)</span> <span class="z-keyword z-control z-zig">return</span> <span class="z-constant z-language z-zig">null</span><span class="z-punctuation z-terminator z-zig">;</span>
+</span><span class="z-source z-zig">
+</span><span class="z-source z-zig">    <span class="z-storage z-modifier z-zig">const</span> <span class="z-variable z-other z-member z-zig">tsIdx</span><span class="z-punctuation z-separator z-zig">:</span> <span class="z-storage z-type z-zig">usize</span> <span class="z-keyword z-operator z-assignment z-zig">=</span> <span class="z-support z-function z-zig">@intCast</span><span class="z-punctuation z-section z-parens z-begin z-zig">(</span>self.<span class="z-variable z-function z-zig">tileDataUnchecked</span><span class="z-punctuation z-section z-parens z-begin z-zig">(</span>x<span class="z-punctuation z-separator z-zig">,</span> y<span class="z-punctuation z-section z-parens z-end z-zig">)</span><span class="z-punctuation z-section z-parens z-end z-zig">)</span><span class="z-punctuation z-terminator z-zig">;</span>
+</span><span class="z-source z-zig">    <span class="z-keyword z-control z-zig">return</span> self.tileset<span class="z-keyword z-operator z-other z-zig">.?</span>.<span class="z-variable z-function z-zig">tile</span><span class="z-punctuation z-section z-parens z-begin z-zig">(</span>tsIdx<span class="z-punctuation z-section z-parens z-end z-zig">)</span><span class="z-punctuation z-terminator z-zig">;</span>
+</span><span class="z-source z-zig"><span class="z-punctuation z-section z-braces z-end z-zig">}</span>
+</span></code></pre>
+<p>When I'm somewhere around 10x more efficient at writing a module in a language I've only been playing with for a month versus a language I was learning for 6 months, there's clearly a learning cliff to Rust that makes it difficult for a developer coming from a C++ background. That friction will eventually cause people to push back against the language and look for alternatives.</p>
+<h2 id="areas-where-zig-can-improve">Areas Where Zig Can Improve</h2>
+<p>The ability to iterate quickly is really important, and Zig makes what I think is a mistake in making what should be warnings into errors. Two examples are unused variables and non-mutated variables needing to be changed to <code>const</code>. I would like a compiler flga or build option to allow me to turn off those errors or change them to just warnings - they may be code smells, but that doesn't mean I want to continually pause my development loop to fix them.</p>
+<p>Another area is documentation and finding tutorials online that are still relevant. Out-of-date tutorials come from the fact that Zig is evolving pretty quickly and some larger breaking changes can come in making older blog articles no longer work out of the box. For example, in 0.11, the <a rel="noopener" target="_blank" href="https://ziglang.org/download/0.11.0/release-notes.html#Rename-Casting-Builtins">names of casting builtins got renamed</a>, so <code>@floatToInt</code> became <code>@intFromFloat</code>. This isn't hard to deal with, but you stumble upon these sorts of issues from time to time looking at other blogs and it can be confusing.</p>
+<p>A third area for improvement is the <code>zig test</code> feature. Zig lets you embed unit tests in your modules, but I found the test output, ability to setup fixtures and setup tests in different files to not work the way I wanted. To that end, I created a small library I'm working on called <a rel="noopener" target="_blank" href="https://github.com/srjilarious/testz">testz</a> which lets you set up a more traditional test program and run through functions you mark as tests. <a rel="noopener" target="_blank" href="https://zig.news/slimsag/my-hopes-and-dreams-for-zig-test-2pkh">Another article I found</a>, also details similar issues with how the builtin test functionality works.</p>
+<h2 id="testz-library">Testz Library</h2>
+<p><a rel="noopener" target="_blank" href="https://github.com/srjilarious/testz">The library I wrote</a> is currently pretty simple, but lets you discover tests by passing in modules where test function names end with <code>Test</code>. There are both simple and verbose output modes and you can skip test functions by prepending <code>skip_</code> to a function. Being used as a simple executable means that fixture setup used across multiple tests is also quite easy.</p>
+<p>Here's what my summary output for unit tests for my 6502 CPU emulator looks like with <code>testz</code>:</p>
+ <img src="testz_summary.png" alt="Summary output example" width="682" height="108" loading="lazy" />
+<p>And the verbose output mode:</p>
+ <img src="testz_verbose.png" alt="Verbose output example" width="682" height="783" loading="lazy" />
+<p>The nice part is that the work to discover tests and build up the list of functions to run is done at compile time and was relatively easy to get working. In other languages I've often needed to resort to external shell scripts or required more explicit setup by the user. Zig's <code>comptime</code> feature makes this really clean though.</p>
+<p>I didn't like how the stack traces looked using the builtin versions, but I was able to look at the code in the standard library and pull it out into a modified version that adds more context around each stack frame and ignores frames before the call to the test runner. This gives something like the following for a contrived assertion failure:</p>
+ <img src="testz_stack_trace.png" alt="Error stack trace example" width="1200" height="462" loading="lazy" />
+<p>The library still needs a lot of touching up, like a proper ReadMe and more examples. I'll continue tinkering with it as time goes on.  Feel free to open an issue or reach out if you have a feature request pr find the library useful!</p>
+<p>In the meantime I'll continue playing with my game engine and CPU emulator projects - they've proven to be meaty enough to really get acclimated to a new language.  Now I just need to actually write a game rather than rewriting the engine over and over 😆</p>
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/024-dev-sys-other-updates/">&#8249; My Development System and Other Blog Updates</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/022-shift-reg-multiplex/"> FPGA design for Software Engineers, part 4 - Multiplexed Seven Segment Displays &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>FPGA Design for Software Engineers - Docker Builds | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/018-fpga-docker-build/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/018-fpga-docker-build/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/018-fpga-docker-build/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="FPGA Design for Software Engineers - Docker Builds | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="FPGA Design for Software Engineers - Docker Builds | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2021-02-20" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/018-fpga-docker-build/">FPGA Design for Software Engineers - Docker Builds</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 3 min read <span class="rpad"></span> February 20, 2021 <span class="rpad"></span></span>
+
+    
+
+
+<p>As I mentioned in the last <a href="https://www.walknsqualk.com/017-kubuntu/">blog post</a> I recently switched my laptop over to using Linux as my main OS from Windows 10.  As part of that I was going through setting up all of my build tools for various projects and I realized the FPGA build system was a bit more cumbersome than it needed to be and, utilizing docker, it could be made more developer friendly.</p>
+<span id="continue-reading"></span><h3 id="article-series">Article Series</h3>
+<ol>
+<li><a href="https://www.walknsqualk.com/014-fpga-start/">Verilog and State Machines</a></li>
+<li><a href="https://www.walknsqualk.com/015-fpga-start2/">Simulation and Build Tools</a></li>
+<li><a href="https://www.walknsqualk.com/016-fpga-start3/">Seven Segment Displays</a></li>
+<li>Docker Builds</li>
+<li><a href="https://www.walknsqualk.com/019-fpga-build-updates/">Build System Updates, ECP5 Support</a></li>
+<li><a href="https://www.walknsqualk.com/022-shift-reg-multiplex/">Time-Multiplexed Seven Segment Displays</a></li>
+</ol>
+<h1 id="docker-build-setup">Docker Build Setup</h1>
+<p>I only recently discovered how great docker can be for development, being something like 5 years behind others on the matter.  So I created a docker file for setting up a build container along with a helper script.  Since getting volume mapping and such just right can be difficult, the helper script is there to perform the setup as well as for building the individual projects.</p>
+<p>The scripts are setup so that your user ID and group ID are used for build artifacts.  When building, a <code>build/</code> folder with the resulting artifacts is created within the container, but since the uid/gid match the host user's, you'll be able to access the files as you'd expect outisde of the container.</p>
+<p>A neat feature of the setup is that the container's built conan libraries are mapped under the <code>build/conan_data</code> folder on the host, so that consecutive builds don't cause them to be rebuilt all the time.</p>
+<h2 id="setup-container">Setup Container</h2>
+<p>The first step to get going is to set up the docker container using the following command:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">docker_build.sh</span></span><span class="z-meta z-function-call z-arguments z-shell"> setup</span>
+</span></code></pre>
+<p>The <code>docker_build.sh</code> isn't very complicated, so feel free to peek inside to see how the user id and group id are being mapped.</p>
+<h2 id="building-a-project">Building a project</h2>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">docker_build.sh</span></span><span class="z-meta z-function-call z-arguments z-shell"> build <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>directory name of example<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>
+</span></span></code></pre>
+<p>For example:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">docker_build.sh</span></span><span class="z-meta z-function-call z-arguments z-shell"> build 01_state_machine</span>
+</span></code></pre>
+<p>The artifacts in this example will show up under <code>build/01_state_machine</code>  Both the simulation project and the bitstream file will be built.</p>
+<h1 id="moving-over-to-github">Moving over to GitHub</h1>
+<p>I've recently started moving my main repositories over from GitLab to GitHub.  I still really like GitLab, but the way that commits are counted in the UTC timezone was pretty annoying, and since GitHub has provided private repos for a while I decided to make the move over.</p>
+<p>I've also swapped to using <code>master</code> as the current state of the repo, including projects I have not yet written about.  Each article will still include a git branch you can use to check the best current state of the code for that article however.</p>
+<p>You can find the fpga_start repo here: https://github.com/srjilarious/fpga_start</p>
+<h1 id="next-time">Next Time</h1>
+<p>I recently got some time to finally build out the real hardware version of a time-multiplexed seven segment display circuit (<code>05_seven_seg_shift_reg_multi_time</code> if you want a sneak peek), and I planto write up the article on that -- soonish.</p>
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/019-fpga-build-updates/">&#8249; FPGA design for Software Engineers - Build System Updates, ECP5 Support</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/017-kubuntu/"> Switching to Kubuntu 20.10 as primary OS &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

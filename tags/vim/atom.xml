@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Walk N&#x27; Squawk - Vim</title>
+    <subtitle>A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.walknsqualk.com/tags/vim/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-04-18T00:00:00+00:00</updated>
+    <id>https://www.walknsqualk.com/tags/vim/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Neovim with a Little Bit of Config is Amazing</title>
+        <published>2023-04-18T00:00:00+00:00</published>
+        <updated>2023-04-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/021-nvim-is-awesome/"/>
+        <id>https://www.walknsqualk.com/021-nvim-is-awesome/</id>
+        
+        <summary type="html">&lt;p&gt;I&#x27;ve recently switched from using Visual Studio Code as my main editor of choice to using Neovim with the awesome &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;astronvim.com&#x2F;&quot;&gt;Astronvim&lt;&#x2F;a&gt; configuration and some of my own tweaks on top. It ends up functioning as a great development environment with code hints, debugging, file finder and at the same time uses much less memory. It even has one killer feature over VS Code.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Walk N&#x27; Squawk - General</title>
+    <subtitle>A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.walknsqualk.com/tags/general/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2017-03-03T00:00:00+00:00</updated>
+    <id>https://www.walknsqualk.com/tags/general/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Setting up a Hugo-based Blog on GitLab</title>
+        <published>2017-03-03T00:00:00+00:00</published>
+        <updated>2017-03-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/001-setting-up-hugo-blog-on-gitlab/"/>
+        <id>https://www.walknsqualk.com/001-setting-up-hugo-blog-on-gitlab/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/001-setting-up-hugo-blog-on-gitlab/">&lt;p&gt;This was my first time setting up a blog on GitLab and it was a very easy process.  I&#x27;m using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;gohugo.io&#x2F;&quot;&gt; Hugo&lt;&#x2F;a&gt; and there are some straight-forward instructions for creating a bare-bones site and deploying it to a project: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;gohugo.io&#x2F;tutorials&#x2F;hosting-on-gitlab&#x2F;&quot;&gt;Hosting Hugo on GitLab&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I did run into one problem though that I wanted to share with the inter-tubes.  When I first pushed my one-post-blog project to test, I wasn&#x27;t able to see anything and I just got back the GitLab 404 page.  I tried accessing the site both through http and https but that wasn&#x27;t the problem.&lt;&#x2F;p&gt;
+&lt;p&gt;My next step was to download the artifacts from the GitLab CI and when looking at the files generated, I didn&#x27;t have any html files, just an index.xml and a site.xml.  A quick google turned up that this was likely due to the theme not being setup.&lt;&#x2F;p&gt;
+&lt;p&gt;My problem was that I followed the standard Hugo tutorial practice of cloning a chosen theme under my blog&#x27;s themes directory, which meant when I pushed my blog to the GitLab repo, they were just checked in as sub-modules.  That means the files for the theme themselves are not checked into my repo and I only had a commit hash associated with each theme diretory.&lt;&#x2F;p&gt;
+&lt;p&gt;I use git for all of my professional as well as personal projects, but I&#x27;ve never had to deal with submodules.  Typically people just say &quot;Don&#x27;t use sub-modules, they&#x27;re not the solution.&quot;&lt;&#x2F;p&gt;
+&lt;p&gt;In this particular case, submodules work pretty cleanly for pulling in themes though, so some quick looking around and all I had to do was create a &lt;code&gt;.gitmodules&lt;&#x2F;code&gt; file in the root of my blog project that shows the mapping of the theme directory to a repo address that can be pulled from.  I had a few different themes I was trying out, so I put all three in there.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[submodule &amp;quot;hugo-multi-bootswatch&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	path = themes&#x2F;hugo-multi-bootswatch
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	url = https:&#x2F;&#x2F;github.com&#x2F;mpas&#x2F;hugo-multi-bootswatch.git
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[submodule &amp;quot;hugo-theme-minos&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	path = themes&#x2F;hugo-theme-minos
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	url = https:&#x2F;&#x2F;github.com&#x2F;carsonip&#x2F;hugo-theme-minos
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[submodule &amp;quot;robust&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	path = themes&#x2F;hugo_theme_robust
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	url = https:&#x2F;&#x2F;github.com&#x2F;dim0627&#x2F;hugo_theme_robust.git
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The last step was to add a few steps to the &lt;code&gt;.gitlab-ci.yml&lt;&#x2F;code&gt; so that the submodules were initialized and updated before the hugo generation step is run:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;yml&quot; class=&quot;language-yml z-code&quot;&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;publysher&#x2F;hugo&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;pages&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;script&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;git submodule init&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;git submodule update&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;hugo&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;artifacts&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;paths&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;public&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;only&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;master&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;With that pushed to my repo, the next build quickly succeeded and my blog was up and running!&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Welcome to the blog</title>
+        <published>2017-03-02T00:00:00+00:00</published>
+        <updated>2017-03-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/000-welcome-to-the-blog/"/>
+        <id>https://www.walknsqualk.com/000-welcome-to-the-blog/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/000-welcome-to-the-blog/">&lt;p&gt;Welcome to my tech blog.  My name is Jeff DeWall and I&#x27;m a software engineer who grew up in California and then moved out to Vienna, Austria for fun and adventure with my wife.  I&#x27;ve mostly worked as an embedded software engineer on custom platforms and lately on Android and iOS devices.  Professionally I&#x27;ve worked mostly with C# and C++ with a handful of Python, Java and Objective-C thrown in for good measure.&lt;&#x2F;p&gt;
+&lt;p&gt;On this site I&#x27;ll be writing about predominantly programming and development related topics, but I&#x27;m also a big fan of language learning and retro video games, so those topics will come up pretty often as well.  In particular I&#x27;m a fan of the German language, which is one of the reasons my wife and I chose Austria as a destination to move to, but I&#x27;m also currently learning French and Greek, to varying levels of success.&lt;&#x2F;p&gt;
+&lt;p&gt;A taste of some upcoming article ideas I have:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Talk about some of the apps I&#x27;ve been writing using Xamarin.Forms and some of the issues I&#x27;ve encountered&lt;&#x2F;li&gt;
+&lt;li&gt;Some tips and tricks I&#x27;ve come across file implementing an API using Flask for the first time.&lt;&#x2F;li&gt;
+&lt;li&gt;Hacking Final Fantasy 1 on the NES&lt;&#x2F;li&gt;
+&lt;li&gt;Using old adventure games to aid in learning a language&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+</feed>

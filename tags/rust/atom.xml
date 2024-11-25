@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Walk N&#x27; Squawk - Rust</title>
+    <subtitle>A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.walknsqualk.com/tags/rust/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-11-25T00:00:00+00:00</updated>
+    <id>https://www.walknsqualk.com/tags/rust/atom.xml</id>
+    <entry xml:lang="en">
+        <title>My Development System and Other Blog Updates</title>
+        <published>2024-11-25T00:00:00+00:00</published>
+        <updated>2024-11-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/024-dev-sys-other-updates/"/>
+        <id>https://www.walknsqualk.com/024-dev-sys-other-updates/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/024-dev-sys-other-updates/">&lt;h2 id=&quot;moving-to-manjaro&quot;&gt;Moving to Manjaro&lt;&#x2F;h2&gt;
+&lt;p&gt;It&#x27;s been a while since I mentioned changes I&#x27;ve made to my development setup, the last being related to moving to &lt;a href=&quot;https:&#x2F;&#x2F;www.walknsqualk.com&#x2F;017-kubuntu&#x2F;&quot;&gt;Kubuntu from Windows 10&lt;&#x2F;a&gt;, as well as moving to using &lt;a href=&quot;https:&#x2F;&#x2F;www.walknsqualk.com&#x2F;021-nvim-is-awesome&#x2F;&quot;&gt;NeoVim as my editor with AstroNVim as the base configuration&lt;&#x2F;a&gt;.  I&#x27;m still going strong with NeoVim and loving it as my main editor (including on my phone and tablet via &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;termux.dev&#x2F;en&#x2F;&quot;&gt;Termux&lt;&#x2F;a&gt;!).  For the last few years though, I&#x27;ve actually been using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;manjaro.org&#x2F;&quot;&gt;Manjaro Linux&lt;&#x2F;a&gt;, based on Arch Linux, as my OS and have been very happy with that setup.&lt;&#x2F;p&gt;
+&lt;p&gt;I use KDE as my desktop environmet, so apart from using &lt;code&gt;pamac&lt;&#x2F;code&gt; instead of &lt;code&gt;apt&lt;&#x2F;code&gt; to install packages from the command line, it&#x27;s relatively transparent that I&#x27;m not using an Ubuntu falvor of an OS.&lt;&#x2F;p&gt;
+&lt;p&gt;The issue I ran into was that at one point I was using an x.10 release of Ubuntu and held off on updating for a while.  As I&#x27;ve gotten older, I don&#x27;t want to update a working setup unless I need to.  There&#x27;s almost never anything in it for me to do a larger update.&lt;&#x2F;p&gt;
+&lt;p&gt;Since I had waited too long, the ability to upbdate Kubuntu through the normal &lt;code&gt;dist-upgrade&lt;&#x2F;code&gt; channel was turned off, so I was stuck and was going to have to reinstall the OS from scratch.  At that point, my brother mentioned to me that he had been trying various Arch distributions and liked Manjaro.  He&#x27;s since moved on to EndeavorOS, which I may try sometime.  I gave Manjaro a shot and have had no problems with its rolling updates for over two years.&lt;&#x2F;p&gt;
+&lt;p&gt;In the meantime, Steam on Linux has gotten to a point, where almost every title I want to play works on Linux without issues for me.  The one area that&#x27;s still not perfect is with multiplayer games that use anti-cheat software like Battle Eye (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.protondb.com&#x2F;app&#x2F;359550&quot;&gt;Rainbox Six Siege, I&#x27;m looking at you&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;blog-changes&quot;&gt;Blog Changes&lt;&#x2F;h2&gt;
+&lt;p&gt;I recently swapped from using Hugo as my static site generator for the blog to using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt;.  My main gripe with Hugo was that I kept getting warnings about themes getting out of date as I would deploy and Hugo on Gitlab would build with a newer version.  I didn&#x27;t really like how the themes in Hugo were setup, and this would have been the third time I went and hunted down a new theme to use that would be warning free.&lt;&#x2F;p&gt;
+&lt;p&gt;Instead, I had heard about Zola and thought I&#x27;d give it a try.  The theme engine, shortcode setup and content layout feel far cleaner to me.  That said, I setup my Hugo blog years ago, so maybe things had improved, but since this is just a place for me to publish ideas and articles I don&#x27;t want to spend much if any time on maintaining my configuration - that takes away from the little time I spend blogging, adding another hurdle.&lt;&#x2F;p&gt;
+&lt;p&gt;One big difference in Zola is being able to put my images in the same place as the post.  In Hugo I always had the images under the &lt;code&gt;static&lt;&#x2F;code&gt; folder, which kept them far from the posts where they&#x27;re used.  Just like in code, this ends up being a bad idea.  Again, maybe this was user error, but Zola was setup perfectly right out of the box with good docs.&lt;&#x2F;p&gt;
+&lt;p&gt;While working to convert things over, I stumbled on this article: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;thedataquarry.com&#x2F;posts&#x2F;static-site-zola&#x2F;&quot;&gt;Why I chose Zola to build this site&lt;&#x2F;a&gt;, where the author had a lot of the same issues with Hugo that I had.&lt;&#x2F;p&gt;
+&lt;p&gt;Converting my blog over to Zola from Hugo and changing over to hosting it on GitHub took about a day and was actually pretty fun.  I also have a feeling this will be a more stable setup, which may actually encourage me to write more.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Rust vs. Zig and testz</title>
+        <published>2024-01-07T00:00:00+00:00</published>
+        <updated>2024-01-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/023-zig-and-testz/"/>
+        <id>https://www.walknsqualk.com/023-zig-and-testz/</id>
+        
+        <summary type="html">&lt;p&gt;Earlier this year I made the switch from using C++ on my hobby projects to trying out &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt;. I spent about 6 months of hobby night-time programming time porting over my 2D game engine and the bulk of my 6502 CPU emulator project. There are a lot of aspects of Rust that are great, but I got tired of fighting the borrow checker left and right. I still feel like I have a hard time expressing myself in Rust.&lt;&#x2F;p&gt;
+&lt;p&gt;I had heard about and looked at the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ziglang.org&#x2F;&quot;&gt;Zig programming language&lt;&#x2F;a&gt; before and really liked some of its core concepts such as &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ziglang.org&#x2F;documentation&#x2F;master&#x2F;#comptime&quot;&gt;&lt;code&gt;comptime&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; for doing meta-programming in a much cleaner way than I&#x27;ve seen before. This was back when it was around 0.7 and it was pretty rough around the edges in many other areas though.&lt;&#x2F;p&gt;
+&lt;p&gt;I had another look towards the end of summer and found with version 0.11 it struck a chord with me and I&#x27;ve been using it ever since, getting further into a new porting exercise for my 2D game engine and 6502 CPU emulator in less than half the time it took me in Rust. I also wrote a small unit testing library for Zig called &lt;code&gt;testz&lt;&#x2F;code&gt; to improve my testing development flow.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

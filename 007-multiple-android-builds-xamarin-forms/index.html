@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Multiple Android builds on Xamarin Forms | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/007-multiple-android-builds-xamarin-forms/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/007-multiple-android-builds-xamarin-forms/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/007-multiple-android-builds-xamarin-forms/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="Multiple Android builds on Xamarin Forms | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="Multiple Android builds on Xamarin Forms | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2017-07-29" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/007-multiple-android-builds-xamarin-forms/">Multiple Android builds on Xamarin Forms</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 4 min read <span class="rpad"></span> July 29, 2017 <span class="rpad"></span></span>
+
+    
+
+
+<p>While working on a Xamarin.Forms based project I ran into the issue of wanting to have multiple builds of my android app differentiated by the build configuration.  For instance, I want my normal build to point to the production server, but when I'm developing locally I want a different app that points to my local dev backend.  I still want to be able to use the <em>current production app</em> and have a <em>development version</em> installed at the <strong>same time</strong>.</p>
+<p>Part of the problem I had with a single apk, is that I would forget which version was installed and not remember which server I was pointing to when using the app.</p>
+<p>I started working on a solution for iOS as well, but it would involve a script to swap out the Info.plist while as a pre-build step.  Since I do most of my development on my Windows machine with Android, I've left the iOS fix for later.</p>
+<h2 id="setting-up-visual-studio-for-multiple-android-builds">Setting up Visual Studio for Multiple Android Builds</h2>
+<p>The first step is to have different build configurations in Visual Studio so that we can differentiate between the different apks that we want to build.  First, I went to <code>Build -&gt; Configuration Manahger</code> and then I selected that I wanted to create a new configuration, copying the <code>Debug</code> configuration.</p>
+<p>We can use the configuration not only to have configuration specific preprocessor flags that we use in our code, but we can conditionally include files by configuration with MSBuild, even though some options are not always available in Visual Studio's UI.</p>
+<p>There are two things that we want for different build configurations: A different package name so that Android can differentiate between our builds and a different label so that we can.</p>
+<p>The first step is to create Android manifests for each configuration:</p>
+<ul>
+<li>Create copies of your AndroidManifest, naming them so that you can identify which one belongs to which configuration.<br />
+For Instance, I create a LocalDev configuration, so I have an AndroidManifest.LocalDev.manifest.</li>
+<li>Add a new package name in your copied manifest's <code>manifest</code> element</li>
+<li>Add a different label to the <code>application</code> element so we can differentiate when looking at the launcher which apk is which.</li>
+</ul>
+<p>Here's my full LocalDev AndroidManifest:</p>
+<pre class="z-code"><code><span class="z-text z-plain">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+</span><span class="z-text z-plain">&lt;manifest 
+</span><span class="z-text z-plain">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; 
+</span><span class="z-text z-plain">    android:installLocation=&quot;auto&quot; 
+</span><span class="z-text z-plain">    package=&quot;MyApp.Droid.LocalDev&quot;&gt;
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">    &lt;uses-sdk android:minSdkVersion=&quot;15&quot; android:targetSdkVersion=&quot;23&quot; /&gt;
+</span><span class="z-text z-plain">    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+</span><span class="z-text z-plain">    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
+</span><span class="z-text z-plain">    &lt;application android:label=&quot;MyApp LocalDev&quot;
+</span><span class="z-text z-plain">                 android:theme=&quot;@android:style/Theme.Material.Light&quot; 
+</span><span class="z-text z-plain">                 android:icon=&quot;@drawable/icon&quot;&gt;&lt;/application&gt;
+</span><span class="z-text z-plain">&lt;/manifest&gt;
+</span></code></pre>
+<p>The second step is to set MSBuild to use our new Android Manifest in the new build configuration.  You can do this by editing your App's Android .csproj in a text editor.  Notice that the <code>PropertyGroup</code> for each configuration can add its own element for the <code>AndroidManifest</code> to use.</p>
+<pre class="z-code"><code><span class="z-text z-plain">&lt;AndroidManifest&gt;Properties\AndroidManifestLocalProd.xml&lt;/AndroidManifest&gt;
+</span></code></pre>
+<p>My .csproj configuration <code>PropertyGroup</code> block for my LocalDev build configuration looks like:</p>
+<pre class="z-code"><code><span class="z-text z-plain">&lt;PropertyGroup Condition=&quot;&#39;$(Configuration)|$(Platform)&#39; == &#39;DebugLocalDevServer|AnyCPU&#39;&quot;&gt;
+</span><span class="z-text z-plain">    &lt;DebugSymbols&gt;true&lt;/DebugSymbols&gt;
+</span><span class="z-text z-plain">    &lt;OutputPath&gt;bin\DebugLocalProdServer\&lt;/OutputPath&gt;
+</span><span class="z-text z-plain">    &lt;DefineConstants&gt;TRACE;DEBUG;USE_LOCAL_PROD_SERVER&lt;/DefineConstants&gt;
+</span><span class="z-text z-plain">    &lt;DebugType&gt;full&lt;/DebugType&gt;
+</span><span class="z-text z-plain">    &lt;PlatformTarget&gt;AnyCPU&lt;/PlatformTarget&gt;
+</span><span class="z-text z-plain">    &lt;GenerateSerializationAssemblies&gt;Off&lt;/GenerateSerializationAssemblies&gt;
+</span><span class="z-text z-plain">    &lt;ErrorReport&gt;prompt&lt;/ErrorReport&gt;
+</span><span class="z-text z-plain">    &lt;CodeAnalysisRuleSet&gt;MinimumRecommendedRules.ruleset&lt;/CodeAnalysisRuleSet&gt;
+</span><span class="z-text z-plain">    &lt;AndroidManifest&gt;Properties\AndroidManifestLocalDev.xml&lt;/AndroidManifest&gt;
+</span><span class="z-text z-plain">&lt;/PropertyGroup&gt;
+</span></code></pre>
+<p><strong>Note:</strong> the actual manifest that is included in your app's apk is created using this manifest file as a base and then merging in class attribute related information to create a final version.  The attributes take precedence, so if you have a label set on your activity or application class through an attribute, that will negate what you've placed in your manifest file.</p>
+<p>Check the following Xamarin article for more details: <a rel="noopener" target="_blank" href="https://developer.xamarin.com/guides/android/advanced_topics/working_with_androidmanifest.xml/">Working with Android Manifest</a></p>
+<h2 id="final-thoughts">Final thoughts</h2>
+<p>A downside with this approach is that you now have to work to keep your different manifests in sync for the pieces that do show up in there.</p>
+<p>As I mentioned in the beginning I'm looking to make a script for iOS builds to do the same thing.  This would be applicable to Android as well and allow you to have just a template manifest that is used to generate the correct configuration manifest as a prebuild step.</p>
+<p>The open question there is if the generated manifest gets picked up properly on configuration swaps or if a cached version is used, etc.  Seeing as how the process above has been working really well for me so far, the iOS version has a been a lower priority on my task list.</p>
+<p>I hope this can help some other developers out there as well to get around the prod/dev apk issue I was hitting.</p>
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/008-letsencrypt-with-hugo/">&#8249; Setting up Let&#x27;s Encrypt with Hugo</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/006-phoenix-fallback-controller-note/"> Tip for Phoenix 1.3 Fallback Controller error &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

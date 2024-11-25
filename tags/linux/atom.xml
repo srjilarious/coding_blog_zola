@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Walk N&#x27; Squawk - Linux</title>
+    <subtitle>A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.walknsqualk.com/tags/linux/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2020-12-24T00:00:00+00:00</updated>
+    <id>https://www.walknsqualk.com/tags/linux/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Switching to Kubuntu 20.10 as primary OS</title>
+        <published>2020-12-24T00:00:00+00:00</published>
+        <updated>2020-12-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/017-kubuntu/"/>
+        <id>https://www.walknsqualk.com/017-kubuntu/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/017-kubuntu/">&lt;p&gt;About a week ago, I decided to give another go at using Linux as my primary OS.  This came about after my brother mentioned he had recently done the same and was really enjoying it.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve used Linux as my main OS a few times before, along with MacOS a few times as well, but I always ended up back to using Windows.  Recently with WSL I had less cause to need Linux directly, but a couple of things spurred me on to reconsider.&lt;&#x2F;p&gt;
+&lt;p&gt;I used to do a lot of work in Visual Studio, but have since switched to Visual Studio Code as my main development environment.  This was originally one of my main reasons for staying on Windows, but since my coding interests have changed over the last few years, I don&#x27;t even have Visual Studio installed any more.  Their badgering you for an online account to use the community edition being a major motivation to stop using that product, by the way.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve been using WSL2 as my main shell, which although faster, uses a lot more memory and requires keeping my repos under the WSL filesystem for it to be fast, which is sort of inconvenient.&lt;&#x2F;p&gt;
+&lt;p&gt;Besides coding, most other programs I use are either browser based services, or OSS like VLC, KiCAD, etc, so switching to Linux doesn&#x27;t mean having to give those up.&lt;&#x2F;p&gt;
+&lt;p&gt;It also used to be that battery management on Linux would cut my system usage by a few hours, but so far on this more recent laptop, an HP Envy, it seems my battery utilization has gotten &lt;em&gt;better&lt;&#x2F;em&gt; on Kubuntu.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, I used to play video games on my computer mostly, but I now prefer to play on my Switch, or one of my older consoles I&#x27;ve acquired such as a SNES or NES.  Steam on Linux has also improved the last few years so a number of titles that I have yet to play look like they should work in any case.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;kubuntu_screenshot.png&quot; alt=&quot;Screenshot of my current setup&quot; width=&quot;1920&quot; height=&quot;1080&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h2 id=&quot;annoyances-with-windows-10&quot;&gt;Annoyances with Windows 10&lt;&#x2F;h2&gt;
+&lt;p&gt;Windows 10 has been overall a good system, but there are a few annoyances that have built up over the years that finally gave me pause.  In particular the random upgrades that I couldn&#x27;t skip indefinitelty.  It&#x27;s my computer, I&#x27;m an expert user and I don&#x27;t need my OS determining when I&#x27;m ready to upgrade.  It&#x27;s sort of a slap in the face and a reversal of the roles of computer and user.&lt;&#x2F;p&gt;
+&lt;p&gt;I understand that many people get viruses and that was a primary concern when the auto-upgrade feature was added to Windows 10.  I personally haven&#x27;t had a virus on my system in over 20 years.  I also don&#x27;t open random email links, go to sketchy websites or download warez, so my risk profile is pretty darn low.  In any case, I keep lots of backups and much of my work is in git repos anyways so that even if I got a virus it wouldn&#x27;t be the end of the world.  At the end of the day, my computer is a tool that &lt;em&gt;I&lt;&#x2F;em&gt; use, and I want to be the one who determines my workflow.&lt;&#x2F;p&gt;
+&lt;p&gt;I also hate that when an upgrade would occur, half the time I would be asked about some new features I had to disable or else be tracked with.  On top of that, I was also not a fan of Edge being set as my default browser randomly.  No upgrade should overwrite your custom settings, otherwise they&#x27;re doing it wrong.&lt;&#x2F;p&gt;
+&lt;p&gt;A huge annoyance with Windows 10, has been my systems randomly waking up to do some check and then not going back to sleep properly and draining the battery.  This has happened on multiple systems, laptops and desktops, and no amount of searching around delivered a work around, so I had given up and just accepted an extremely annoying OS behavior.&lt;&#x2F;p&gt;
+&lt;p&gt;None of these were deal breakers initially, but over time it was a realization that my computer wasn&#x27;t working how I, the user, wanted it to and knowing that I had other options.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;os-choice&quot;&gt;OS choice&lt;&#x2F;h2&gt;
+&lt;p&gt;I ended up installing Kubuntu 20.10 on my laptop, and didn&#x27;t require many tweaks to get it to a perfect state for development.  The UI looks great out of the box, is easy to tweak and almost eveyy package I need is available through &lt;code&gt;apt&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ux-tweaks&quot;&gt;UX tweaks&lt;&#x2F;h2&gt;
+&lt;p&gt;On any desktop system, there are a few UX improvements I always use and it turns out that Kubuntu had them available without much work.&lt;&#x2F;p&gt;
+&lt;p&gt;I always map Caps Lock to Ctrl which in Windows requires a registry edit, but in Kubuntu is nicely exposed through a settings UI option.&lt;&#x2F;p&gt;
+&lt;p&gt;I also make heavy use of a clipboard app for copied item history.  Kubuntu has one installed out of the box and setting the global hotkey to what I&#x27;m used to got me up and running instantly.&lt;&#x2F;p&gt;
+&lt;p&gt;Virtaul desktops are a feature I hadn&#x27;t used in a long time, not having found a decent version on Windows, but on KDE I&#x27;m really liking having my various use case contexts separated into different desktops.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cloud-access&quot;&gt;Cloud access&lt;&#x2F;h2&gt;
+&lt;p&gt;A large improvement to my workflow has been changing how I access files in the cloud.&lt;&#x2F;p&gt;
+&lt;p&gt;I had been using Google Drive as cloud storage for a few documents, but it turned out there isn&#x27;t a good client available on Linux.  I could get access through the Dolphin file manager, but editing files would require a download to temp file, edit, and then asking to upload again cycle that was annoying.&lt;&#x2F;p&gt;
+&lt;p&gt;Instead I found that Fastmail (my main email provider), exposes their Files section over Webdav.  So using &lt;code&gt;davfs2&lt;&#x2F;code&gt; I now have seamless access to my cloud files as another mounted filesystem and can interact with the files without any odd workflow.&lt;&#x2F;p&gt;
+&lt;p&gt;That led me to realize I could setup &lt;code&gt;sshfs&lt;&#x2F;code&gt; as well to have seamless access to my local raspberry pi NAS files.  This is actually a huge improvement for how I accessed these files compated to Windows where I always used Filezilla,&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;In conclusion, using Kubuntu 20.10, I have a perfect development environment that is faster and uses less memory for my use cases as I don&#x27;t need WSL2 and its VM running.  I also no longer have to deal with various Windows 10 annoyances and haven&#x27;t hit any real problems with Linux so far.  Finally numerous aspects such as battery life and remote files access have actually improved substantially for me.&lt;&#x2F;p&gt;
+&lt;p&gt;Since the experiment has been so successful I&#x27;m very much considering dual booting my desktop system and using Kubuntu as my daily driver with Windows 10 just for the odd occasion that I want to play a Windows exclusive game.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+</feed>

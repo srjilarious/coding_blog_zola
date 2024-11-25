@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Walk N&#x27; Squawk</title>
+    <subtitle>A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-11-25T00:00:00+00:00</updated>
+    <id>https://www.walknsqualk.com/atom.xml</id>
+    <entry xml:lang="en">
+        <title>My Development System and Other Blog Updates</title>
+        <published>2024-11-25T00:00:00+00:00</published>
+        <updated>2024-11-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/024-dev-sys-other-updates/"/>
+        <id>https://www.walknsqualk.com/024-dev-sys-other-updates/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/024-dev-sys-other-updates/">&lt;h2 id=&quot;moving-to-manjaro&quot;&gt;Moving to Manjaro&lt;&#x2F;h2&gt;
+&lt;p&gt;It&#x27;s been a while since I mentioned changes I&#x27;ve made to my development setup, the last being related to moving to &lt;a href=&quot;https:&#x2F;&#x2F;www.walknsqualk.com&#x2F;017-kubuntu&#x2F;&quot;&gt;Kubuntu from Windows 10&lt;&#x2F;a&gt;, as well as moving to using &lt;a href=&quot;https:&#x2F;&#x2F;www.walknsqualk.com&#x2F;021-nvim-is-awesome&#x2F;&quot;&gt;NeoVim as my editor with AstroNVim as the base configuration&lt;&#x2F;a&gt;.  I&#x27;m still going strong with NeoVim and loving it as my main editor (including on my phone and tablet via &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;termux.dev&#x2F;en&#x2F;&quot;&gt;Termux&lt;&#x2F;a&gt;!).  For the last few years though, I&#x27;ve actually been using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;manjaro.org&#x2F;&quot;&gt;Manjaro Linux&lt;&#x2F;a&gt;, based on Arch Linux, as my OS and have been very happy with that setup.&lt;&#x2F;p&gt;
+&lt;p&gt;I use KDE as my desktop environmet, so apart from using &lt;code&gt;pamac&lt;&#x2F;code&gt; instead of &lt;code&gt;apt&lt;&#x2F;code&gt; to install packages from the command line, it&#x27;s relatively transparent that I&#x27;m not using an Ubuntu falvor of an OS.&lt;&#x2F;p&gt;
+&lt;p&gt;The issue I ran into was that at one point I was using an x.10 release of Ubuntu and held off on updating for a while.  As I&#x27;ve gotten older, I don&#x27;t want to update a working setup unless I need to.  There&#x27;s almost never anything in it for me to do a larger update.&lt;&#x2F;p&gt;
+&lt;p&gt;Since I had waited too long, the ability to upbdate Kubuntu through the normal &lt;code&gt;dist-upgrade&lt;&#x2F;code&gt; channel was turned off, so I was stuck and was going to have to reinstall the OS from scratch.  At that point, my brother mentioned to me that he had been trying various Arch distributions and liked Manjaro.  He&#x27;s since moved on to EndeavorOS, which I may try sometime.  I gave Manjaro a shot and have had no problems with its rolling updates for over two years.&lt;&#x2F;p&gt;
+&lt;p&gt;In the meantime, Steam on Linux has gotten to a point, where almost every title I want to play works on Linux without issues for me.  The one area that&#x27;s still not perfect is with multiplayer games that use anti-cheat software like Battle Eye (&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.protondb.com&#x2F;app&#x2F;359550&quot;&gt;Rainbox Six Siege, I&#x27;m looking at you&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;blog-changes&quot;&gt;Blog Changes&lt;&#x2F;h2&gt;
+&lt;p&gt;I recently swapped from using Hugo as my static site generator for the blog to using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;Zola&lt;&#x2F;a&gt;.  My main gripe with Hugo was that I kept getting warnings about themes getting out of date as I would deploy and Hugo on Gitlab would build with a newer version.  I didn&#x27;t really like how the themes in Hugo were setup, and this would have been the third time I went and hunted down a new theme to use that would be warning free.&lt;&#x2F;p&gt;
+&lt;p&gt;Instead, I had heard about Zola and thought I&#x27;d give it a try.  The theme engine, shortcode setup and content layout feel far cleaner to me.  That said, I setup my Hugo blog years ago, so maybe things had improved, but since this is just a place for me to publish ideas and articles I don&#x27;t want to spend much if any time on maintaining my configuration - that takes away from the little time I spend blogging, adding another hurdle.&lt;&#x2F;p&gt;
+&lt;p&gt;One big difference in Zola is being able to put my images in the same place as the post.  In Hugo I always had the images under the &lt;code&gt;static&lt;&#x2F;code&gt; folder, which kept them far from the posts where they&#x27;re used.  Just like in code, this ends up being a bad idea.  Again, maybe this was user error, but Zola was setup perfectly right out of the box with good docs.&lt;&#x2F;p&gt;
+&lt;p&gt;While working to convert things over, I stumbled on this article: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;thedataquarry.com&#x2F;posts&#x2F;static-site-zola&#x2F;&quot;&gt;Why I chose Zola to build this site&lt;&#x2F;a&gt;, where the author had a lot of the same issues with Hugo that I had.&lt;&#x2F;p&gt;
+&lt;p&gt;Converting my blog over to Zola from Hugo and changing over to hosting it on GitHub took about a day and was actually pretty fun.  I also have a feeling this will be a more stable setup, which may actually encourage me to write more.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Rust vs. Zig and testz</title>
+        <published>2024-01-07T00:00:00+00:00</published>
+        <updated>2024-01-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/023-zig-and-testz/"/>
+        <id>https://www.walknsqualk.com/023-zig-and-testz/</id>
+        
+        <summary type="html">&lt;p&gt;Earlier this year I made the switch from using C++ on my hobby projects to trying out &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt;. I spent about 6 months of hobby night-time programming time porting over my 2D game engine and the bulk of my 6502 CPU emulator project. There are a lot of aspects of Rust that are great, but I got tired of fighting the borrow checker left and right. I still feel like I have a hard time expressing myself in Rust.&lt;&#x2F;p&gt;
+&lt;p&gt;I had heard about and looked at the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ziglang.org&#x2F;&quot;&gt;Zig programming language&lt;&#x2F;a&gt; before and really liked some of its core concepts such as &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;ziglang.org&#x2F;documentation&#x2F;master&#x2F;#comptime&quot;&gt;&lt;code&gt;comptime&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; for doing meta-programming in a much cleaner way than I&#x27;ve seen before. This was back when it was around 0.7 and it was pretty rough around the edges in many other areas though.&lt;&#x2F;p&gt;
+&lt;p&gt;I had another look towards the end of summer and found with version 0.11 it struck a chord with me and I&#x27;ve been using it ever since, getting further into a new porting exercise for my 2D game engine and 6502 CPU emulator in less than half the time it took me in Rust. I also wrote a small unit testing library for Zig called &lt;code&gt;testz&lt;&#x2F;code&gt; to improve my testing development flow.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>FPGA design for Software Engineers, part 4 - Multiplexed Seven Segment Displays</title>
+        <published>2023-04-23T00:00:00+00:00</published>
+        <updated>2023-04-23T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/022-shift-reg-multiplex/"/>
+        <id>https://www.walknsqualk.com/022-shift-reg-multiplex/</id>
+        
+        <summary type="html">&lt;p&gt;This time we&#x27;ll continue from the &lt;a href=&quot;https:&#x2F;&#x2F;www.walknsqualk.com&#x2F;016-fpga-start3&#x2F;&quot;&gt;last design article&lt;&#x2F;a&gt; and add in the ability to drive multiple seven segment displays.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Neovim with a Little Bit of Config is Amazing</title>
+        <published>2023-04-18T00:00:00+00:00</published>
+        <updated>2023-04-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/021-nvim-is-awesome/"/>
+        <id>https://www.walknsqualk.com/021-nvim-is-awesome/</id>
+        
+        <summary type="html">&lt;p&gt;I&#x27;ve recently switched from using Visual Studio Code as my main editor of choice to using Neovim with the awesome &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;astronvim.com&#x2F;&quot;&gt;Astronvim&lt;&#x2F;a&gt; configuration and some of my own tweaks on top. It ends up functioning as a great development environment with code hints, debugging, file finder and at the same time uses much less memory. It even has one killer feature over VS Code.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Rust unit test layout</title>
+        <published>2023-02-18T00:00:00+00:00</published>
+        <updated>2023-02-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/020-rust-unit-test-layout/"/>
+        <id>https://www.walknsqualk.com/020-rust-unit-test-layout/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/020-rust-unit-test-layout/">&lt;p&gt;I&#x27;ve been succeeding in my fourth attempt at learning to use Rust.  I come from mostly a C++ background, and I&#x27;ve struggled the first couple of times I&#x27;ve tried to pick up Rust, ultimately stopping the effort to work on the next shiny quarter.&lt;&#x2F;p&gt;
+&lt;p&gt;I started porting over my Nintendo 6502 processor emulator from C++ as a larger project to play around with.  One thing I had done in the C++ one is have tons of tests for the different instructions - checking clock cycles and internal register states for the emulated CPU.  Most of these tests ended up split up across different files to keep the codebase manageable.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;unit-testing-in-rust&quot;&gt;Unit Testing in Rust&lt;&#x2F;h2&gt;
+&lt;p&gt;In Rust, the guides all mention keeping your unit tests in the same file in a sub module declared in the file and marked as a test module with &lt;code&gt;#[cfg(test)]&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;You can also have an integration tests folder that lives as a sibling folder to the &lt;code&gt;src&lt;&#x2F;code&gt; folder, but there the idea is to handle the modules as black boxes without the ability to peek into the internals - which in some cases can be useful in unit tests.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;splitting-your-rust-unit-tests-into-multiple-files&quot;&gt;Splitting your Rust Unit Tests into Multiple Files&lt;&#x2F;h2&gt;
+&lt;p&gt;It turns out to not be very difficult to split up your unit tests into separate files, but it took me a bit to figure out and thought it might useful to others.  Here is what the layout of my dummy project looks like now:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;.
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── Cargo.lock
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── Cargo.toml
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;├── src
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── cpu.rs
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   ├── lib.rs
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│   └── tests
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│       ├── cpu_tests.rs
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;│       └── mod.rs
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;All I&#x27;ve done is move the tests module&#x27;s code into the &lt;code&gt;cpu_tests.rs&lt;&#x2F;code&gt; file in the subfolder &lt;code&gt;tests&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;cpu-tests-rs&quot;&gt;&lt;code&gt;cpu_tests.rs&lt;&#x2F;code&gt;&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;rust&quot; class=&quot;language-rust z-code&quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-keyword z-other z-rust&quot;&gt;use&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-other z-rust&quot;&gt;crate&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-rust&quot;&gt;:&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-rust&quot;&gt;:&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-arithmetic z-rust&quot;&gt;*&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-rust&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-annotation z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-annotation z-rust&quot;&gt;#&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-rust&quot;&gt;[&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-annotation z-rust&quot;&gt;test&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-rust&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-storage z-type z-function z-rust&quot;&gt;fn&lt;&#x2F;span&gt; &lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-function z-rust&quot;&gt;it_works&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-parameters z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-parameters z-begin z-rust&quot;&gt;(&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-parameters z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-parameters z-end z-rust&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt; &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-block z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-begin z-rust&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-block z-rust&quot;&gt;    &lt;span class=&quot;z-storage z-type z-rust&quot;&gt;let&lt;&#x2F;span&gt; result &lt;span class=&quot;z-keyword z-operator z-assignment z-rust&quot;&gt;=&lt;&#x2F;span&gt; &lt;span class=&quot;z-support z-function z-rust&quot;&gt;add&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-rust&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-rust&quot;&gt;2&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-rust&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-rust&quot;&gt;2&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-rust&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-rust&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-block z-rust&quot;&gt;    &lt;span class=&quot;z-support z-macro z-rust&quot;&gt;assert_eq!&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-rust&quot;&gt;(&lt;&#x2F;span&gt;result&lt;span class=&quot;z-punctuation z-separator z-rust&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-rust&quot;&gt;4&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-group z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-rust&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-rust&quot;&gt;;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-block z-rust&quot;&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-block z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-end z-rust&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I then have a &lt;code&gt;tests&#x2F;mod.rs&lt;&#x2F;code&gt; that includes all of the test files, &lt;code&gt;tests&#x2F;cpu_tests.rs&lt;&#x2F;code&gt; only in this case.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;mod-rs&quot;&gt;&lt;code&gt;mod.rs&lt;&#x2F;code&gt;&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;rust&quot; class=&quot;language-rust z-code&quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-module z-rust&quot;&gt;&lt;span class=&quot;z-storage z-modifier z-rust&quot;&gt;pub&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-module z-rust&quot;&gt;mod&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-module z-rust&quot;&gt;cpu_tests&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-rust&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then by including that module in the top-level &lt;code&gt;lib.rs&lt;&#x2F;code&gt; and marking it as a test module, it will still get run as a unit test without cluttering up lib.rs itself.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;lib-rs&quot;&gt;&lt;code&gt;lib.rs&lt;&#x2F;code&gt;&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;rust&quot; class=&quot;language-rust z-code&quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-storage z-modifier z-rust&quot;&gt;pub&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-function z-rust&quot;&gt;fn&lt;&#x2F;span&gt; &lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-function z-rust&quot;&gt;add&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-parameters z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-parameters z-begin z-rust&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-parameter z-rust&quot;&gt;left&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-rust&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-rust&quot;&gt;usize&lt;&#x2F;span&gt;, &lt;span class=&quot;z-variable z-parameter z-rust&quot;&gt;right&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-rust&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-rust&quot;&gt;usize&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-parameters z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-parameters z-end z-rust&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt; &lt;span class=&quot;z-meta z-function z-return-type z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-separator z-rust&quot;&gt;-&amp;gt;&lt;&#x2F;span&gt; &lt;span class=&quot;z-storage z-type z-rust&quot;&gt;usize&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-block z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-begin z-rust&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-block z-rust&quot;&gt;    left &lt;span class=&quot;z-keyword z-operator z-arithmetic z-rust&quot;&gt;+&lt;&#x2F;span&gt; right
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-function z-rust&quot;&gt;&lt;span class=&quot;z-meta z-block z-rust&quot;&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-block z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-block z-end z-rust&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-annotation z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-annotation z-rust&quot;&gt;#&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-rust&quot;&gt;[&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-annotation z-rust&quot;&gt;cfg&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-annotation z-parameters z-rust&quot;&gt;&lt;span class=&quot;z-meta z-group z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-begin z-rust&quot;&gt;(&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-annotation z-parameters z-rust&quot;&gt;&lt;span class=&quot;z-meta z-group z-rust&quot;&gt;test&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-annotation z-parameters z-rust&quot;&gt;&lt;span class=&quot;z-meta z-group z-rust&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-rust&quot;&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-group z-end z-rust&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-rust&quot;&gt;&lt;span class=&quot;z-meta z-module z-rust&quot;&gt;&lt;span class=&quot;z-storage z-type z-module z-rust&quot;&gt;mod&lt;&#x2F;span&gt; &lt;span class=&quot;z-entity z-name z-module z-rust&quot;&gt;tests&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-terminator z-rust&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And the results of running the unit tests when I do a &lt;code&gt;cargo test&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;❯&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; cargo test&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;    &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Finished&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; test &lt;span class=&quot;z-keyword z-control z-regexp z-set z-begin z-shell&quot;&gt;[&lt;&#x2F;span&gt;unoptimized + debuginfo&lt;span class=&quot;z-keyword z-control z-regexp z-set z-end z-shell&quot;&gt;]&lt;&#x2F;span&gt; target(s&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;) &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;in&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 0.01s&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;     &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;Running&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; unittests src&#x2F;lib.rs (target&#x2F;debug&#x2F;deps&#x2F;nesters-0b3b29c8edf564ce&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;&#x2F;span&gt;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;running&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; 1 test&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;test&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; tests::cpu_tests::it_works ... ok&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;test&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; result: ok. 1 passed&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-logical z-continue z-shell&quot;&gt;;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; failed&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-logical z-continue z-shell&quot;&gt;;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; ignored&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-logical z-continue z-shell&quot;&gt;;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; measured&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-logical z-continue z-shell&quot;&gt;;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; filtered out&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-operator z-logical z-continue z-shell&quot;&gt;;&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;finished&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; in 0.00s&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;Rust has been a great language to dig into a bit deeper, since it has some nice defaults, built in unit testing and the package and project management through cargo gets rid of a lot of boiler plate that I&#x27;ve constantly needed to duplicate across project for C++.&lt;&#x2F;p&gt;
+&lt;p&gt;There are still some areas where I&#x27;m learning how to structure my code in a way that feels the most manageable and comfortable to me.  Given that the searches I did didn&#x27;t show this solution published elsewhere, I hope others also find this useful.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>FPGA design for Software Engineers - Build System Updates, ECP5 Support</title>
+        <published>2022-11-14T00:00:00+00:00</published>
+        <updated>2022-11-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/019-fpga-build-updates/"/>
+        <id>https://www.walknsqualk.com/019-fpga-build-updates/</id>
+        
+        <summary type="html">&lt;p&gt;It&#x27;s been a while since the &lt;a href=&quot;https:&#x2F;&#x2F;www.walknsqualk.com&#x2F;018-fpga-docker-build&#x2F;&quot;&gt;last article&lt;&#x2F;a&gt; and I&#x27;ve recently come back to playing with my FPGA repo.  Given the amount of time that has passed there were some updates needed for the &lt;code&gt;Dockerfile&lt;&#x2F;code&gt; and a couple of improvements I wanted to make.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>FPGA Design for Software Engineers - Docker Builds</title>
+        <published>2021-02-20T00:00:00+00:00</published>
+        <updated>2021-02-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/018-fpga-docker-build/"/>
+        <id>https://www.walknsqualk.com/018-fpga-docker-build/</id>
+        
+        <summary type="html">&lt;p&gt;As I mentioned in the last &lt;a href=&quot;https:&#x2F;&#x2F;www.walknsqualk.com&#x2F;017-kubuntu&#x2F;&quot;&gt;blog post&lt;&#x2F;a&gt; I recently switched my laptop over to using Linux as my main OS from Windows 10.  As part of that I was going through setting up all of my build tools for various projects and I realized the FPGA build system was a bit more cumbersome than it needed to be and, utilizing docker, it could be made more developer friendly.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Switching to Kubuntu 20.10 as primary OS</title>
+        <published>2020-12-24T00:00:00+00:00</published>
+        <updated>2020-12-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/017-kubuntu/"/>
+        <id>https://www.walknsqualk.com/017-kubuntu/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/017-kubuntu/">&lt;p&gt;About a week ago, I decided to give another go at using Linux as my primary OS.  This came about after my brother mentioned he had recently done the same and was really enjoying it.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve used Linux as my main OS a few times before, along with MacOS a few times as well, but I always ended up back to using Windows.  Recently with WSL I had less cause to need Linux directly, but a couple of things spurred me on to reconsider.&lt;&#x2F;p&gt;
+&lt;p&gt;I used to do a lot of work in Visual Studio, but have since switched to Visual Studio Code as my main development environment.  This was originally one of my main reasons for staying on Windows, but since my coding interests have changed over the last few years, I don&#x27;t even have Visual Studio installed any more.  Their badgering you for an online account to use the community edition being a major motivation to stop using that product, by the way.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve been using WSL2 as my main shell, which although faster, uses a lot more memory and requires keeping my repos under the WSL filesystem for it to be fast, which is sort of inconvenient.&lt;&#x2F;p&gt;
+&lt;p&gt;Besides coding, most other programs I use are either browser based services, or OSS like VLC, KiCAD, etc, so switching to Linux doesn&#x27;t mean having to give those up.&lt;&#x2F;p&gt;
+&lt;p&gt;It also used to be that battery management on Linux would cut my system usage by a few hours, but so far on this more recent laptop, an HP Envy, it seems my battery utilization has gotten &lt;em&gt;better&lt;&#x2F;em&gt; on Kubuntu.&lt;&#x2F;p&gt;
+&lt;p&gt;Finally, I used to play video games on my computer mostly, but I now prefer to play on my Switch, or one of my older consoles I&#x27;ve acquired such as a SNES or NES.  Steam on Linux has also improved the last few years so a number of titles that I have yet to play look like they should work in any case.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;kubuntu_screenshot.png&quot; alt=&quot;Screenshot of my current setup&quot; width=&quot;1920&quot; height=&quot;1080&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h2 id=&quot;annoyances-with-windows-10&quot;&gt;Annoyances with Windows 10&lt;&#x2F;h2&gt;
+&lt;p&gt;Windows 10 has been overall a good system, but there are a few annoyances that have built up over the years that finally gave me pause.  In particular the random upgrades that I couldn&#x27;t skip indefinitelty.  It&#x27;s my computer, I&#x27;m an expert user and I don&#x27;t need my OS determining when I&#x27;m ready to upgrade.  It&#x27;s sort of a slap in the face and a reversal of the roles of computer and user.&lt;&#x2F;p&gt;
+&lt;p&gt;I understand that many people get viruses and that was a primary concern when the auto-upgrade feature was added to Windows 10.  I personally haven&#x27;t had a virus on my system in over 20 years.  I also don&#x27;t open random email links, go to sketchy websites or download warez, so my risk profile is pretty darn low.  In any case, I keep lots of backups and much of my work is in git repos anyways so that even if I got a virus it wouldn&#x27;t be the end of the world.  At the end of the day, my computer is a tool that &lt;em&gt;I&lt;&#x2F;em&gt; use, and I want to be the one who determines my workflow.&lt;&#x2F;p&gt;
+&lt;p&gt;I also hate that when an upgrade would occur, half the time I would be asked about some new features I had to disable or else be tracked with.  On top of that, I was also not a fan of Edge being set as my default browser randomly.  No upgrade should overwrite your custom settings, otherwise they&#x27;re doing it wrong.&lt;&#x2F;p&gt;
+&lt;p&gt;A huge annoyance with Windows 10, has been my systems randomly waking up to do some check and then not going back to sleep properly and draining the battery.  This has happened on multiple systems, laptops and desktops, and no amount of searching around delivered a work around, so I had given up and just accepted an extremely annoying OS behavior.&lt;&#x2F;p&gt;
+&lt;p&gt;None of these were deal breakers initially, but over time it was a realization that my computer wasn&#x27;t working how I, the user, wanted it to and knowing that I had other options.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;os-choice&quot;&gt;OS choice&lt;&#x2F;h2&gt;
+&lt;p&gt;I ended up installing Kubuntu 20.10 on my laptop, and didn&#x27;t require many tweaks to get it to a perfect state for development.  The UI looks great out of the box, is easy to tweak and almost eveyy package I need is available through &lt;code&gt;apt&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ux-tweaks&quot;&gt;UX tweaks&lt;&#x2F;h2&gt;
+&lt;p&gt;On any desktop system, there are a few UX improvements I always use and it turns out that Kubuntu had them available without much work.&lt;&#x2F;p&gt;
+&lt;p&gt;I always map Caps Lock to Ctrl which in Windows requires a registry edit, but in Kubuntu is nicely exposed through a settings UI option.&lt;&#x2F;p&gt;
+&lt;p&gt;I also make heavy use of a clipboard app for copied item history.  Kubuntu has one installed out of the box and setting the global hotkey to what I&#x27;m used to got me up and running instantly.&lt;&#x2F;p&gt;
+&lt;p&gt;Virtaul desktops are a feature I hadn&#x27;t used in a long time, not having found a decent version on Windows, but on KDE I&#x27;m really liking having my various use case contexts separated into different desktops.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;cloud-access&quot;&gt;Cloud access&lt;&#x2F;h2&gt;
+&lt;p&gt;A large improvement to my workflow has been changing how I access files in the cloud.&lt;&#x2F;p&gt;
+&lt;p&gt;I had been using Google Drive as cloud storage for a few documents, but it turned out there isn&#x27;t a good client available on Linux.  I could get access through the Dolphin file manager, but editing files would require a download to temp file, edit, and then asking to upload again cycle that was annoying.&lt;&#x2F;p&gt;
+&lt;p&gt;Instead I found that Fastmail (my main email provider), exposes their Files section over Webdav.  So using &lt;code&gt;davfs2&lt;&#x2F;code&gt; I now have seamless access to my cloud files as another mounted filesystem and can interact with the files without any odd workflow.&lt;&#x2F;p&gt;
+&lt;p&gt;That led me to realize I could setup &lt;code&gt;sshfs&lt;&#x2F;code&gt; as well to have seamless access to my local raspberry pi NAS files.  This is actually a huge improvement for how I accessed these files compated to Windows where I always used Filezilla,&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
+&lt;p&gt;In conclusion, using Kubuntu 20.10, I have a perfect development environment that is faster and uses less memory for my use cases as I don&#x27;t need WSL2 and its VM running.  I also no longer have to deal with various Windows 10 annoyances and haven&#x27;t hit any real problems with Linux so far.  Finally numerous aspects such as battery life and remote files access have actually improved substantially for me.&lt;&#x2F;p&gt;
+&lt;p&gt;Since the experiment has been so successful I&#x27;m very much considering dual booting my desktop system and using Kubuntu as my daily driver with Windows 10 just for the odd occasion that I want to play a Windows exclusive game.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>FPGA Design for Software Engineers, Part 3 - Seven Segment Displays</title>
+        <published>2020-04-20T00:00:00+00:00</published>
+        <updated>2020-04-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/016-fpga-start3/"/>
+        <id>https://www.walknsqualk.com/016-fpga-start3/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.walknsqualk.com&#x2F;015-fpga-start2&#x2F;&quot;&gt;Last time&lt;&#x2F;a&gt; we took a break from Verilog and hardware design to improve our build system.  This time we&#x27;re back to Verilog and for our next FPGA project we&#x27;ll create a seven segment driver circuit that will allow us to output hex characters to a single display.&lt;&#x2F;p&gt;
+&lt;p&gt;A seven segment display is a set of LEDs arranged like an eight plus a decimal point like you see on cheap alarm clocks and the like.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>FPGA Design for Software Engineers, Part 2 - Simulation and Build Tools</title>
+        <published>2020-03-21T00:00:00+00:00</published>
+        <updated>2020-03-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/015-fpga-start2/"/>
+        <id>https://www.walknsqualk.com/015-fpga-start2/</id>
+        
+        <summary type="html">&lt;p&gt;It&#x27;s been a while since the last article, but it was well received so thanks to everyone for the great feedback!&lt;&#x2F;p&gt;
+&lt;p&gt;This time we&#x27;ll take a quick break from learning Verilog to set up a better simulation environment and build process using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;cmake.org&#x2F;&quot;&gt;Cmake&lt;&#x2F;a&gt; and &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;conan.io&#x2F;&quot;&gt;Conan&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The next article, which is already basically written, will be back to hardware design, using seven segment displays.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>FPGA Design for Software Engineers, Part 1 - Verilog and State Machines</title>
+        <published>2019-10-16T00:00:00+00:00</published>
+        <updated>2019-10-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/014-fpga-start/"/>
+        <id>https://www.walknsqualk.com/014-fpga-start/</id>
+        
+        <summary type="html">&lt;p&gt;Over the last few years I&#x27;ve gotten more interested in electronics and FPGA design.  I&#x27;ve also noticed that a lot of other software folks seem interested in doing the same, but often don&#x27;t know where to start.  So, I think I have some interesting advice for software engineers that feel like dipping their toes into the hardware world from the point of view of a software engineer.&lt;&#x2F;p&gt;
+&lt;p&gt;In this post I&#x27;ll go over FPGAs in general, the basics of the Verilog language, simulating a design and deploying it to an inexpensive TinyFPGA-BX board.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Bitfield widths in C&#x2F;C++ structures</title>
+        <published>2019-09-02T00:00:00+00:00</published>
+        <updated>2019-09-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/013-bitfeld-widths-cpp/"/>
+        <id>https://www.walknsqualk.com/013-bitfeld-widths-cpp/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/013-bitfeld-widths-cpp/">&lt;p&gt;Recently, I learned about a feature in C and C++ that I hadn&#x27;t run into before: bit widths for fields in structures.  The idea is that you can specify how many bits a particular field should have allocated to it.  For example, you can have a field that is only 5 bits wide and therefore only takes values in [0, 32).  You could then have a field that is 3 bits wide that is placed next to the first field in memory.&lt;&#x2F;p&gt;
+&lt;p&gt;I decided to play around with them a bit, trying to create a packed &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;RGB565&quot;&gt;RGB 565&lt;&#x2F;a&gt; structure using bitfield widths rather than doing the bitmasking and shifting by hand.  I noticed a couple of interesting things in the process:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;It&#x27;s implementation dependent as to what order the fields show up; left-to-right or right-to-left in memory.&lt;&#x2F;li&gt;
+&lt;li&gt;It&#x27;s implementation dependent as to whether fields span across type size boundaries.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;You can read more in depth details &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.cppreference.com&#x2F;w&#x2F;cpp&#x2F;language&#x2F;bit_field&quot;&gt;here on cppreference&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;an-example&quot;&gt;An example&lt;&#x2F;h2&gt;
+&lt;p&gt;Here is the code I hacked together to see how it works.  There are three versions of basically the same RGB565 structure, but with minor changes, first with field type, and then with order:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;#include &amp;lt;cstdio&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;struct rgb565_a {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    unsigned char r : 5;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    unsigned char g : 6;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    unsigned char b : 5;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;};
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;struct rgb565_b {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    unsigned short r : 5;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    unsigned short g : 6;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    unsigned short b : 5;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;};
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;struct rgb565_c {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    unsigned short b : 5;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    unsigned short g : 6;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    unsigned short r : 5;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;};
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;template &amp;lt;typename T, typename RawVal&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;void printStructInfo() {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    printf(&amp;quot;-----------------------------\n&amp;quot;);
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    printf(&amp;quot;sizeof %s = %lu\n&amp;quot;, __PRETTY_FUNCTION__, sizeof(T));
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    T val;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    val.r = 15;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    val.g = 63;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    val.b = 31;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    printf(&amp;quot;packed struct contains: %d, %d, %d\n&amp;quot;, val.r, val.g, val.b);
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    RawVal rawVal = *(RawVal*)&amp;amp;val;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    printf(&amp;quot;raw value is 0x%x\n\n\n&amp;quot;, rawVal);
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;int main() {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    printStructInfo&amp;lt;rgb565_a, unsigned short&amp;gt;();
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    printStructInfo&amp;lt;rgb565_b, unsigned short&amp;gt;();
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    printStructInfo&amp;lt;rgb565_c, unsigned short&amp;gt;();
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Running this with GCC 7.4.0 you get:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; $ g++ .&#x2F;bitfield_tests.cpp 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; $ .&#x2F;a.out
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;-----------------------------
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;sizeof void printStructInfo() [with T = rgb565_a; RawVal = short unsigned int] = 3
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;packed struct contains: 15, 63, 31
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;raw value is 0x3f6f
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;-----------------------------
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;sizeof void printStructInfo() [with T = rgb565_b; RawVal = short unsigned int] = 2
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;packed struct contains: 15, 63, 31
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;raw value is 0xffef
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;-----------------------------
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;sizeof void printStructInfo() [with T = rgb565_c; RawVal = short unsigned int] = 2
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;packed struct contains: 15, 63, 31
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;raw value is 0x7fff
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;What you see is that the first structure is having each field placed into its own byte, not spanning the &lt;code&gt;g&lt;&#x2F;code&gt; field across the first and second bytes.&lt;&#x2F;p&gt;
+&lt;p&gt;The second structure shows that the structure is packed little endian on my machine, meaning &lt;code&gt;r&lt;&#x2F;code&gt; is in the lower bits, &lt;code&gt;g&lt;&#x2F;code&gt; in the middle, and &lt;code&gt;b&lt;&#x2F;code&gt; in the upper bits, so actually a BGR565 structure.&lt;&#x2F;p&gt;
+&lt;p&gt;The last one is what I actually wanted: 16 bits packed tightly together, with red in the upper bits and blue in the bottom.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;&#x2F;h2&gt;
+&lt;p&gt;Letting the compiler do the bitmasking and shifting for you looks like a useful feature on the surface, but I&#x27;d be careful to have a unit test when using this in production.  I&#x27;d want to make sure that on any particular architecture I build for, that I would get the raw values that I expect so I wouldn&#x27;t end up with red and blue switched around when changing compilers or targets.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Passive and Active, Consuming and Producing</title>
+        <published>2019-04-22T00:00:00+00:00</published>
+        <updated>2019-04-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/012-passive-active-consumption-production/"/>
+        <id>https://www.walknsqualk.com/012-passive-active-consumption-production/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/012-passive-active-consumption-production/">&lt;p&gt;I was thinking recently about the different things I choose to do in my free time and which ones bring me the most enjoyment.  I tend to have too many hobby projects going on at once and every three months or so, I naturally tend to cycle around.&lt;&#x2F;p&gt;
+&lt;p&gt;I realized I enjoyed my time the most when I had something to show for it: a written blog post, a finished circuit on a breadboard, or some module written towards some software project.&lt;&#x2F;p&gt;
+&lt;p&gt;It dawned on me that you can classify the things you choose to do as consuming or producing activities and that producing something tends to bring more enjoyment and fulfullment.&lt;&#x2F;p&gt;
+&lt;p&gt;But that doesn&#x27;t feel like it models things well enough.  You can further classify you activities as passive or active versions of consuming or producing.  For instance, watching TV, reading, or playing a game are all typically passive consumption tasks: you don&#x27;t need to engage your mind too much to process the content.&lt;&#x2F;p&gt;
+&lt;p&gt;However, if you are learning a second language and you watch TV or read a book in that language, you are now actively consuming the material.  You are building a skill while you consume.  You can similarly actively consume material based on how you approach it.  If you are disecting the thesis of a book, or learning some non-fictional material, you are also actively consuming.&lt;&#x2F;p&gt;
+&lt;p&gt;You can split producing activities into passive and active as well.  I place anything where you are creating something of value, to yourself or someone else, as an active producing one.  I also believe when you are building a skill you are actively producing.  For instance, working out intensely, learning a new instrument or song, or trying to have a discussion in a new language.  Even if what is produced is non-material and simply an experience.&lt;&#x2F;p&gt;
+&lt;p&gt;The active consuming and producing activities have some overlap, since you can view learning a subject from a book or video as helping to produce whatever skill they are teaching, such as a new programing language, or how to repair something.&lt;&#x2F;p&gt;
+&lt;p&gt;Passive producing activities are where you are not really needing to push yourself, and the results of your actions are not really consumed themselves.  Things like journaling, doing practice sketching, playing songs you know really well on an instrument, or even working out with weights but just not that intensely.&lt;&#x2F;p&gt;
+&lt;p&gt;The hierarchy of which tasks bring the most fulfillment are passive consumption at the bottom with active consumption blending with passive production and active production being the most fulfilling.  So the next time you have free time on your hands, think about whether you are being actively productive with your time.  Perhaps it will motivate you to work on that side project you&#x27;ve been putting off.&lt;&#x2F;p&gt;
+&lt;p&gt;Another axis I haven&#x27;t thought much about is socializing and how that might fit in.  My initial feeling is that it is an orthogonal property of activities and that it brings value in its own right.  I also imagine passive and active socializing making sense.  For instance being around people but not interacting versus having and help driving an interesting conversation.&lt;&#x2F;p&gt;
+&lt;p&gt;For myself, Breaking my activities into passive&#x2F;active and cosuming&#x2F;producing been a useful model to help me allocate time towards my more fulfulling projects the last year. Perhaps others will find it similarly motivating.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Wx 3.1 with embedded SFML 2.5 control</title>
+        <published>2019-03-05T00:00:00+00:00</published>
+        <updated>2019-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/011-wx-sfml/"/>
+        <id>https://www.walknsqualk.com/011-wx-sfml/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/011-wx-sfml/">&lt;p&gt;I&#x27;ve been working on a project where I wanted to embed an SFML drawing context in a wxWidgets window.  I wanted to be able to write a GUI application, but didn&#x27;t want to have all of the UI be embedded within the SFML window using something like imgui.&lt;&#x2F;p&gt;
+&lt;p&gt;I thought it could be useful to others to have a simple example of how to do the same thing.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;simple-example-version&quot;&gt;Simple Example version&lt;&#x2F;h2&gt;
+&lt;p&gt;I took the code from the SFML 1.6 tutorial &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.sfml-dev.org&#x2F;tutorials&#x2F;1.6&#x2F;graphics-wxwidgets.php&quot;&gt;here&lt;&#x2F;a&gt; and updated it slightly to work with SFML 2.5 and wxWidgets 3.1.  As part of this I played around with using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;conan.io&#x2F;&quot;&gt;conan&lt;&#x2F;a&gt; to pull down the SFML and wxWidgets dependencies and integrate them with CMake for generating my build files.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve only tested under Windows 10, and have currently commented out the GTK portions, that according to a &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;25630032&#x2F;why-cant-wxwidgets-and-sfml-play-nice&quot;&gt;Stack Overflow question&lt;&#x2F;a&gt; don&#x27;t work anymore.  I&#x27;ll need to spend some time trying to build under linux at some point, but that&#x27;s not a priority for me at the moment.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve made a repo on GitLab where you can try building it yourself: https:&#x2F;&#x2F;gitlab.com&#x2F;sr.jilarious&#x2F;wx_sfml&lt;&#x2F;p&gt;
+&lt;p&gt;Currently it&#x27;s just a simple base class for the SFML canvas, with an overridden implementation that draws a sprite.  I also added a wx button that can change the scale of the sprite to show how the two can work together seamlessly.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;wx_sfml_screen.png&quot; alt=&quot;wx_sfml repo running&quot; width=&quot;642&quot; height=&quot;538&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h2 id=&quot;my-level-editor-use-case&quot;&gt;My Level Editor Use Case&lt;&#x2F;h2&gt;
+&lt;p&gt;In my case I&#x27;m working on a level editor for a Nintendo simulator.  I want to prototype a game before porting it over to 6502 assembly and run it on the actual NES.  It&#x27;s a lot faster to iterate on the game logic and see if something is fun if I can just use all the niceties of C++.&lt;&#x2F;p&gt;
+&lt;p&gt;For the level editor, this means having various controls embedded within a larger GUI, where I want to access portions of my game logic and drawing code using SFML.  For instance, I have a meta-tile editor drawn with SFML where I can build up 2x2 or 4x4 meta-tiles that are built up from the 8x8 pixel tile building blocks available on the NES.  Similarly I have a map editor drawn using SFML with my engine code that lets me lay out meta-tiles in layers to build up maps, place objects, etc.&lt;&#x2F;p&gt;
+&lt;p&gt;By integrating my engine code with a larger GUI framework, that means I get to have list views, property editors, buttons, menus and everything else with very little extra work.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;level_editor_1.png&quot; alt=&quot;Level Editor Editing a Map&quot; width=&quot;1254&quot; height=&quot;843&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;I&#x27;ll have more to say about the Nintendo simulator project and the resulting game I&#x27;m working on in the future.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Electronics and great technical books on archive.org</title>
+        <published>2018-09-22T00:00:00+00:00</published>
+        <updated>2018-09-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/010-classic-techbooks-at-archive-org/"/>
+        <id>https://www.walknsqualk.com/010-classic-techbooks-at-archive-org/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/010-classic-techbooks-at-archive-org/">&lt;p&gt;I&#x27;ve been away from blogging for a few months and haven&#x27;t had much time for personal projects either.  I recently moved from Vienna back to the US, now living in Denver.  So far I&#x27;m loving it; it&#x27;s nice to come back after a number of years abroad, even if I will miss many parts of life in Europe.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;getting-into-electronics&quot;&gt;Getting into Electronics&lt;&#x2F;h1&gt;
+&lt;p&gt;I&#x27;ve recently gotten into electronics more deeply than I&#x27;ve had a chance to do before.  I took a number of EE courses in college, but didn&#x27;t have much of a chance to apply it since I went into software development.  There are some amazing resources online nowadays for getting started or increasing your knowledge.&lt;&#x2F;p&gt;
+&lt;p&gt;For starters, there are some great channels on YouTube.  The one that really got me into things was &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;user&#x2F;EEVblog&quot;&gt;EEVBlog&lt;&#x2F;a&gt;.  I recently followed most of the recommendations on setting up an electronics lab from a video of that is a few years old.  Some of the links are outdated now, but the items are easy enough to find.&lt;&#x2F;p&gt;
+&lt;p&gt;A close second for piquing my interest was the series of videos from &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;user&#x2F;eaterbc&quot;&gt;Ben Eater&lt;&#x2F;a&gt; about building an 8-bit CPU from discrete chips.  I&#x27;m planning on doing my own build of Ben Eater&#x27;s CPU, although I will likely make some changes like increase the amount of memory&lt;&#x2F;p&gt;
+&lt;p&gt;Thirdly, I love watching the repair videos from &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;user&#x2F;RetroManCave&quot;&gt;Retro Man Cave&#x27;s channel&lt;&#x2F;a&gt;.  They got me excited about actually pulling apart old systems and being able to diagnose real issues and fix them.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;classic-technical-books&quot;&gt;Classic Technical books&lt;&#x2F;h1&gt;
+&lt;p&gt;I stumbled upon a trove of amazing old technical books on archive.org recently.  I had poked around a bit before, but never thought about looking for some classics that I&#x27;d been wanting to read.&lt;&#x2F;p&gt;
+&lt;p&gt;For instance, you can find &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;archive.org&#x2F;details&#x2F;TheArtOfElectronics-2ndEdition&quot;&gt;The Art of Electronics 2nd Edition&lt;&#x2F;a&gt;, which is a classic book that you hear recommended by many folks.  Even though there is a 3rd edition that was published a few years ago, the 2nd still gets high marks for sections on good versus bad circuits at the end of various chapters.&lt;&#x2F;p&gt;
+&lt;p&gt;Another book I recently heard about and found there was [High Speed Digital Design, a Book of Black Magic] (https:&#x2F;&#x2F;archive.org&#x2F;details&#x2F;HighSpeedDigitalDesignJohnsonGraham).  Note that the preview shows the first of four books from the same authors.  The one I&#x27;m talknig about here is the fourth in the pdf list.&lt;&#x2F;p&gt;
+&lt;p&gt;I saw a review on Amazon from Bil Herd, an engineer who worked on the Commodore 128 and Plus4, and has videos on Hackaday, talking about this being one of his favorite books on high speed design.  It&#x27;s now high on my list of books to read through, sitting comfortably on my iPad.&lt;&#x2F;p&gt;
+&lt;p&gt;I also was able to find the book &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;archive.org&#x2F;details&#x2F;HdlChipDesign&quot;&gt;HDL Chip Design&lt;&#x2F;a&gt;, recommended by Jeri Ellsworth in her video on books for learning FPGA programming, which is another area I&#x27;ve been diving into more deeply.&lt;&#x2F;p&gt;
+&lt;p&gt;I had learned some VHDL in school, but having now discovered Verilog, I&#x27;m more interested in playing around with it.  Verilog is a bit cleaner in syntax to me, looking a bit more like C, but as if everything were super multi-threaded.&lt;&#x2F;p&gt;
+&lt;p&gt;Speaking of C, you can even find the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;archive.org&#x2F;details&#x2F;The_C_Programming_Language&quot;&gt;C Programming language 2nd ed&lt;&#x2F;a&gt;, which was the first programming book I ever owned, receiving it as a gift when I was 13.&lt;&#x2F;p&gt;
+&lt;p&gt;Now I&#x27;ve got some reading to get back to, catch you next time!&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Learning the Jouyou Kanji</title>
+        <published>2018-03-12T00:00:00+00:00</published>
+        <updated>2018-03-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/009-learning-japanese-kanji/"/>
+        <id>https://www.walknsqualk.com/009-learning-japanese-kanji/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/009-learning-japanese-kanji/">&lt;p&gt;I love learning languages and I&#x27;ve always had a soft spot in my heart for Japanese.  I didn&#x27;t start out being good at learning languages.  In fact I was pretty terrible.  I&#x27;m not a polyglot or anything, but you tend to hear that same sentiment from most people online that have learned a second langage later in life.  For instance, I took four years of Spanish in high-school but could still barely order a taco and a drink when push came to shove.&lt;&#x2F;p&gt;
+&lt;p&gt;It wasn&#x27;t until I was in College and needed to take a series of electives that I stumbled upon the idea of trying a foreign language more seriously.  I had always heard that you can&#x27;t learn a language after about the age of ten, because, you know, scientific reason about the brain and neurons.  I decided to give it a try anyways.&lt;&#x2F;p&gt;
+&lt;p&gt;I had given a few feeble attempts at learning Japanese while in high school, but had always stumbled on learning the various characters; I just couldn&#x27;t quite crack the system to memorize all of the kanji and it seemed downright impossible.  I had also always been interested in German, since some of my family traced its roots back there.  In the end, having a full Computer Science degree course load, I decided to try the language that both suited my fancy and seemed at least surmountable: German.&lt;&#x2F;p&gt;
+&lt;p&gt;It turned out my college courses in German were really good: the class was actually conducted in German and it forced me to actually try to use the vocabulary that I was learning.  On top of that I supplemented my learning with some great audio resources: Pimsleur and, my favorite (even to this day): the Michel Thomas German series.  Suddenly I was able to handle basic conversations and through that gained confidence that I could actually learn a foreign language.&lt;&#x2F;p&gt;
+&lt;p&gt;My next step towards learning to love learning languages was a semester abroad in Potsdam, Germany.  It was, for me, a turning point in my life where I really got a chance to grow into an individual.  I made a number of great friends that I still am in close contact with to this day and it spurred me on to keep learning, eventually reading through all of the Harry Potter books auf Deutsch.&lt;&#x2F;p&gt;
+&lt;p&gt;Back in June 2017, I saw that Duolingo opened up the beta for their Japanese course and I decided to give it a shot.  I got hooked on it, but like most Duolingo courses, it only can go into so much depth and I started to get an itch to dig deeper.  Looking for resources on the internet I was amazed at how many fantastic resources there are for Japanese.  In particular I stumbled upon NihongoShark&#x27;s website and decided to try out the Hacking Japanese Supercourse after checking out the free newsletters for a few weeks.&lt;&#x2F;p&gt;
+&lt;p&gt;One key piece of advice early on was to break up learning the kanji into multiple phases.  I had always tried to learn not just the meaning, but the different pronunciations at the same time.  In this book, it was saying forget that, just learn all of the meanings first, then learn vocabulary and you&#x27;ll get the reading through that.  The readings on their own aren&#x27;t that valuable when you aren&#x27;t guaranteed to know which one to use given a particular word anyway.&lt;&#x2F;p&gt;
+&lt;p&gt;I started in November in earnest, working through the Jouyou kanji; the set of 2136 kanji that cover the kanji used in Japanese newspapers.  Ones outside that list are pretty rare apparently and if they do show up, the use the furigana to let you know how the kanji is to be pronounced.&lt;&#x2F;p&gt;
+&lt;p&gt;I worked through 20 new kanji a day, reviewing 100 at first and then upping that to 120 after a month or two when I found I wasn&#x27;t seeing old kanji often enough.  I did this every day, usually before bed, and it took on average 45 minutes per day.  I managed to stick with it even though I got a number of colds and the flu during this winter season.&lt;&#x2F;p&gt;
+&lt;p&gt;By being consistent with my practice and never breaking the chain of days, I&#x27;ve now reached my goal of having seen all of the kanji in the NihongoShark Anki deck.  That doesn&#x27;t mean I&#x27;ve learned them all perfectly yet, but it&#x27;s the first big step into finally learning the language that I&#x27;ve always dreamed of being able to speak and read.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Setting up Let&#x27;s Encrypt with Hugo</title>
+        <published>2018-02-21T00:00:00+00:00</published>
+        <updated>2018-02-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/008-letsencrypt-with-hugo/"/>
+        <id>https://www.walknsqualk.com/008-letsencrypt-with-hugo/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/008-letsencrypt-with-hugo/">&lt;p&gt;I finally got around to setting up HTTPS with a free TLS certificate for the blog.  As I&#x27;ve mentioned before I mostly use Windows as my daily driver and love using WSL for a native bash&#x2F;linux experience.  Of course this isn&#x27;t flawless and sometimes this rears its ugly head.  In particular Let&#x27;s Encrypts&#x27; tool &lt;code&gt;letsencrypt-auto&lt;&#x2F;code&gt; won&#x27;t work under WSL.  It seems to be due to a python package trying to execute code on the stack, which is a security vulnerability that WSL disallows, according to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Microsoft&#x2F;WSL&#x2F;issues&#x2F;2553&quot;&gt;this github issue&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I ended up creating a simple virtual machine with Vagrant in order to run let&#x27;s encrypt and get a certificate generated.  It actually took me longer than I originally expected, given that there are quite a few articles on setting this up.  I followed &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;about.gitlab.com&#x2F;2016&#x2F;04&#x2F;11&#x2F;tutorial-securing-your-gitlab-pages-with-tls-and-letsencrypt&#x2F;&quot;&gt;this article&lt;&#x2F;a&gt; that talks specifically about GitLab, where this blog is hosted.  It, however, deals with Jekyll and not Hugo, and it took a few extra non-obvious steps to get things working.&lt;&#x2F;p&gt;
+&lt;p&gt;Once you run &lt;code&gt;letsencrypt-auto certonly --manual -d &amp;lt;domain name&amp;gt;&lt;&#x2F;code&gt;, it expects you to setup a page with a token to verify that you are the owner of the domain.  I ended up creating a new section by creating a folder under content called &#x27;letsencrypt&#x27; and placed a single article &#x27;token.md&#x27; under it. In that file I placed the following:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;+++
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;url = &amp;quot;&amp;lt;url that letsencrypt-auto is going to look for&amp;gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;layout = &amp;quot;rawtext&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;+++
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;lt;token that letsencrypt-auto wants to find&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I then created a layouts&#x2F;letsencrypt&#x2F;rawtext.html file in the base of my blog project with the following&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;{{ .Plain }}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The last step, which took me longer than it should have, was to turn off auto-lower casing of urls in site wide config (config.toml):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;...
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;disablePathToLower = true
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;With that I was able to generate the certificates that I needed and setup the domain information on Gitlab.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Multiple Android builds on Xamarin Forms</title>
+        <published>2017-07-29T00:00:00+00:00</published>
+        <updated>2017-07-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/007-multiple-android-builds-xamarin-forms/"/>
+        <id>https://www.walknsqualk.com/007-multiple-android-builds-xamarin-forms/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/007-multiple-android-builds-xamarin-forms/">&lt;p&gt;While working on a Xamarin.Forms based project I ran into the issue of wanting to have multiple builds of my android app differentiated by the build configuration.  For instance, I want my normal build to point to the production server, but when I&#x27;m developing locally I want a different app that points to my local dev backend.  I still want to be able to use the &lt;em&gt;current production app&lt;&#x2F;em&gt; and have a &lt;em&gt;development version&lt;&#x2F;em&gt; installed at the &lt;strong&gt;same time&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Part of the problem I had with a single apk, is that I would forget which version was installed and not remember which server I was pointing to when using the app.&lt;&#x2F;p&gt;
+&lt;p&gt;I started working on a solution for iOS as well, but it would involve a script to swap out the Info.plist while as a pre-build step.  Since I do most of my development on my Windows machine with Android, I&#x27;ve left the iOS fix for later.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;setting-up-visual-studio-for-multiple-android-builds&quot;&gt;Setting up Visual Studio for Multiple Android Builds&lt;&#x2F;h2&gt;
+&lt;p&gt;The first step is to have different build configurations in Visual Studio so that we can differentiate between the different apks that we want to build.  First, I went to &lt;code&gt;Build -&amp;gt; Configuration Manahger&lt;&#x2F;code&gt; and then I selected that I wanted to create a new configuration, copying the &lt;code&gt;Debug&lt;&#x2F;code&gt; configuration.&lt;&#x2F;p&gt;
+&lt;p&gt;We can use the configuration not only to have configuration specific preprocessor flags that we use in our code, but we can conditionally include files by configuration with MSBuild, even though some options are not always available in Visual Studio&#x27;s UI.&lt;&#x2F;p&gt;
+&lt;p&gt;There are two things that we want for different build configurations: A different package name so that Android can differentiate between our builds and a different label so that we can.&lt;&#x2F;p&gt;
+&lt;p&gt;The first step is to create Android manifests for each configuration:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create copies of your AndroidManifest, naming them so that you can identify which one belongs to which configuration.&lt;br &#x2F;&gt;
+For Instance, I create a LocalDev configuration, so I have an AndroidManifest.LocalDev.manifest.&lt;&#x2F;li&gt;
+&lt;li&gt;Add a new package name in your copied manifest&#x27;s &lt;code&gt;manifest&lt;&#x2F;code&gt; element&lt;&#x2F;li&gt;
+&lt;li&gt;Add a different label to the &lt;code&gt;application&lt;&#x2F;code&gt; element so we can differentiate when looking at the launcher which apk is which.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Here&#x27;s my full LocalDev AndroidManifest:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;lt;manifest 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    xmlns:android=&amp;quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&amp;quot; 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    android:installLocation=&amp;quot;auto&amp;quot; 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    package=&amp;quot;MyApp.Droid.LocalDev&amp;quot;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;uses-sdk android:minSdkVersion=&amp;quot;15&amp;quot; android:targetSdkVersion=&amp;quot;23&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;uses-permission android:name=&amp;quot;android.permission.WRITE_EXTERNAL_STORAGE&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;uses-permission android:name=&amp;quot;android.permission.READ_EXTERNAL_STORAGE&amp;quot; &#x2F;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;application android:label=&amp;quot;MyApp LocalDev&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;                 android:theme=&amp;quot;@android:style&#x2F;Theme.Material.Light&amp;quot; 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;                 android:icon=&amp;quot;@drawable&#x2F;icon&amp;quot;&amp;gt;&amp;lt;&#x2F;application&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;lt;&#x2F;manifest&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The second step is to set MSBuild to use our new Android Manifest in the new build configuration.  You can do this by editing your App&#x27;s Android .csproj in a text editor.  Notice that the &lt;code&gt;PropertyGroup&lt;&#x2F;code&gt; for each configuration can add its own element for the &lt;code&gt;AndroidManifest&lt;&#x2F;code&gt; to use.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;lt;AndroidManifest&amp;gt;Properties\AndroidManifestLocalProd.xml&amp;lt;&#x2F;AndroidManifest&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;My .csproj configuration &lt;code&gt;PropertyGroup&lt;&#x2F;code&gt; block for my LocalDev build configuration looks like:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;lt;PropertyGroup Condition=&amp;quot;&amp;#39;$(Configuration)|$(Platform)&amp;#39; == &amp;#39;DebugLocalDevServer|AnyCPU&amp;#39;&amp;quot;&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;DebugSymbols&amp;gt;true&amp;lt;&#x2F;DebugSymbols&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;OutputPath&amp;gt;bin\DebugLocalProdServer\&amp;lt;&#x2F;OutputPath&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;DefineConstants&amp;gt;TRACE;DEBUG;USE_LOCAL_PROD_SERVER&amp;lt;&#x2F;DefineConstants&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;DebugType&amp;gt;full&amp;lt;&#x2F;DebugType&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;PlatformTarget&amp;gt;AnyCPU&amp;lt;&#x2F;PlatformTarget&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;GenerateSerializationAssemblies&amp;gt;Off&amp;lt;&#x2F;GenerateSerializationAssemblies&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;ErrorReport&amp;gt;prompt&amp;lt;&#x2F;ErrorReport&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;CodeAnalysisRuleSet&amp;gt;MinimumRecommendedRules.ruleset&amp;lt;&#x2F;CodeAnalysisRuleSet&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;lt;AndroidManifest&amp;gt;Properties\AndroidManifestLocalDev.xml&amp;lt;&#x2F;AndroidManifest&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;&amp;lt;&#x2F;PropertyGroup&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;&#x2F;strong&gt; the actual manifest that is included in your app&#x27;s apk is created using this manifest file as a base and then merging in class attribute related information to create a final version.  The attributes take precedence, so if you have a label set on your activity or application class through an attribute, that will negate what you&#x27;ve placed in your manifest file.&lt;&#x2F;p&gt;
+&lt;p&gt;Check the following Xamarin article for more details: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;developer.xamarin.com&#x2F;guides&#x2F;android&#x2F;advanced_topics&#x2F;working_with_androidmanifest.xml&#x2F;&quot;&gt;Working with Android Manifest&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;final-thoughts&quot;&gt;Final thoughts&lt;&#x2F;h2&gt;
+&lt;p&gt;A downside with this approach is that you now have to work to keep your different manifests in sync for the pieces that do show up in there.&lt;&#x2F;p&gt;
+&lt;p&gt;As I mentioned in the beginning I&#x27;m looking to make a script for iOS builds to do the same thing.  This would be applicable to Android as well and allow you to have just a template manifest that is used to generate the correct configuration manifest as a prebuild step.&lt;&#x2F;p&gt;
+&lt;p&gt;The open question there is if the generated manifest gets picked up properly on configuration swaps or if a cached version is used, etc.  Seeing as how the process above has been working really well for me so far, the iOS version has a been a lower priority on my task list.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope this can help some other developers out there as well to get around the prod&#x2F;dev apk issue I was hitting.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Tip for Phoenix 1.3 Fallback Controller error</title>
+        <published>2017-07-28T00:00:00+00:00</published>
+        <updated>2017-07-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/006-phoenix-fallback-controller-note/"/>
+        <id>https://www.walknsqualk.com/006-phoenix-fallback-controller-note/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/006-phoenix-fallback-controller-note/">&lt;p&gt;Just a quick note this time.  While working on my Phoenix 1.3 based project, I had a route that was failing and gave me an error about the fallback controller not having a matching clause.  Similar to (formatted excerpt):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;** (exit) an exception was raised:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ** (FunctionClauseError) no function clause 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    matching in MyProj.Web.FallbackController.call&#x2F;2
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;My route looked to be setup correctly and I couldn&#x27;t figure out why I was hitting the fallback controller at all.  It turned out the problem was one branch of my controller for that route didn&#x27;t return a Plug.Conn and so my project fell back to the FallbackController.  Of course the Fallback controller didn&#x27;t know what to do with my nil return value either, hence the error.&lt;&#x2F;p&gt;
+&lt;p&gt;In any case, now knowing that that can occur, I was able to avoid spending too much time checking that my route was spelled correctly and such, instead looking to see that all the branches have a valid render call.  Hopefully this can save someone on the interwebs an hour of debugging.&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Elixir on Windows Subsystem for Linux</title>
+        <published>2017-07-18T00:00:00+00:00</published>
+        <updated>2017-07-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/005-elixir-on-wsl/"/>
+        <id>https://www.walknsqualk.com/005-elixir-on-wsl/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/005-elixir-on-wsl/">&lt;p&gt;Lately I&#x27;ve been doing a lot of elixir and phoenix programming while working on some hobby projects.  I&#x27;m using a phoenix app as my backend server, serving up an API that is consumed by Xamarin.Forms based apps on Android and iOS.&lt;&#x2F;p&gt;
+&lt;p&gt;On Windows I&#x27;ve been using Git Bash (based on MinGW) for a bash shell for a long time and there the interactive elixir shell has had some downsides.  In particular, I wasn&#x27;t able to get command history with iex working and color output was missing as well.  Now with the Linux Subsystem for Windows available, also called WSL, you can get the best of linux development on your Windows machine.&lt;&#x2F;p&gt;
+&lt;p&gt;While initially trying elixir development using the linux version on Windows, I was worried how I might access the Erlang observer or debugger, which require GUIs, but with an extra X Server started, you can get it working without any problems.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;installing-wsl-and-elixir&quot;&gt;Installing WSL and Elixir&lt;&#x2F;h2&gt;
+&lt;p&gt;You can follow the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;msdn.microsoft.com&#x2F;en-us&#x2F;commandline&#x2F;wsl&#x2F;install_guide&quot;&gt;Microsoft documentation for installing WSL&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Soon you&#x27;ll be able to choose the linux distro you want to install (Insider builds already can), but I&#x27;m using the vanilla Ubunutu install.&lt;&#x2F;p&gt;
+&lt;p&gt;With your shiny real Ubuntu bash prompt, you can then install any packages you need with apt-get.  For elixir run the following:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;sudo apt-get install esl-erlang elixir
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Note that this will install a bunch of GTK dependencies which are part of showing the Erlang debugger and observer.&lt;&#x2F;p&gt;
+&lt;p&gt;If you run iex and try to start the observer, you&#x27;ll see the following (Note: I&#x27;ve modified the formatting for the blog a bit):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Erlang&#x2F;OTP 19 [erts-8.3] [source-d5c06c6] [64-bit] [smp:4:4] [async-threads:10] 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;              [hipe] [kernel-poll:false]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Interactive Elixir (1.4.4) - press Ctrl+C to exit (type h() ENTER for help)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;iex(1)&amp;gt; :observer.start
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;07:58:54: Error: Unable to initialize GTK+, is DISPLAY set properly?
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;{:error,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {{:einval, &amp;#39;Could not initiate graphics&amp;#39;},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    [{:wxe_server, :start, 1, [file: &amp;#39;wxe_server.erl&amp;#39;, line: 65]},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {:wx, :new, 1, [file: &amp;#39;wx.erl&amp;#39;, line: 115]},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {:observer_wx, :init, 1, [file: &amp;#39;observer_wx.erl&amp;#39;, line: 104]},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {:wx_object, :init_it, 6, [file: &amp;#39;wx_object.erl&amp;#39;, line: 355]},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {:proc_lib, :init_p_do_apply, 3, [file: &amp;#39;proc_lib.erl&amp;#39;, line: 247]}]}}
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;iex(2)&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;installing-an-x-server&quot;&gt;Installing an X Server&lt;&#x2F;h2&gt;
+&lt;p&gt;To fix this we need to install an X Server on Windows which can draw our GUIs and let the terminal know about it.&lt;&#x2F;p&gt;
+&lt;p&gt;The VcXSrv project is an implementation that I&#x27;ve been using that works quite well: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;sourceforge.net&#x2F;projects&#x2F;vcxsrv&#x2F;&quot;&gt;VcXSrv&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;With the VcXSrv started you&#x27;ll have an icon in your tray to let you know it&#x27;s running but we still need to let WSL know about it by exporting the display variable:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;export DISPLAY=:0
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;With that set, you can start the observer or debugger from iex:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Interactive Elixir (1.4.4) - press Ctrl+C to exit (type h() ENTER for help)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;iex(1)&amp;gt; :observer.start
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;:ok
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+ &lt;img src=&quot;observer_running.png&quot; alt=&quot;Erlang Observer Running&quot; width=&quot;1277&quot; height=&quot;601&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;iex(2)&amp;gt; :debugger.start
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;{:ok, #PID&amp;lt;0.100.0&amp;gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+ &lt;img src=&quot;debugger_running.png&quot; alt=&quot;Erlang Debugger Running&quot; width=&quot;1169&quot; height=&quot;661&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h2 id=&quot;better-color-and-copy-paste-support-wsltty&quot;&gt;Better color and copy&#x2F;paste support: WSLtty&lt;&#x2F;h2&gt;
+&lt;p&gt;I am used to using ctrl+ins and shift+ins for copying&#x2F;pasting from the shell but I wasn&#x27;t able to get this working in the vanilla Bash on Windows.  Luckily there is a mintty based project called wsltty that works perfectly with WSL.  Using wsltty I now have full 256 color support and ctrl+ins&#x2F;shirt+ins pasting.  You can grab wsltty from
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mintty&#x2F;wsltty&quot;&gt;WSLtty Project&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Then rather than the normal shortcut You can use the WSLtty one.  There are a few variants but I use: &#x27;WSL Bash % in Mintty&#x27;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;some-config-steps-for-wsl&quot;&gt;Some config steps for WSL&lt;&#x2F;h1&gt;
+&lt;p&gt;Since WSLtty is based on mintty, you can use a mintty config file to setup nicer colors.  I use a monokai-ish like color scheme.  You can place the following config options in the file: &lt;code&gt;c:\Users\&amp;lt;Your User Name&amp;gt;\AppData\Roaming\wsltty\config&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;ForegroundColour=248,248,242
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BackgroundColour=39,40,34
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;CursorColour=253,157,79
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Black=39,40,34
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldBlack=117,113,94
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Red=180,6,78
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldRed=249,38,114
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Green=102,172,24
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldGreen=146,226,40
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Yellow=220,149,59
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldYellow=244,191,117
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Blue=33,159,243
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldBlue=102,187,250
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Magenta=126,51,255
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldMagenta=174,129,255
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Cyan=75,197,180
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldCyan=161,239,228
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;White=248,248,242
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldWhite=249,248,245
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldAsFont=-1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;AllowBlinking=yes
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;CursorType=block
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldAsFont=yes
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Transparency=low
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;#Font=Consolas
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;FontHeight=12
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;FontSmoothing=full
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;AllowBlinking=yes
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;OpaqueWhenFocused=yes
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;CursorType=block
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Transparency=low 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You&#x27;ll end up with a terminal that looks like this:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;bash_color.png&quot; alt=&quot;Bash Prompt with Colors&quot; width=&quot;1150&quot; height=&quot;672&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hacking Final Fantasy 1 on the NES</title>
+        <published>2017-03-19T00:00:00+00:00</published>
+        <updated>2017-03-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/002-hacking-final-fantasy-1-on-nes/"/>
+        <id>https://www.walknsqualk.com/002-hacking-final-fantasy-1-on-nes/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/002-hacking-final-fantasy-1-on-nes/">&lt;p&gt;A few years ago I was inspired to hack around on some of my old favorite NES games after watching the video from Double Fine where the developer Brandon Dillon hacks around on the original Legend of Zelda.  You can watch the video &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;youtu.be&#x2F;FolqIgQRtl0?t=1s&quot;&gt;here&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;I decided I wanted to hack Final Fantasy 1, one of my favorite games growing up, that I put in more than 100 hours playing.  I used fceux as my NES emulator, same as in the video and followed mostly the same patterns.&lt;&#x2F;p&gt;
+&lt;p&gt;I kept some notes on how I did it and thought others might find the process as interesting and fun as I did.  I ended up losing most of the notes from a few years ago, so I went back and rediscovered the different memory locations and values to use again.&lt;&#x2F;p&gt;
+&lt;p&gt;I searched in the RAM Search window for values, particularly as something in-game would change, such as when you buy a weapon or a spell, in order to track down the correct memory locations.  Then I would use the Hex Editor tool to look at the NES RAM and try poking different locations.&lt;&#x2F;p&gt;
+&lt;p&gt;Note that values that need more than one byte are stored little-endian, so the lower byte shows up first in memory.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;character-data-and-stats&quot;&gt;Character Data and Stats&lt;&#x2F;h2&gt;
+&lt;p&gt;The character data is organized into four blocks, once for each character, one after the other starting at 0x6100.  I was able to find this by searching for my character&#x27;s names in RAM.  The trick is finding the value associated with the letters, which you can do by looking at the PPU memory and determining what tile goes to what letter.&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_ppu.png&quot; alt=&quot;ff1_hack_ppu&quot; width=&quot;535&quot; height=&quot;427&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;You can see that a capital &#x27;A&#x27; is mapped to 0x8A.  I named my first character &#x27;AAAA&#x27; so searching through the Hex Editor in FCEUX for the hex &quot;8a8a8a8a&quot; brings us right to the first character&#x27;s block of data:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_hex_char_data.png&quot; alt=&quot;Character Name in Hex Editor&quot; width=&quot;678&quot; height=&quot;492&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Address&lt;&#x2F;th&gt;&lt;th&gt;Character Data&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;0x6100 - 0x613f&lt;&#x2F;td&gt;&lt;td&gt;1st character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x6140 - 0x617f&lt;&#x2F;td&gt;&lt;td&gt;2nd character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x6180 - 0x61bf&lt;&#x2F;td&gt;&lt;td&gt;3rd character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x61c0 - 0x61ff&lt;&#x2F;td&gt;&lt;td&gt;4th character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;Some interesting locations within a character block:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Address&lt;&#x2F;th&gt;&lt;th&gt;Attribute&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;0x0&lt;&#x2F;td&gt;&lt;td&gt;character type&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x1&lt;&#x2F;td&gt;&lt;td&gt;character alive state (0: alive, 1:dead)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x2 - 0x5&lt;&#x2F;td&gt;&lt;td&gt;character name (using PPU tile indices)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x7 - 0x9&lt;&#x2F;td&gt;&lt;td&gt;experience points&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0xa - 0xb&lt;&#x2F;td&gt;&lt;td&gt;current hit points&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0xc - 0xd&lt;&#x2F;td&gt;&lt;td&gt;max hit points&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x10 - 0x14&lt;&#x2F;td&gt;&lt;td&gt;Str, Agl, Int, Vit, Luck&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x20 - 0x23&lt;&#x2F;td&gt;&lt;td&gt;Damage, Hit%, Absorb, Evade %&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;I found many of the above locations by looking at the Stats section for a character and then looking for the hex converted values within the block.  For instance, looking for my first character&#x27;s Str and Agl of 20, and 5 was a matter of looking for the hex values 14, 05 and finding them on the second line of the data block.  Then I messed with the values and saw what changed.&lt;&#x2F;p&gt;
+&lt;p&gt;When you start the game, you characters are child versions of their classes: fighter, black mage, etc.  Later in the game, after you get the Rat&#x27;s Tail, they become adults: knight, black wizard etc.  You can increase the character&#x27;s type value by 6 (the total number of character classes), and they will change to their adult version right away.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;magic&quot;&gt;Magic&lt;&#x2F;h2&gt;
+&lt;p&gt;What magic spells a character has, and the current&#x2F;max number of spells per level are stored in blocks for each character starting at 0x6300:&lt;&#x2F;p&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Address&lt;&#x2F;th&gt;&lt;th&gt;Character Magic Data&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;0x6300 - 0x632f&lt;&#x2F;td&gt;&lt;td&gt;1st character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x6340 - 0x636f&lt;&#x2F;td&gt;&lt;td&gt;2nd character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x6380 - 0x63af&lt;&#x2F;td&gt;&lt;td&gt;3rd character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0x63c0 - 0x63ef&lt;&#x2F;td&gt;&lt;td&gt;4th character&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;The first 32 bytes are what spells the character has for each level.  Each level gets 4 bytes, with the first 3 being the spell in that level&#x27;s slot, and the 4th byte being 0.  White spells for a level are numbered 0-4 and black spells are 5-8.&lt;&#x2F;p&gt;
+&lt;p&gt;The last 16 bytes within the block are 2 bytes for each level, with the first byte being the current number of casts left for the level, with the 2nd byte being the max.&lt;&#x2F;p&gt;
+&lt;p&gt;Here you can see a white wizard that I&#x27;ve given the first 3 spells of each level to (the repeating 01 02 03) and that has 9 &#x2F; 9 casts for each level:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_magic_data_hex.png&quot; alt=&quot;Character Magic Data in Hex Editor&quot; width=&quot;628&quot; height=&quot;280&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;And the white wizard&#x27;s magic table in-game looks like:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_white_mage_table.png&quot; alt=&quot;Character Magic Table in Game&quot; width=&quot;512&quot; height=&quot;448&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h3 id=&quot;white-magic-spell-table&quot;&gt;White Magic Spell table&lt;&#x2F;h3&gt;
+&lt;p&gt;| 1 | 2 | 3 | 4
+--- | --- | --- | --- | ---
+Lvl 1 | cure | harm | fog | ruse
+Lvl 2 | lamp | mute | alit | invs
+Lvl 3 | cur2 | hrm2 | afir | heal
+Lvl 4 | pure | fear | aice | amut
+Lvl 5 | cur3 | life | hrm3 | hel2
+Lvl 6 | soft | exit | fog2 | inv2
+Lvl 7 | cur4 | hrm4 | arub | hel3
+Lvl 8 | lif2 | fade | wall | xfer&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;black-magic-spell-table&quot;&gt;Black Magic Spell table&lt;&#x2F;h3&gt;
+&lt;p&gt;| 5 | 6 | 7 | 8
+--- | --- | --- | --- | ---
+Lvl 1 | fire | slep | lcok | lit
+Lvl 2 | ice | dark | tmpr | slow
+Lvl 3 | fir2 | hold | lit2 | lok2
+Lvl 4 | slp2 | fast | conf | ice2
+Lvl 5 | fir3 | bane | warp | slo2
+Lvl 6 | lit3 | rub | qake | stun
+Lvl 7 | ice3 | brak | sabr | blnd
+Lvl 8 | nuke | stop | zap! | xxxx&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;weapons-and-armor&quot;&gt;Weapons and Armor&lt;&#x2F;h2&gt;
+&lt;p&gt;By buying a rapier and then equipping&#x2F;unequipping I found the equip memory to be at 0x0300, there are 16 bytes available, matching the 4 slots for each character. Each weapon and armor has a number and to be equipped is a matter of setting the highest bit.  For example, if the rapier is 04, then 84 means an equipped rapier.&lt;&#x2F;p&gt;
+&lt;p&gt;Interestingly, the memory seems to be used for the equip menu, and is mirrored at 0x0b00, 0x1300, and 0x1b00 as well.  This same memory is used when equipping armor, so you can set the values while equipping, and they will stick when you leave the menu.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;weapons-list&quot;&gt;Weapons List&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Hex Code&lt;&#x2F;th&gt;&lt;th&gt;Weapon&lt;&#x2F;th&gt;&lt;th&gt;Hex Code&lt;&#x2F;th&gt;&lt;th&gt;Weapon&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;00&lt;&#x2F;td&gt;&lt;td&gt;Nothing&lt;&#x2F;td&gt;&lt;td&gt;15&lt;&#x2F;td&gt;&lt;td&gt;Ice Sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;01&lt;&#x2F;td&gt;&lt;td&gt;Wooden Nunchucks&lt;&#x2F;td&gt;&lt;td&gt;16&lt;&#x2F;td&gt;&lt;td&gt;Dragon sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;02&lt;&#x2F;td&gt;&lt;td&gt;Small dagger&lt;&#x2F;td&gt;&lt;td&gt;17&lt;&#x2F;td&gt;&lt;td&gt;Giant sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;03&lt;&#x2F;td&gt;&lt;td&gt;Wooden staff&lt;&#x2F;td&gt;&lt;td&gt;18&lt;&#x2F;td&gt;&lt;td&gt;Sun Sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;04&lt;&#x2F;td&gt;&lt;td&gt;Rapier&lt;&#x2F;td&gt;&lt;td&gt;19&lt;&#x2F;td&gt;&lt;td&gt;Coral sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;05&lt;&#x2F;td&gt;&lt;td&gt;Iron Hammer&lt;&#x2F;td&gt;&lt;td&gt;1a&lt;&#x2F;td&gt;&lt;td&gt;Were Sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;06&lt;&#x2F;td&gt;&lt;td&gt;Short Sword&lt;&#x2F;td&gt;&lt;td&gt;1b&lt;&#x2F;td&gt;&lt;td&gt;Rune sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;07&lt;&#x2F;td&gt;&lt;td&gt;Hand Axe&lt;&#x2F;td&gt;&lt;td&gt;1c&lt;&#x2F;td&gt;&lt;td&gt;Power staff&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;08&lt;&#x2F;td&gt;&lt;td&gt;Scimatar&lt;&#x2F;td&gt;&lt;td&gt;1d&lt;&#x2F;td&gt;&lt;td&gt;Light Axe&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;09&lt;&#x2F;td&gt;&lt;td&gt;Iron Nunchucks&lt;&#x2F;td&gt;&lt;td&gt;1e&lt;&#x2F;td&gt;&lt;td&gt;Heal staff&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0a&lt;&#x2F;td&gt;&lt;td&gt;Large Knfie&lt;&#x2F;td&gt;&lt;td&gt;1f&lt;&#x2F;td&gt;&lt;td&gt;Mage staff&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0b&lt;&#x2F;td&gt;&lt;td&gt;Iron Staff&lt;&#x2F;td&gt;&lt;td&gt;20&lt;&#x2F;td&gt;&lt;td&gt;Defense ?&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0c&lt;&#x2F;td&gt;&lt;td&gt;Sabre&lt;&#x2F;td&gt;&lt;td&gt;21&lt;&#x2F;td&gt;&lt;td&gt;Wizard staff&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0d&lt;&#x2F;td&gt;&lt;td&gt;Long Sword&lt;&#x2F;td&gt;&lt;td&gt;22&lt;&#x2F;td&gt;&lt;td&gt;Vorpal&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0e&lt;&#x2F;td&gt;&lt;td&gt;Great Axe&lt;&#x2F;td&gt;&lt;td&gt;23&lt;&#x2F;td&gt;&lt;td&gt;CatClaw&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;0f&lt;&#x2F;td&gt;&lt;td&gt;Falchon&lt;&#x2F;td&gt;&lt;td&gt;24&lt;&#x2F;td&gt;&lt;td&gt;Thor Hammer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;10&lt;&#x2F;td&gt;&lt;td&gt;Silver dagger&lt;&#x2F;td&gt;&lt;td&gt;25&lt;&#x2F;td&gt;&lt;td&gt;Bane Sword&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;11&lt;&#x2F;td&gt;&lt;td&gt;Silver Sword&lt;&#x2F;td&gt;&lt;td&gt;26&lt;&#x2F;td&gt;&lt;td&gt;Katana&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;12&lt;&#x2F;td&gt;&lt;td&gt;Silver Hammer&lt;&#x2F;td&gt;&lt;td&gt;27&lt;&#x2F;td&gt;&lt;td&gt;XCalber&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;13&lt;&#x2F;td&gt;&lt;td&gt;Silver Axe&lt;&#x2F;td&gt;&lt;td&gt;28&lt;&#x2F;td&gt;&lt;td&gt;Masmune&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td&gt;14&lt;&#x2F;td&gt;&lt;td&gt;Flame sword&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;td&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;armor-list&quot;&gt;Armor List&lt;&#x2F;h3&gt;
+&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th style=&quot;text-align: right&quot;&gt;Hex Value&lt;&#x2F;th&gt;&lt;th&gt;Armor&lt;&#x2F;th&gt;&lt;th style=&quot;text-align: right&quot;&gt;Hex Value&lt;&#x2F;th&gt;&lt;th&gt;Armor&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;01&lt;&#x2F;td&gt;&lt;td&gt;Cloth&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;15&lt;&#x2F;td&gt;&lt;td&gt;Ice shield&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;02&lt;&#x2F;td&gt;&lt;td&gt;Wooden Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;16&lt;&#x2F;td&gt;&lt;td&gt;Opal shield&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;03&lt;&#x2F;td&gt;&lt;td&gt;Chain Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;17&lt;&#x2F;td&gt;&lt;td&gt;Aegis Shield&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;04&lt;&#x2F;td&gt;&lt;td&gt;Iron Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;18&lt;&#x2F;td&gt;&lt;td&gt;Buckler&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;05&lt;&#x2F;td&gt;&lt;td&gt;Steel Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;19&lt;&#x2F;td&gt;&lt;td&gt;ProCape&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;06&lt;&#x2F;td&gt;&lt;td&gt;Silver Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1a&lt;&#x2F;td&gt;&lt;td&gt;Cap&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;07&lt;&#x2F;td&gt;&lt;td&gt;Flame Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1b&lt;&#x2F;td&gt;&lt;td&gt;Wooden helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;08&lt;&#x2F;td&gt;&lt;td&gt;Ice Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1c&lt;&#x2F;td&gt;&lt;td&gt;Iron helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;09&lt;&#x2F;td&gt;&lt;td&gt;Opal Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1d&lt;&#x2F;td&gt;&lt;td&gt;Silver helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0A&lt;&#x2F;td&gt;&lt;td&gt;Dragon Armor&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1e&lt;&#x2F;td&gt;&lt;td&gt;Opal helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0b&lt;&#x2F;td&gt;&lt;td&gt;Copper ring&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;1f&lt;&#x2F;td&gt;&lt;td&gt;Heal helmet&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0c&lt;&#x2F;td&gt;&lt;td&gt;Silver ring&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;20&lt;&#x2F;td&gt;&lt;td&gt;Ribbon&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0d&lt;&#x2F;td&gt;&lt;td&gt;Gold ring&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;21&lt;&#x2F;td&gt;&lt;td&gt;Gloves&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0e&lt;&#x2F;td&gt;&lt;td&gt;Opal Ring&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;22&lt;&#x2F;td&gt;&lt;td&gt;Copper bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;0f&lt;&#x2F;td&gt;&lt;td&gt;White Shirt&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;23&lt;&#x2F;td&gt;&lt;td&gt;Iron bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;10&lt;&#x2F;td&gt;&lt;td&gt;Black shirt&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;24&lt;&#x2F;td&gt;&lt;td&gt;Silver bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;11&lt;&#x2F;td&gt;&lt;td&gt;Wooden shield&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;25&lt;&#x2F;td&gt;&lt;td&gt;Zeus bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;12&lt;&#x2F;td&gt;&lt;td&gt;Iron shield&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;26&lt;&#x2F;td&gt;&lt;td&gt;Power bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;13&lt;&#x2F;td&gt;&lt;td&gt;Silver shield&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;27&lt;&#x2F;td&gt;&lt;td&gt;Opal bracer&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;tr&gt;&lt;td style=&quot;text-align: right&quot;&gt;14&lt;&#x2F;td&gt;&lt;td&gt;Flame shield&lt;&#x2F;td&gt;&lt;td style=&quot;text-align: right&quot;&gt;28&lt;&#x2F;td&gt;&lt;td&gt;ProRing&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
+&lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;p&gt;Playing around with the values, I ended up with weapons like:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_weapons.png&quot; alt=&quot;Weapons in Game&quot; width=&quot;512&quot; height=&quot;448&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;p&gt;and my armor setup looked like this, although I wasn&#x27;t trying to find the best setup:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;ff1_hack_armor.png&quot; alt=&quot;Armor in Game&quot; width=&quot;512&quot; height=&quot;448&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h2 id=&quot;other-misc-game-data&quot;&gt;Other Misc Game Data&lt;&#x2F;h2&gt;
+&lt;p&gt;I ended up finding some general game data by searching for the gold amount of my party.
+Gold is stored in at least 3 bytes at 0x601c - 0x601e (highest byte is 601e).  Setting the value above 0x0F423F (999,999) will cause you to have more gold when buying items, but sometimes the display value can be messed up and display some random letters like 999,9N2.  I didn&#x27;t dig much more into this as having more gold wasn&#x27;t necessary.&lt;&#x2F;p&gt;
+&lt;p&gt;Memory location 0x6016, when changed to non-zero, triggers the cut scene when the heroes first cross the bridge after defeating Garland.&lt;&#x2F;p&gt;
+&lt;p&gt;By writing 1&#x27;s to the values in the generic game data block.  I narrowed down the light orb booleans to the addresses: 0x6032-0x6035. A zero means the orb has not yet been obtained, and any other values shows the orb as shining.&lt;&#x2F;p&gt;
+&lt;p&gt;The character&#x27;s world position: 0x0027 xpos, 0x0028 ypos.  You can teleport the player around by changing these values.  If you do so the map doesn&#x27;t update automatically, but you&#x27;ll see the new location tiles scroll in as you start to walk around or you can do a screen refresh by going into the party menu and then leaving.&lt;&#x2F;p&gt;
+&lt;p&gt;If you teleport onto a location, like a mountain or water, you&#x27;ll be stuck, but then you just need to teleport yourself by changing the world position some more.&lt;&#x2F;p&gt;
+&lt;p&gt;I wanted to find the airship right away, so I looked at a map online of FF1 and guesstimated where the world pos should be.  I teleported myself in the desert where the airship is, placing myself nearby at 0xD1, 0xE5 for the x and y coordinates respectively.&lt;&#x2F;p&gt;
+&lt;p&gt;Then looking back at the general game data block at 0x6000, I noticed a pair of coordinates DD, ED at 0x6005-0x6006 that looked like they could belong to the airship world position. So I tried setting the values around that to 1 to see if that would enable to the airship and setting the byte just before, which was 0, to 1, caused it to increment to 1f and the airship to appear at 0xDD, 0xED.&lt;&#x2F;p&gt;
+&lt;p&gt;In a new game, you could simply move the airship to your world position and enable it and it will appear right next to you.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;wrapping-up&quot;&gt;Wrapping up&lt;&#x2F;h2&gt;
+&lt;p&gt;This was a fun way to spend a few hours on a rainy Saturday revisiting one of my favorite games from my youth without investing as many hours playing.  It does make me feel a bit less inclined to play old RPGs now, knowing that I&#x27;m grinding just to increase a few bytes of memory.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope you&#x27;ve found this interesting and try hacking around on an old game from your past and share the details.  Happy hacking!&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Setting up a Hugo-based Blog on GitLab</title>
+        <published>2017-03-03T00:00:00+00:00</published>
+        <updated>2017-03-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/001-setting-up-hugo-blog-on-gitlab/"/>
+        <id>https://www.walknsqualk.com/001-setting-up-hugo-blog-on-gitlab/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/001-setting-up-hugo-blog-on-gitlab/">&lt;p&gt;This was my first time setting up a blog on GitLab and it was a very easy process.  I&#x27;m using &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;gohugo.io&#x2F;&quot;&gt; Hugo&lt;&#x2F;a&gt; and there are some straight-forward instructions for creating a bare-bones site and deploying it to a project: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;gohugo.io&#x2F;tutorials&#x2F;hosting-on-gitlab&#x2F;&quot;&gt;Hosting Hugo on GitLab&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I did run into one problem though that I wanted to share with the inter-tubes.  When I first pushed my one-post-blog project to test, I wasn&#x27;t able to see anything and I just got back the GitLab 404 page.  I tried accessing the site both through http and https but that wasn&#x27;t the problem.&lt;&#x2F;p&gt;
+&lt;p&gt;My next step was to download the artifacts from the GitLab CI and when looking at the files generated, I didn&#x27;t have any html files, just an index.xml and a site.xml.  A quick google turned up that this was likely due to the theme not being setup.&lt;&#x2F;p&gt;
+&lt;p&gt;My problem was that I followed the standard Hugo tutorial practice of cloning a chosen theme under my blog&#x27;s themes directory, which meant when I pushed my blog to the GitLab repo, they were just checked in as sub-modules.  That means the files for the theme themselves are not checked into my repo and I only had a commit hash associated with each theme diretory.&lt;&#x2F;p&gt;
+&lt;p&gt;I use git for all of my professional as well as personal projects, but I&#x27;ve never had to deal with submodules.  Typically people just say &quot;Don&#x27;t use sub-modules, they&#x27;re not the solution.&quot;&lt;&#x2F;p&gt;
+&lt;p&gt;In this particular case, submodules work pretty cleanly for pulling in themes though, so some quick looking around and all I had to do was create a &lt;code&gt;.gitmodules&lt;&#x2F;code&gt; file in the root of my blog project that shows the mapping of the theme directory to a repo address that can be pulled from.  I had a few different themes I was trying out, so I put all three in there.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[submodule &amp;quot;hugo-multi-bootswatch&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	path = themes&#x2F;hugo-multi-bootswatch
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	url = https:&#x2F;&#x2F;github.com&#x2F;mpas&#x2F;hugo-multi-bootswatch.git
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[submodule &amp;quot;hugo-theme-minos&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	path = themes&#x2F;hugo-theme-minos
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	url = https:&#x2F;&#x2F;github.com&#x2F;carsonip&#x2F;hugo-theme-minos
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[submodule &amp;quot;robust&amp;quot;]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	path = themes&#x2F;hugo_theme_robust
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	url = https:&#x2F;&#x2F;github.com&#x2F;dim0627&#x2F;hugo_theme_robust.git
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The last step was to add a few steps to the &lt;code&gt;.gitlab-ci.yml&lt;&#x2F;code&gt; so that the submodules were initialized and updated before the hugo generation step is run:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;yml&quot; class=&quot;language-yml z-code&quot;&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;publysher&#x2F;hugo&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;pages&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;script&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;git submodule init&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;git submodule update&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;hugo&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;artifacts&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;paths&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;public&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;only&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;master&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;With that pushed to my repo, the next build quickly succeeded and my blog was up and running!&lt;&#x2F;p&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Welcome to the blog</title>
+        <published>2017-03-02T00:00:00+00:00</published>
+        <updated>2017-03-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/000-welcome-to-the-blog/"/>
+        <id>https://www.walknsqualk.com/000-welcome-to-the-blog/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/000-welcome-to-the-blog/">&lt;p&gt;Welcome to my tech blog.  My name is Jeff DeWall and I&#x27;m a software engineer who grew up in California and then moved out to Vienna, Austria for fun and adventure with my wife.  I&#x27;ve mostly worked as an embedded software engineer on custom platforms and lately on Android and iOS devices.  Professionally I&#x27;ve worked mostly with C# and C++ with a handful of Python, Java and Objective-C thrown in for good measure.&lt;&#x2F;p&gt;
+&lt;p&gt;On this site I&#x27;ll be writing about predominantly programming and development related topics, but I&#x27;m also a big fan of language learning and retro video games, so those topics will come up pretty often as well.  In particular I&#x27;m a fan of the German language, which is one of the reasons my wife and I chose Austria as a destination to move to, but I&#x27;m also currently learning French and Greek, to varying levels of success.&lt;&#x2F;p&gt;
+&lt;p&gt;A taste of some upcoming article ideas I have:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Talk about some of the apps I&#x27;ve been writing using Xamarin.Forms and some of the issues I&#x27;ve encountered&lt;&#x2F;li&gt;
+&lt;li&gt;Some tips and tricks I&#x27;ve come across file implementing an API using Flask for the first time.&lt;&#x2F;li&gt;
+&lt;li&gt;Hacking Final Fantasy 1 on the NES&lt;&#x2F;li&gt;
+&lt;li&gt;Using old adventure games to aid in learning a language&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+</feed>

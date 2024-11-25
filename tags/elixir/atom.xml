@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Walk N&#x27; Squawk - Elixir</title>
+    <subtitle>A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.walknsqualk.com/tags/elixir/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2017-07-18T00:00:00+00:00</updated>
+    <id>https://www.walknsqualk.com/tags/elixir/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Elixir on Windows Subsystem for Linux</title>
+        <published>2017-07-18T00:00:00+00:00</published>
+        <updated>2017-07-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.walknsqualk.com/005-elixir-on-wsl/"/>
+        <id>https://www.walknsqualk.com/005-elixir-on-wsl/</id>
+        
+        <content type="html" xml:base="https://www.walknsqualk.com/005-elixir-on-wsl/">&lt;p&gt;Lately I&#x27;ve been doing a lot of elixir and phoenix programming while working on some hobby projects.  I&#x27;m using a phoenix app as my backend server, serving up an API that is consumed by Xamarin.Forms based apps on Android and iOS.&lt;&#x2F;p&gt;
+&lt;p&gt;On Windows I&#x27;ve been using Git Bash (based on MinGW) for a bash shell for a long time and there the interactive elixir shell has had some downsides.  In particular, I wasn&#x27;t able to get command history with iex working and color output was missing as well.  Now with the Linux Subsystem for Windows available, also called WSL, you can get the best of linux development on your Windows machine.&lt;&#x2F;p&gt;
+&lt;p&gt;While initially trying elixir development using the linux version on Windows, I was worried how I might access the Erlang observer or debugger, which require GUIs, but with an extra X Server started, you can get it working without any problems.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;installing-wsl-and-elixir&quot;&gt;Installing WSL and Elixir&lt;&#x2F;h2&gt;
+&lt;p&gt;You can follow the &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;msdn.microsoft.com&#x2F;en-us&#x2F;commandline&#x2F;wsl&#x2F;install_guide&quot;&gt;Microsoft documentation for installing WSL&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Soon you&#x27;ll be able to choose the linux distro you want to install (Insider builds already can), but I&#x27;m using the vanilla Ubunutu install.&lt;&#x2F;p&gt;
+&lt;p&gt;With your shiny real Ubuntu bash prompt, you can then install any packages you need with apt-get.  For elixir run the following:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;sudo apt-get install esl-erlang elixir
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Note that this will install a bunch of GTK dependencies which are part of showing the Erlang debugger and observer.&lt;&#x2F;p&gt;
+&lt;p&gt;If you run iex and try to start the observer, you&#x27;ll see the following (Note: I&#x27;ve modified the formatting for the blog a bit):&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Erlang&#x2F;OTP 19 [erts-8.3] [source-d5c06c6] [64-bit] [smp:4:4] [async-threads:10] 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;              [hipe] [kernel-poll:false]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Interactive Elixir (1.4.4) - press Ctrl+C to exit (type h() ENTER for help)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;iex(1)&amp;gt; :observer.start
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;07:58:54: Error: Unable to initialize GTK+, is DISPLAY set properly?
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;{:error,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {{:einval, &amp;#39;Could not initiate graphics&amp;#39;},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    [{:wxe_server, :start, 1, [file: &amp;#39;wxe_server.erl&amp;#39;, line: 65]},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {:wx, :new, 1, [file: &amp;#39;wx.erl&amp;#39;, line: 115]},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {:observer_wx, :init, 1, [file: &amp;#39;observer_wx.erl&amp;#39;, line: 104]},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {:wx_object, :init_it, 6, [file: &amp;#39;wx_object.erl&amp;#39;, line: 355]},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    {:proc_lib, :init_p_do_apply, 3, [file: &amp;#39;proc_lib.erl&amp;#39;, line: 247]}]}}
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;iex(2)&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;installing-an-x-server&quot;&gt;Installing an X Server&lt;&#x2F;h2&gt;
+&lt;p&gt;To fix this we need to install an X Server on Windows which can draw our GUIs and let the terminal know about it.&lt;&#x2F;p&gt;
+&lt;p&gt;The VcXSrv project is an implementation that I&#x27;ve been using that works quite well: &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;sourceforge.net&#x2F;projects&#x2F;vcxsrv&#x2F;&quot;&gt;VcXSrv&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;With the VcXSrv started you&#x27;ll have an icon in your tray to let you know it&#x27;s running but we still need to let WSL know about it by exporting the display variable:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;export DISPLAY=:0
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;With that set, you can start the observer or debugger from iex:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Interactive Elixir (1.4.4) - press Ctrl+C to exit (type h() ENTER for help)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;iex(1)&amp;gt; :observer.start
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;:ok
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+ &lt;img src=&quot;observer_running.png&quot; alt=&quot;Erlang Observer Running&quot; width=&quot;1277&quot; height=&quot;601&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;iex(2)&amp;gt; :debugger.start
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;{:ok, #PID&amp;lt;0.100.0&amp;gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+ &lt;img src=&quot;debugger_running.png&quot; alt=&quot;Erlang Debugger Running&quot; width=&quot;1169&quot; height=&quot;661&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;h2 id=&quot;better-color-and-copy-paste-support-wsltty&quot;&gt;Better color and copy&#x2F;paste support: WSLtty&lt;&#x2F;h2&gt;
+&lt;p&gt;I am used to using ctrl+ins and shift+ins for copying&#x2F;pasting from the shell but I wasn&#x27;t able to get this working in the vanilla Bash on Windows.  Luckily there is a mintty based project called wsltty that works perfectly with WSL.  Using wsltty I now have full 256 color support and ctrl+ins&#x2F;shirt+ins pasting.  You can grab wsltty from
+&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;mintty&#x2F;wsltty&quot;&gt;WSLtty Project&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Then rather than the normal shortcut You can use the WSLtty one.  There are a few variants but I use: &#x27;WSL Bash % in Mintty&#x27;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;some-config-steps-for-wsl&quot;&gt;Some config steps for WSL&lt;&#x2F;h1&gt;
+&lt;p&gt;Since WSLtty is based on mintty, you can use a mintty config file to setup nicer colors.  I use a monokai-ish like color scheme.  You can place the following config options in the file: &lt;code&gt;c:\Users\&amp;lt;Your User Name&amp;gt;\AppData\Roaming\wsltty\config&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;ForegroundColour=248,248,242
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BackgroundColour=39,40,34
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;CursorColour=253,157,79
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Black=39,40,34
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldBlack=117,113,94
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Red=180,6,78
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldRed=249,38,114
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Green=102,172,24
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldGreen=146,226,40
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Yellow=220,149,59
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldYellow=244,191,117
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Blue=33,159,243
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldBlue=102,187,250
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Magenta=126,51,255
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldMagenta=174,129,255
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Cyan=75,197,180
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldCyan=161,239,228
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;White=248,248,242
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldWhite=249,248,245
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldAsFont=-1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;AllowBlinking=yes
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;CursorType=block
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;BoldAsFont=yes
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Transparency=low
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;#Font=Consolas
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;FontHeight=12
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;FontSmoothing=full
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;AllowBlinking=yes
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;OpaqueWhenFocused=yes
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;CursorType=block
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Transparency=low 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You&#x27;ll end up with a terminal that looks like this:&lt;&#x2F;p&gt;
+ &lt;img src=&quot;bash_color.png&quot; alt=&quot;Bash Prompt with Colors&quot; width=&quot;1150&quot; height=&quot;672&quot; loading=&quot;lazy&quot; &#x2F;&gt;
+&lt;div id=&quot;commento&quot;&gt;&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.commento.io&#x2F;js&#x2F;commento.js&quot;&gt;&lt;&#x2F;script&gt;
+</content>
+        
+    </entry>
+</feed>

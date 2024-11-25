@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>FPGA Design for Software Engineers, Part 2 - Simulation and Build Tools | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/015-fpga-start2/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/015-fpga-start2/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/015-fpga-start2/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="FPGA Design for Software Engineers, Part 2 - Simulation and Build Tools | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="FPGA Design for Software Engineers, Part 2 - Simulation and Build Tools | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2020-03-21" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/015-fpga-start2/">FPGA Design for Software Engineers, Part 2 - Simulation and Build Tools</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 13 min read <span class="rpad"></span> March 21, 2020 <span class="rpad"></span> #<a href="https://www.walknsqualk.com/tags/fpga/">FPGA</a> </span>
+
+    
+
+
+<p>It's been a while since the last article, but it was well received so thanks to everyone for the great feedback!</p>
+<p>This time we'll take a quick break from learning Verilog to set up a better simulation environment and build process using <a rel="noopener" target="_blank" href="https://cmake.org/">Cmake</a> and <a rel="noopener" target="_blank" href="https://conan.io/">Conan</a>.</p>
+<p>The next article, which is already basically written, will be back to hardware design, using seven segment displays.</p>
+<span id="continue-reading"></span><h3 id="article-series">Article Series</h3>
+<ol>
+<li><a href="https://www.walknsqualk.com/014-fpga-start/">Verilog and State Machines</a></li>
+<li>Simulation and Build Tools</li>
+<li><a href="https://www.walknsqualk.com/016-fpga-start3/">Seven Segment Displays</a></li>
+<li><a href="https://www.walknsqualk.com/018-fpga-docker-build/">Docker Builds</a></li>
+<li><a href="https://www.walknsqualk.com/019-fpga-build-updates/">Build System Updates, ECP5 Support</a></li>
+<li><a href="https://www.walknsqualk.com/022-shift-reg-multiplex/">Time-Multiplexed Seven Segment Displays</a></li>
+</ol>
+<h2 id="updates-feb-23-2021">Updates Feb 23, 2021</h2>
+<p>As mentioned at the end of <a href="https://www.walknsqualk.com/018-fpga-docker-build/">this article</a>, I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from <a href="https://www.walknsqualk.com/018-fpga-docker-build/">this article</a> can be added more easily.  The branches follow the format <code>post_N</code> so this post's branch is <code>post_2</code>.</p>
+<p>Given the Docker build system is much easier to use, I recommend doing that instead of all the details spelled out here, which are abstracted away if you do that.</p>
+<h1 id="back-to-the-original-article">Back to the Original Article</h1>
+<p>In the <a href="https://www.walknsqualk.com/014-fpga-start/">last article</a> I recommended some free books you can find online for learning electronics.  SuhcoR recommended some other great books in the comments on programming.reddit that I can also echo if you're willing to invest in the hobby a bit:</p>
+<p><a rel="noopener" target="_blank" href="https://www.amazon.com/dp/1259587541">Practical Electronics for Inventors</a></p>
+<p><a rel="noopener" target="_blank" href="https://www.amazon.com/dp/3030136043">Introduction to Logic Circuits &amp; Logic Design with Verilog</a></p>
+<h1 id="following-the-code">Following the code</h1>
+<p>You can check out the <a rel="noopener" target="_blank" href="https://github.com/srjilarious/fpga_start/tree/post_2">repository on GitHub</a> to follow along.  I have branches that correspond to each article, so that as we proceed on there's not too much noise in the repo as you try to follow each new development.</p>
+<p>The branches are setup as <code>post_N</code>.  For the previous article you can checkout <code>post_1</code> and for this article, <code>post_2</code> is the tag to checkout.</p>
+<p>Or you can just checkout the <code>dev</code> branch to see the latest stuff I'm playing around with. {{&lt; emoji "😄" &gt;}}</p>
+<h1 id="updating-our-project-workflow">Updating our Project Workflow</h1>
+<p>Before we get to more FPGA related portions in the next article, we're going to go down the rabbit hole a bit on setting up a cross-platform build system both for simulation and for synthesis.</p>
+<h2 id="cmake-and-conan">CMake and Conan</h2>
+<p>Since the last article Verilator added support for generating <a rel="noopener" target="_blank" href="https://cmake.org/">Cmake</a> project files for the use in the C++ simulation project.  With that, we can now more easily integrate some other great tools, like <a rel="noopener" target="_blank" href="https://conan.io/">Conan</a>, to build up a nicer simulation environment.</p>
+<p>It turns out we can do everything from within a WSL environment of Ubuntu, including running OpenGL applications at native speeds.  The rest of this article will assume you're building under Windows using WSL, although most of the steps are obviously the same for a proper Linux installation.</p>
+<p>I've also built everything for Windows natively using Visual Studio 2019 Community, but there are some extra steps to build our tools with that, so we'll take the easier path for now.  Let me know in the comments if you'd like me to cover building everything for Windows natively!</p>
+<h2 id="why-not-apio">Why not apio?</h2>
+<p>In the first article we used <code>apio</code> to synthesize our project and a Makefile to build the simulation.  With moving to CMake for the simulation, it got me thinking about how to integrate our synthesis step into CMake as well.</p>
+<p>I ended up finding out that apio still uses <code>arachne-pnr</code> for the place and route step, but it is now recommended to use <code>nextpnr</code> instead.  That was enough motivation for me to build up a CMake script to do all of the same steps that apio was doing for us, which is just synthesis, place-and-route, and bitstream generation.</p>
+<h1 id="installing-the-tools">Installing the Tools</h1>
+<p>We need to install four main tools:</p>
+<ul>
+<li><strong>Verilator</strong>: Handles compiling our code for simulation as before</li>
+<li><strong>Yosys</strong>: The synthesis tool that will build our design</li>
+<li><strong>NextPNR</strong>: Place-and-route tool that will figure out how to fit things into our FPGA</li>
+<li><strong>IcePack</strong>: Tool that packs the netlist from NextPNR into a bitstream we can load on to the TinyFPGA-BX</li>
+</ul>
+<p>as well as</p>
+<ul>
+<li><strong>CMake</strong>: Tool to generate a build file from our project file, e.g. a Makefile</li>
+<li><strong>Conan</strong>: A tool to download or build and install C++ libraries that we want to use as dependencies in our simulation projects.</li>
+</ul>
+<p>Finally, in order to flash our design to the board, we'll also install</p>
+<ul>
+<li><strong>Tinyprog</strong>: Flash tool for the TinyFPGA-BX board to load our bitstream.</li>
+</ul>
+<h2 id="verilator">Verilator</h2>
+<p>We'll build verilator ourselves to make sure we get a recent version.  Nothing difficult here, just clone the verilator repo and checkout the <code>stable</code> branch, anything after 4.022 is good since that's when CMake project support was added.  You can find more details on the <a rel="noopener" target="_blank" href="https://www.veripool.org/projects/verilator/wiki/Installing">Verilator website</a> but the basic steps are:</p>
+<p>Install the prerequisites:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> apt-get install git make autoconf g++ flex bison</span>
+</span></code></pre>
+<p>Then clone the repo and build</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> clone https://git.veripool.org/git/verilator</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> verilator</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> checkout stable</span>
+</span><span class="z-source z-shell z-bash">
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">autoconf        <span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> Create ./configure script</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">./configure</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">make</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> make install</span>
+</span></code></pre>
+<h2 id="icestorm-and-other-hardware-tools">Icestorm and other Hardware Tools</h2>
+<p>Next we need to build and install the tools for synthesizing the design for our FPGA.  The steps to follow are taken from the <a rel="noopener" target="_blank" href="http://www.clifford.at/icestorm/">Icestorm website</a>:</p>
+<p>First install the prerequisites:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> apt-get install build-essential clang bison flex libreadline-dev <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell">                    gawk tcl-dev libffi-dev git mercurial graphviz   <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell">                    xdot pkg-config python python3 libftdi-dev libeigen3-dev <span class="z-punctuation z-separator z-continuation z-line z-shell">\
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell">                    qt5-default python3-dev libboost-all-dev cmake</span>
+</span></code></pre>
+<p>Build and install Icestorm tools like icepack</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> clone https://github.com/cliffordwolf/icestorm.git icestorm</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> icestorm</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">make</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>j<span class="z-meta z-group z-expansion z-command z-parens z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">nproc</span></span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> make install</span>
+</span></code></pre>
+<p>Build and install nextPNR</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> clone https://github.com/YosysHQ/nextpnr nextpnr</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> nextpnr</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cmake</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>DARCH</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>ice40<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>DCMAKE_INSTALL_PREFIX</span><span class="z-keyword z-operator z-assignment z-option z-shell">=</span>/usr/local .</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">make</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>j<span class="z-meta z-group z-expansion z-command z-parens z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">nproc</span></span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> make install</span>
+</span></code></pre>
+<p>Finally, build and install Yosys</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">git</span></span><span class="z-meta z-function-call z-arguments z-shell"> clone https://github.com/cliffordwolf/yosys.git yosys</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> yosys</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">make</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>j<span class="z-meta z-group z-expansion z-command z-parens z-shell"><span class="z-punctuation z-definition z-variable z-shell">$</span><span class="z-punctuation z-section z-parens z-begin z-shell">(</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">nproc</span></span><span class="z-punctuation z-section z-parens z-end z-shell">)</span></span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> make install</span>
+</span></code></pre>
+<h2 id="software-tools">Software Tools</h2>
+<p>Now we will install Conan and CMake.  To install Conan, we can follow the instruction on <a rel="noopener" target="_blank" href="https://docs.conan.io/en/latest/installation.html">the Conan website</a>.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> apt install python3 pip3</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">pip3</span></span><span class="z-meta z-function-call z-arguments z-shell"> install conan</span>
+</span></code></pre>
+<p>We can grab CMake from <code>apt</code>.  The version with Ubuntu 18.04 is fine (3.10.2); anything after version 3.10 will work for us:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sudo</span></span><span class="z-meta z-function-call z-arguments z-shell"> apt install cmake</span>
+</span></code></pre>
+<h2 id="tinyprog">TinyProg</h2>
+<p>Tinyprog can be installed with <code>pip</code>:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">pip3</span></span><span class="z-meta z-function-call z-arguments z-shell"> install tinyprog</span>
+</span></code></pre>
+<h1 id="testing-out-our-toolchain">Testing out our Toolchain</h1>
+<p>I updated both the <code>00_blinky</code> and <code>01_state_machine</code> projects to use the new CMake and Conan based project setup.  We can start with blinky as a sanity check that our toolchain is setup properly.</p>
+<p>The <code>conanfile.txt</code> defines any dependent libraries we want to pull in and is the input for Conan.  In this case we pull in the awesome <code>spdlog</code> library for logging:</p>
+<pre data-lang="ini" class="language-ini z-code"><code class="language-ini" data-lang="ini"><span class="z-source z-genconfig"><span class="z-storage z-type z-genconfig">[requires]
+</span></span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">spdlog</span></span><span class="z-keyword z-operator z-genconfig">/</span><span class="z-constant z-numeric z-genconfig">1</span><span class="z-keyword z-operator z-genconfig">.</span><span class="z-constant z-numeric z-genconfig">1</span><span class="z-keyword z-operator z-genconfig">.</span><span class="z-constant z-numeric z-genconfig">0</span><span class="z-storage z-source z-genconfig">@bincrafters</span><span class="z-keyword z-operator z-genconfig">/</span>stable
+</span><span class="z-source z-genconfig">
+</span><span class="z-source z-genconfig"><span class="z-storage z-type z-genconfig">[generators]
+</span></span><span class="z-source z-genconfig"><span class="z-storage z-type z-genconfig">cmake
+</span></span></code></pre>
+<p>We also indicate that conan should generate CMake output files that we will use in our <code>CMakeLists.txt</code> file.</p>
+<p>Let's start the build by creating a <code>build</code> directory under the <code>00_blinky</code> directory and having conan install the dependencies for us:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mkdir</span></span><span class="z-meta z-function-call z-arguments z-shell"> build</span> <span class="z-keyword z-operator z-logical z-and z-shell">&amp;&amp;</span> <span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> build</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">conan</span></span><span class="z-meta z-function-call z-arguments z-shell"> install ..</span>
+</span></code></pre>
+<p>Most of the gritty CMake details are wrapped up in a macro and a function declared in scripts in the <code>cmake/</code> folder of the repository.  Have a look at the updated <code>00_blinky</code> example's CMake file:</p>
+<pre data-lang="cmake" class="language-cmake z-code"><code class="language-cmake" data-lang="cmake"><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-cmake_minimum_required z-cmake">cmake_minimum_required</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-variable z-parameter z-VERSION z-cmake">VERSION</span> <span class="z-meta z-string z-unquoted z-cmake">3.10</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-project z-cmake">project</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">blinky</span> <span class="z-variable z-parameter z-VERSION z-cmake">VERSION</span> <span class="z-meta z-string z-unquoted z-cmake">1.0.0</span> <span class="z-variable z-parameter z-LANGUAGES z-cmake">LANGUAGES</span> <span class="z-meta z-string z-unquoted z-cmake">CXX</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-comment z-line z-cmake"><span class="z-punctuation z-definition z-comment z-cmake">#</span> Include our cmake script that defines an fpga_project macro</span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-keyword z-control z-import z-cmake">include</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">../cmake/fpga_project.cmake</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-set z-cmake">set</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-variable z-other z-readwrite z-assignment z-cmake">SIM_SRC_FILES</span> 
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake">    <span class="z-meta z-string z-unquoted z-cmake">main.cpp</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-comment z-line z-cmake"><span class="z-punctuation z-definition z-comment z-cmake">#</span> Call our project macro to setup simulation and synthesis projects</span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">fpga_project</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TARGET</span> <span class="z-meta z-string z-unquoted z-cmake">blinky</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">SYNTH_BY_DEFAULT
+</span></span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-variable z-parameter z-generic z-cmake"></span>    <span class="z-variable z-parameter z-generic z-cmake">SIM_SRC_FILES</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">SIM_SRC_FILES</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TOP_LEVEL_VERILOG</span> <span class="z-meta z-string z-unquoted z-cmake">top.v</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span></code></pre>
+<p>Here we use the <code>fpga_project</code> macro defined in the <code>fpga_project.cmake</code> script and provide the simulation source files and the top level verilog file.  The macro does some initialization, pulling in the conan dependencies and setting up both a target for our simulation and a target for synthesizing the design.</p>
+<p>Here we've also set the option for <code>SYNTH_BY_DEFAULT</code> which means that running <code>cmake --build .</code> will also run the synthesis target for us, creating a bitstream we can flash to the FPGA.</p>
+<p>If you don't include that option, you can synthesize the project by building the synthesis target project manually.  By default, the name used is <code>&lt;target name&gt;_synth</code>, so for <code>blinky</code> the synthesis target is <code>blinky_synth</code> which you could build with <code>cmake --build . --target blinky_synth</code> assuming you are in the <code>build</code> directory.</p>
+<p>While still in the <code>build</code> directory, run cmake and try a build</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cmake</span></span><span class="z-meta z-function-call z-arguments z-shell"> ..</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cmake</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>build</span> .</span>
+</span></code></pre>
+<p>Hopefully everything works and you end up with a <code>bin/</code> folder with a <code>blinky</code> binary for the simulation and a <code>top.bin</code> file in the build directory which is the generated bitstream.</p>
+<h2 id="flashing-the-build-from-wsl">Flashing the build from WSL</h2>
+<p>To finish the entire workflow, we'll flash the <code>top.bin</code> we generated above through WSL using tinyprog.</p>
+<p>WSL supports serial ports by way of <code>/dev/ttyS0</code> where the <code>0</code> is replaced with the Windows COM port number you see when you attached the FPGA board to your system and look in Device Manager</p>
+ <img src="device_manager_com_port.png" alt="DeviceManager Showing our board&#x27;s COM port" width="513" height="572" loading="lazy" />
+<p>Seeing that our board is on COM3 in this case, we know to use <code>/dev/ttyS3</code>.  So we can load and boot the bitstream with:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">tinyprog</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>p</span> ./top.bin<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>c</span> /dev/ttyS3<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>b</span></span>
+</span></code></pre>
+<p>You should see it load the design onto the board outputting something like below and see the blinking LED just like before.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">TinyProg</span></span><span class="z-meta z-function-call z-arguments z-shell"> CLI</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">------------</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Using</span></span><span class="z-meta z-function-call z-arguments z-shell"> device id 1d50:6130</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Programming</span></span><span class="z-meta z-function-call z-arguments z-shell"> /dev/ttyS3 with ./top.bin</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Programming</span></span><span class="z-meta z-function-call z-arguments z-shell"> at addr 028000</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Waking</span></span><span class="z-meta z-function-call z-arguments z-shell"> up SPI flash</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">135100</span></span><span class="z-meta z-function-call z-arguments z-shell"> bytes to program</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Erasing:</span></span><span class="z-meta z-function-call z-arguments z-shell"> 100<span class="z-meta z-group z-expansion z-job z-shell"><span class="z-punctuation z-definition z-variable z-job z-shell">%</span></span></span><span class="z-keyword z-operator z-logical z-pipe z-shell">|</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">███████████████████████████████████████████████████████████████████████</span></span><span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">135k/135k</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-keyword z-control z-regexp z-set z-begin z-shell">[</span>00:00&lt;00:00, 158kB/s<span class="z-keyword z-control z-regexp z-set z-end z-shell">]</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Writing:</span></span><span class="z-meta z-function-call z-arguments z-shell"> 100<span class="z-meta z-group z-expansion z-job z-shell"><span class="z-punctuation z-definition z-variable z-job z-shell">%</span></span></span><span class="z-keyword z-operator z-logical z-pipe z-shell">|</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">███████████████████████████████████████████████████████████████████████</span></span><span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">135k/135k</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-keyword z-control z-regexp z-set z-begin z-shell">[</span>00:01&lt;00:00, 133kB/s<span class="z-keyword z-control z-regexp z-set z-end z-shell">]</span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Reading:</span></span><span class="z-meta z-function-call z-arguments z-shell"> 100<span class="z-meta z-group z-expansion z-job z-shell"><span class="z-punctuation z-definition z-variable z-job z-shell">%</span></span></span><span class="z-keyword z-operator z-logical z-pipe z-shell">|</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">███████████████████████████████████████████████████████████████████████</span></span><span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">135k/135k</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-keyword z-control z-regexp z-set z-begin z-shell">[</span>00:00&lt;00:00, 249kB/s<span class="z-keyword z-control z-regexp z-set z-end z-shell">]</span>    </span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">Success!</span></span>
+</span></code></pre>
+<h2 id="adding-sfml-as-a-dependency-using-conan-as-a-package-manager">Adding SFML as a dependency using conan as a package manager</h2>
+<p>Soon we'll want to display some graphics in our simulations, mocking out the devices we want to eventually hook up to our FPGA designs.  This isn't strictly necessary for this example, but later when we do a VGA controller, this will be really useful.</p>
+<p>For this, we'll ues <a rel="noopener" target="_blank" href="https://www.sfml-dev.org/">SFML</a>, which provides a nice C++ API for graphics, as well as other things like audio and networking.</p>
+<p>Conan doesn't have SFML in the default repository, so first we need to add the Bincrafters repository to conan:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">conan</span></span><span class="z-meta z-function-call z-arguments z-shell"> remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan </span>
+</span></code></pre>
+<p>Now we can add SFML as a dependency to a project.  Look at the <code>conanfile.txt</code> in <code>01_state_machine</code> and you'll see:</p>
+<pre data-lang="ini" class="language-ini z-code"><code class="language-ini" data-lang="ini"><span class="z-source z-genconfig"><span class="z-storage z-type z-genconfig">[requires]
+</span></span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">sfml</span></span><span class="z-keyword z-operator z-genconfig">/</span><span class="z-constant z-numeric z-genconfig">2</span><span class="z-keyword z-operator z-genconfig">.</span><span class="z-constant z-numeric z-genconfig">5</span><span class="z-keyword z-operator z-genconfig">.</span><span class="z-constant z-numeric z-genconfig">1</span><span class="z-storage z-source z-genconfig">@bincrafters</span><span class="z-keyword z-operator z-genconfig">/</span>stable
+</span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">spdlog</span></span><span class="z-keyword z-operator z-genconfig">/</span><span class="z-constant z-numeric z-genconfig">1</span><span class="z-keyword z-operator z-genconfig">.</span><span class="z-constant z-numeric z-genconfig">1</span><span class="z-keyword z-operator z-genconfig">.</span><span class="z-constant z-numeric z-genconfig">0</span><span class="z-storage z-source z-genconfig">@bincrafters</span><span class="z-keyword z-operator z-genconfig">/</span>stable
+</span><span class="z-source z-genconfig">
+</span><span class="z-source z-genconfig"><span class="z-storage z-type z-genconfig">[options]
+</span></span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">sfml</span><span class="z-keyword z-operator z-genconfig">:</span></span>graphics<span class="z-keyword z-operator z-genconfig">=</span><span class="z-constant z-language z-genconfig">True</span>
+</span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">sfml</span><span class="z-keyword z-operator z-genconfig">:</span></span>shared<span class="z-keyword z-operator z-genconfig">=</span><span class="z-constant z-language z-genconfig">True</span>
+</span><span class="z-source z-genconfig">
+</span><span class="z-source z-genconfig"><span class="z-storage z-type z-genconfig">[generators]
+</span></span><span class="z-source z-genconfig"><span class="z-storage z-type z-genconfig">cmake
+</span></span><span class="z-source z-genconfig">
+</span><span class="z-source z-genconfig"><span class="z-storage z-type z-genconfig">[imports]
+</span></span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">bin</span></span><span class="z-keyword z-operator z-genconfig">,</span> <span class="z-keyword z-operator z-genconfig">*</span><span class="z-keyword z-operator z-genconfig">.</span>dll <span class="z-keyword z-operator z-genconfig">-</span><span class="z-keyword z-operator z-genconfig">&gt;</span> <span class="z-keyword z-operator z-genconfig">.</span><span class="z-keyword z-operator z-genconfig">/</span>bin<span class="z-meta z-comment z-genconfig"> <span class="z-comment z-line z-number-sign z-genconfig"># Copies all dll files from packages bin folder to my &quot;bin&quot; folder
+</span></span></span><span class="z-source z-genconfig"><span class="z-meta z-param z-genconfig"><span class="z-variable z-parameter z-genconfig">lib</span></span><span class="z-keyword z-operator z-genconfig">,</span> <span class="z-keyword z-operator z-genconfig">*</span><span class="z-keyword z-operator z-genconfig">.</span>dylib<span class="z-keyword z-operator z-genconfig">*</span> <span class="z-keyword z-operator z-genconfig">-</span><span class="z-keyword z-operator z-genconfig">&gt;</span> <span class="z-keyword z-operator z-genconfig">.</span><span class="z-keyword z-operator z-genconfig">/</span>bin<span class="z-meta z-comment z-genconfig"> <span class="z-comment z-line z-number-sign z-genconfig"># Copies all dylib files from packages lib folder to my &quot;bin&quot; folder
+</span></span></span></code></pre>
+<p>This specifies our two dependencies for this project: SFML and spdlog, and that we want cmake files as the output, just like in the previous example.</p>
+<p>We also include the specific options for sfml, which is that we want to use the graphics portion from it and use shared libraries.</p>
+<p>Finally the imports at the end are a standard block from the conan website on making sure the dlls (on Windows), and the dylibs (On Mac) are copied to our output bin directory so we can run them properly when building on those OSes.</p>
+<h3 id="brief-aside-on-linux-runpaths">Brief Aside on Linux RUNPATHs</h3>
+<p>For those interested, on Linux the linked libraries are found through the RUNPATH, so the built simulation binary will have paths baked in for our conan repo <code>.so</code>s.</p>
+<p>For example if you run</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">objdump</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>x</span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>bin<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> </span><span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">grep</span></span><span class="z-meta z-function-call z-arguments z-shell"> RUNPATH</span>
+</span></code></pre>
+<p>you can find the RUNPATHs baked into the binary.  For the upcoming project we'll build shortly, you'll see something like:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">RUNPATH</span></span><span class="z-meta z-function-call z-arguments z-shell">    /home/jeffdw/.conan/data/sfml/2.5.1/bincrafters/stable/package/50ce34d0a0616ace21e8c339c237e14119b5062c/lib:</span>
+</span><span class="z-source z-shell z-bash">           <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/jeffdw/.conan/data/spdlog/1.1.0/bincrafters/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib:</span></span>
+</span><span class="z-source z-shell z-bash">           <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/jeffdw/.conan/data/freetype/2.10.1/_/_/package/3cdd93cd46fc07735d1b0d7f2860a82fac7a3053/lib:</span></span>
+</span><span class="z-source z-shell z-bash">           <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/jeffdw/.conan/data/fmt/5.1.0/bincrafters/stable/package/66c5327ebdcecae0a01a863939964495fa019a06/lib:</span></span>
+</span><span class="z-source z-shell z-bash">           <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/jeffdw/.conan/data/libpng/1.6.37/_/_/package/b781af3f476d0aa5070a0a35b544db7a3c193cc8/lib:</span></span>
+</span><span class="z-source z-shell z-bash">           <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/jeffdw/.conan/data/bzip2/1.0.8/_/_/package/b27e2b40bcb70be2e7d6f0e0c6e43e35c530f8d3/lib:</span></span>
+</span><span class="z-source z-shell z-bash">           <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">/home/jeffdw/.conan/data/zlib/1.2.11/_/_/package/d50a0d523d98c15bb147b18fa7d203887c38be8b/lib</span></span>
+</span></code></pre>
+<h2 id="state-machine-cmake-file">State Machine CMake File</h2>
+<p>For the Updated blinking LED state machine example, we change things up a bit and don't use the <code>fpga_project</code> macro directly.  We will have two simulation projects in this case.  One is the original one like from last article, and the second is an SFML window that maps the LED state to the background.</p>
+<p>The CMake file looks like:</p>
+<pre data-lang="cmake" class="language-cmake z-code"><code class="language-cmake" data-lang="cmake"><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-cmake_minimum_required z-cmake">cmake_minimum_required</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-variable z-parameter z-VERSION z-cmake">VERSION</span> <span class="z-meta z-string z-unquoted z-cmake">3.10</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-project z-cmake">project</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">state_machine</span> <span class="z-variable z-parameter z-VERSION z-cmake">VERSION</span> <span class="z-meta z-string z-unquoted z-cmake">1.0.0</span> <span class="z-variable z-parameter z-LANGUAGES z-cmake">LANGUAGES</span> <span class="z-meta z-string z-unquoted z-cmake">CXX</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-comment z-line z-cmake"><span class="z-punctuation z-definition z-comment z-cmake">#</span> Include our cmake script that defines an fpga_project macro</span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-keyword z-control z-import z-cmake">include</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-meta z-string z-unquoted z-cmake">../cmake/fpga_project.cmake</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-set z-cmake">set</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-variable z-other z-readwrite z-assignment z-cmake">MAIN_VERILOG_FILE</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake">    <span class="z-meta z-string z-unquoted z-cmake">top.v</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-set z-cmake">set</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-variable z-other z-readwrite z-assignment z-cmake">SIM_SRC_FILES</span> 
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake">    <span class="z-meta z-string z-unquoted z-cmake">main.cpp</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-cmake"><span class="z-support z-function z-set z-cmake">set</span></span><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-variable z-other z-readwrite z-assignment z-cmake">SFML_SIM_SRC_FILES</span> 
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake">    <span class="z-meta z-string z-unquoted z-cmake">main_sfml.cpp</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-cmake"><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-comment z-line z-cmake"><span class="z-punctuation z-definition z-comment z-cmake">#</span> Do some initialization like find verilator, include conan, etc.</span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">fpga_project_setup</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">fpga_simulation_project</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TARGET</span> <span class="z-meta z-string z-unquoted z-cmake">state_machine</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">SIM_SRC_FILES</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">SIM_SRC_FILES</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TOP_LEVEL_VERILOG</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">MAIN_VERILOG_FILE</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-comment z-line z-cmake"><span class="z-punctuation z-definition z-comment z-cmake">#</span> Add a second simulation target using SFML.</span>
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">fpga_simulation_project</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TARGET</span> <span class="z-meta z-string z-unquoted z-cmake">state_machine_sfml</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">SIM_SRC_FILES</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">SFML_SIM_SRC_FILES</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TOP_LEVEL_VERILOG</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">MAIN_VERILOG_FILE</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span><span class="z-source z-cmake">
+</span><span class="z-source z-cmake"><span class="z-meta z-function-call z-generic z-cmake"><span class="z-variable z-function z-generic z-cmake">ice40_synthesis</span></span><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-begin z-cmake">(</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">TARGET</span> <span class="z-meta z-string z-unquoted z-cmake">state_machine_synth</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">SYNTH_BY_DEFAULT
+</span></span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-variable z-parameter z-generic z-cmake"></span>    <span class="z-variable z-parameter z-generic z-cmake">TOP_LEVEL_VERILOG</span> <span class="z-meta z-text-substitution z-cmake"><span class="z-punctuation z-definition z-variable z-substitution z-cmake">$</span><span class="z-punctuation z-section z-braces z-begin z-cmake">{</span><span class="z-variable z-other z-readwrite z-cmake">MAIN_VERILOG_FILE</span><span class="z-punctuation z-section z-braces z-end z-cmake">}</span></span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake">    <span class="z-variable z-parameter z-generic z-cmake">PCF_FILE</span> <span class="z-meta z-string z-unquoted z-cmake">pins.pcf</span>
+</span></span><span class="z-source z-cmake"><span class="z-meta z-function-call z-arguments z-generic z-cmake"><span class="z-punctuation z-section z-parens z-end z-cmake">)</span></span>
+</span></code></pre>
+<p>We manually call the <code>fpga_project_setup</code> macro to pull in our conan dependencies, and then have the two <code>fpga_simulation_project</code> macro calls.  Finally we use the <code>ice40_synthesis</code> function to specify the synthesis target, having it synthesize by default.</p>
+<h2 id="initial-sfml-build-errors">Initial SFML Build errors</h2>
+<p>One issue I ran into was that when using SFML with Conan and building an example that loaded textures, I was getting linker errors, where the linker said it could not find some SFML functions.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">CMakeFiles/seven_seg_shift_reg.dir/main.cpp.o:</span></span><span class="z-meta z-function-call z-arguments z-shell"> In function <span class="z-meta z-group z-expansion z-command z-backticks z-shell"><span class="z-punctuation z-section z-group z-begin z-shell">`</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">main<span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>:
+</span></span></span></span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-meta z-group z-expansion z-command z-backticks z-shell"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell"><span class="z-string z-quoted z-single z-shell">main.cpp:(.text+0x368): undefined reference to `sf::Texture::loadFromFile(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, sf::Rect&lt;int&gt; const&amp;)<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span></span>
+</span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-meta z-group z-expansion z-command z-backticks z-shell"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">main.cpp:</span></span><span class="z-meta z-function-call z-arguments z-shell">(.text+0x3e5</span><span class="z-meta z-function-call z-shell"></span>)<span class="z-meta z-function-call z-shell"><span class="z-support z-function z-colon z-shell">:</span></span><span class="z-meta z-function-call z-arguments z-shell"> undefined reference to </span><span class="z-punctuation z-section z-group z-end z-shell">`</span></span>sf::Texture::loadFromFile(std::__cxx11::basic_string<span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>char, std::char_traits<span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>char<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>, std::allocator<span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>char<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> const</span><span class="z-keyword z-operator z-logical z-job z-shell">&amp;</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">,</span></span><span class="z-meta z-function-call z-arguments z-shell"> sf::Rect<span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>int<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> const</span><span class="z-keyword z-operator z-logical z-job z-shell">&amp;</span><span class="z-meta z-function-call z-shell"></span>)<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell"><span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>
+</span></span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell"><span class="z-string z-quoted z-single z-shell">main.cpp:(.text+0x462): undefined reference to `sf::Texture::loadFromFile(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, sf::Rect&lt;int&gt; const&amp;)<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span></span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">main.cpp:</span></span><span class="z-meta z-function-call z-arguments z-shell">(.text+0x4df</span><span class="z-meta z-function-call z-shell"></span>)<span class="z-meta z-function-call z-shell"><span class="z-support z-function z-colon z-shell">:</span></span><span class="z-meta z-function-call z-arguments z-shell"> undefined reference to <span class="z-meta z-group z-expansion z-command z-backticks z-shell"><span class="z-punctuation z-section z-group z-begin z-shell">`</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">sf::Texture::loadFromFile</span></span><span class="z-meta z-function-call z-arguments z-shell">(std::__cxx11::basic_string<span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>char, std::char_traits<span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>char<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span>, std::allocator<span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>char<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> <span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> const</span><span class="z-keyword z-operator z-logical z-job z-shell">&amp;</span><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">,</span></span><span class="z-meta z-function-call z-arguments z-shell"> sf::Rect<span class="z-keyword z-operator z-assignment z-redirection z-shell">&lt;</span>int<span class="z-keyword z-operator z-assignment z-redirection z-shell">&gt;</span> const</span><span class="z-keyword z-operator z-logical z-job z-shell">&amp;</span><span class="z-meta z-function-call z-shell"></span>)<span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell"><span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>
+</span></span></span></span></span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-arguments z-shell"><span class="z-meta z-group z-expansion z-command z-backticks z-shell"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell"><span class="z-string z-quoted z-single z-shell">main.cpp:(.text+0x55f): undefined reference to `sf::Texture::loadFromFile(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, sf::Rect&lt;int&gt; const&amp;)<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span></span>
+</span></span></span></code></pre>
+<p>I looked at the verbose output of CMake, and saw that it was trying to link against the SFML graphics lib and that a function called loadFromFile with the exact arguments, <code>std::string const&amp;</code> and <code>sf::Rect const&amp;</code>, existed.</p>
+<p>Since I could see the function existed, but it just couldn't link, I realized it must be an ABI (Application Binary Interface) issue, where the versions of <code>std::string</code> I was trying to link didn't match between conan's SFML library it had built and the binary I was building.</p>
+<p>It turns out that conan defaults to using the pre-C++11 ABI for compatibility, although I can't honestly say why that would be the default nowadays.  In any case, the fix is pretty easy: set your default profile to build with the newer ABI and use C++17 by default, which is what we're using in our projects.</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">conan</span></span><span class="z-meta z-function-call z-arguments z-shell"> profile update settings.compiler.libcxx=libstdc++11 default</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">conan</span></span><span class="z-meta z-function-call z-arguments z-shell"> profile update settings.cppstd=17 default</span>
+</span></code></pre>
+<p>If you do a <code>conan install</code> and are still seeing the issue, try building SFML during an install to make sure the ABI settings are picked up</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-comment z-line z-number-sign z-shell"><span class="z-punctuation z-definition z-comment z-begin z-shell">#</span></span><span class="z-comment z-line z-number-sign z-shell"> From within the build directory</span><span class="z-comment z-line z-number-sign z-shell">
+</span></span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">conan</span></span><span class="z-meta z-function-call z-arguments z-shell"> install<span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>build</span> sfml ..</span>
+</span></code></pre>
+<h2 id="x-server-problems">X Server problems</h2>
+<p>With all of the build issues out of the way, you'd think we're done, but not quite.  In order to display a graphical application from WSL on windows we need an X Server, and one that can handle OpenGL graphics.</p>
+<p>I have used VcXSrv in the past as an XWindows server to run graphical applications, like the Erlang debugger, and it worked great.  I never tried running OpenGL applications however.  VcXSrv has an option when you start it to use 'Native OpenGL' and it mentions exporting LIBGL_ALWAYS_INDIRECT=1 in order for things to work.</p>
+<p>When I tried running a simulation that used graphics, I noticed the framerate was abysmal compared to when I had built it with Visual Studio previously.  I was only seeing about 1 fps, if that.  Simulations running on the command line ran really fast, so something weird was going on.</p>
+<p>I tried running <code>glxgears</code> to see if it was somehow related to the verilator simulation, which would have been weird since other non-graphics simulations ran very quickly.  I saw that <code>glxgears</code> would only display the first frame and never animate.  A couple of searches later, and I stumbled upon <a rel="noopener" target="_blank" href="https://superuser.com/questions/1487555/how-to-troubleshoot-opengl-on-ubuntu-under-windows-10-wsl">this SuperUser question</a> that pointed me in the right direction.</p>
+<p>I had to <em>disable</em> Native OpenGL in VcXSrv and make sure that <code>LIBGL_ALWAYS_INDIRECT</code> was not exported, or exported as 0.  With that, <code>glxgears</code> ran at ~1200fps and running <code>DISPLAY=:0 state_machine_sfml</code> ran at full framerate with no issues.</p>
+<p>If you followed all of that, then everything should be ready to build our workflow under WSL.  Or you could just use a proper linux desktop from the get go and skip some of the heart-ache.</p>
+<h2 id="building-a-simulation-of-a-blinking-led-with-sfml">Building a simulation of a blinking LED with SFML</h2>
+<p>We've now done quite a bit: changing up our build system, adding in both CMake and conan to the process.  Let's look at the state machine SFML example now.  Have a look at <code>01_state_machine/main_sfml.cpp</code>.</p>
+<p>The code for the simulation is a bare bones SFML application with a loop that checks for the window still being open.  We run a certain number of simulation ticks per frame, which we can control with a constant defined at the top of the file.</p>
+<p>The actual rendering in this case is very simple:</p>
+<pre data-lang="cpp" class="language-cpp z-code"><code class="language-cpp" data-lang="cpp"><span class="z-source z-c++">sf<span class="z-punctuation z-accessor z-double-colon z-c++">::</span>Color clearColor <span class="z-keyword z-operator z-assignment z-c">=</span> <span class="z-meta z-function-call z-c++">sf<span class="z-punctuation z-accessor z-double-colon z-c++">::</span><span class="z-variable z-function z-c++">Color</span><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-begin z-c++">(</span></span></span><span class="z-meta z-function-call z-c++"><span class="z-meta z-group z-c++"> <span class="z-constant z-numeric z-integer z-decimal z-c++">64</span><span class="z-punctuation z-separator z-c++">,</span> tb<span class="z-punctuation z-accessor z-arrow z-c++">-&gt;</span><span class="z-variable z-other z-readwrite z-member z-c++">m_core</span><span class="z-punctuation z-accessor z-arrow z-c++">-&gt;</span><span class="z-variable z-other z-readwrite z-member z-c++">LED</span> <span class="z-keyword z-operator z-ternary z-c">?</span> <span class="z-constant z-numeric z-integer z-decimal z-c++">128</span> <span class="z-keyword z-operator z-ternary z-c">:</span> <span class="z-constant z-numeric z-integer z-decimal z-c++">64</span><span class="z-punctuation z-separator z-c++">,</span> <span class="z-constant z-numeric z-integer z-decimal z-c++">64</span><span class="z-punctuation z-separator z-c++">,</span> <span class="z-constant z-numeric z-integer z-decimal z-c++">255</span></span></span><span class="z-meta z-function-call z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-end z-c++">)</span></span></span><span class="z-punctuation z-terminator z-c++">;</span>
+</span><span class="z-source z-c++">
+</span><span class="z-source z-c++"><span class="z-comment z-line z-double-slash z-c"><span class="z-punctuation z-definition z-comment z-c">//</span> Clear screen
+</span></span><span class="z-source z-c++">renderWin<span class="z-punctuation z-accessor z-arrow z-c++">-&gt;</span><span class="z-meta z-method-call z-c++"><span class="z-variable z-function z-member z-c++">clear</span><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-begin z-c++">(</span></span></span><span class="z-meta z-method-call z-c++"><span class="z-meta z-group z-c++"> clearColor</span></span><span class="z-meta z-method-call z-c++"><span class="z-meta z-group z-c++"><span class="z-punctuation z-section z-group z-end z-c++">)</span></span></span><span class="z-punctuation z-terminator z-c++">;</span>
+</span></code></pre>
+<p>We set a background clear color with more green when the core's LED signal is high.</p>
+<p>If we now build the example, starting from the <code>01_state_machine</code> example folder:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">mkdir</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>p</span> build</span> <span class="z-keyword z-operator z-logical z-and z-shell">&amp;&amp;</span> <span class="z-meta z-function-call z-shell"><span class="z-support z-function z-cd z-shell">cd</span></span><span class="z-meta z-function-call z-arguments z-shell"> build</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">conan</span></span><span class="z-meta z-function-call z-arguments z-shell"> install ..</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cmake</span></span><span class="z-meta z-function-call z-arguments z-shell"> ..</span>
+</span><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">cmake</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> --</span>build</span> .</span>
+</span><span class="z-source z-shell z-bash"><span class="z-variable z-other z-readwrite z-assignment z-shell">DISPLAY</span><span class="z-keyword z-operator z-assignment z-shell">=</span><span class="z-string z-unquoted z-shell">:0</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">./bin/state_machine_sfml</span></span>
+</span></code></pre>
+<p>You should see the following window pop up:</p>
+ <img src="state_machine_sfml.png" alt="New and Improved SFML State Machine Simulation" width="1366" height="762" loading="lazy" />
+<h1 id="conclusion">Conclusion</h1>
+<p>Next time we'll get back to some more Verilog and create a seven segment display driver. We'll start with a parallel output version, move to a shift register version, and then do some time-multiplexing to enable multiple seven segment displays.</p>
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/016-fpga-start3/">&#8249; FPGA Design for Software Engineers, Part 3 - Seven Segment Displays</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/014-fpga-start/"> FPGA Design for Software Engineers, Part 1 - Verilog and State Machines &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

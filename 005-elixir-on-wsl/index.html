@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>Elixir on Windows Subsystem for Linux | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/005-elixir-on-wsl/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/005-elixir-on-wsl/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/005-elixir-on-wsl/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="Elixir on Windows Subsystem for Linux | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="Elixir on Windows Subsystem for Linux | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2017-07-18" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/005-elixir-on-wsl/">Elixir on Windows Subsystem for Linux</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 4 min read <span class="rpad"></span> July 18, 2017 <span class="rpad"></span> #<a href="https://www.walknsqualk.com/tags/elixir/">Elixir</a> </span>
+
+    
+
+
+<p>Lately I've been doing a lot of elixir and phoenix programming while working on some hobby projects.  I'm using a phoenix app as my backend server, serving up an API that is consumed by Xamarin.Forms based apps on Android and iOS.</p>
+<p>On Windows I've been using Git Bash (based on MinGW) for a bash shell for a long time and there the interactive elixir shell has had some downsides.  In particular, I wasn't able to get command history with iex working and color output was missing as well.  Now with the Linux Subsystem for Windows available, also called WSL, you can get the best of linux development on your Windows machine.</p>
+<p>While initially trying elixir development using the linux version on Windows, I was worried how I might access the Erlang observer or debugger, which require GUIs, but with an extra X Server started, you can get it working without any problems.</p>
+<h2 id="installing-wsl-and-elixir">Installing WSL and Elixir</h2>
+<p>You can follow the <a rel="noopener" target="_blank" href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide">Microsoft documentation for installing WSL</a></p>
+<p>Soon you'll be able to choose the linux distro you want to install (Insider builds already can), but I'm using the vanilla Ubunutu install.</p>
+<p>With your shiny real Ubuntu bash prompt, you can then install any packages you need with apt-get.  For elixir run the following:</p>
+<pre class="z-code"><code><span class="z-text z-plain">sudo apt-get install esl-erlang elixir
+</span></code></pre>
+<p>Note that this will install a bunch of GTK dependencies which are part of showing the Erlang debugger and observer.</p>
+<p>If you run iex and try to start the observer, you'll see the following (Note: I've modified the formatting for the blog a bit):</p>
+<pre class="z-code"><code><span class="z-text z-plain">Erlang/OTP 19 [erts-8.3] [source-d5c06c6] [64-bit] [smp:4:4] [async-threads:10] 
+</span><span class="z-text z-plain">              [hipe] [kernel-poll:false]
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">Interactive Elixir (1.4.4) - press Ctrl+C to exit (type h() ENTER for help)
+</span><span class="z-text z-plain">iex(1)&gt; :observer.start
+</span><span class="z-text z-plain">07:58:54: Error: Unable to initialize GTK+, is DISPLAY set properly?
+</span><span class="z-text z-plain">{:error,
+</span><span class="z-text z-plain">    {{:einval, &#39;Could not initiate graphics&#39;},
+</span><span class="z-text z-plain">    [{:wxe_server, :start, 1, [file: &#39;wxe_server.erl&#39;, line: 65]},
+</span><span class="z-text z-plain">    {:wx, :new, 1, [file: &#39;wx.erl&#39;, line: 115]},
+</span><span class="z-text z-plain">    {:observer_wx, :init, 1, [file: &#39;observer_wx.erl&#39;, line: 104]},
+</span><span class="z-text z-plain">    {:wx_object, :init_it, 6, [file: &#39;wx_object.erl&#39;, line: 355]},
+</span><span class="z-text z-plain">    {:proc_lib, :init_p_do_apply, 3, [file: &#39;proc_lib.erl&#39;, line: 247]}]}}
+</span><span class="z-text z-plain">iex(2)&gt;
+</span></code></pre>
+<h2 id="installing-an-x-server">Installing an X Server</h2>
+<p>To fix this we need to install an X Server on Windows which can draw our GUIs and let the terminal know about it.</p>
+<p>The VcXSrv project is an implementation that I've been using that works quite well: <a rel="noopener" target="_blank" href="https://sourceforge.net/projects/vcxsrv/">VcXSrv</a></p>
+<p>With the VcXSrv started you'll have an icon in your tray to let you know it's running but we still need to let WSL know about it by exporting the display variable:</p>
+<pre class="z-code"><code><span class="z-text z-plain">export DISPLAY=:0
+</span></code></pre>
+<p>With that set, you can start the observer or debugger from iex:</p>
+<pre class="z-code"><code><span class="z-text z-plain">Interactive Elixir (1.4.4) - press Ctrl+C to exit (type h() ENTER for help)
+</span><span class="z-text z-plain">iex(1)&gt; :observer.start
+</span><span class="z-text z-plain">:ok
+</span></code></pre>
+ <img src="observer_running.png" alt="Erlang Observer Running" width="1277" height="601" loading="lazy" />
+<pre class="z-code"><code><span class="z-text z-plain">iex(2)&gt; :debugger.start
+</span><span class="z-text z-plain">{:ok, #PID&lt;0.100.0&gt;}
+</span></code></pre>
+ <img src="debugger_running.png" alt="Erlang Debugger Running" width="1169" height="661" loading="lazy" />
+<h2 id="better-color-and-copy-paste-support-wsltty">Better color and copy/paste support: WSLtty</h2>
+<p>I am used to using ctrl+ins and shift+ins for copying/pasting from the shell but I wasn't able to get this working in the vanilla Bash on Windows.  Luckily there is a mintty based project called wsltty that works perfectly with WSL.  Using wsltty I now have full 256 color support and ctrl+ins/shirt+ins pasting.  You can grab wsltty from
+<a rel="noopener" target="_blank" href="https://github.com/mintty/wsltty">WSLtty Project</a></p>
+<p>Then rather than the normal shortcut You can use the WSLtty one.  There are a few variants but I use: 'WSL Bash % in Mintty'</p>
+<h1 id="some-config-steps-for-wsl">Some config steps for WSL</h1>
+<p>Since WSLtty is based on mintty, you can use a mintty config file to setup nicer colors.  I use a monokai-ish like color scheme.  You can place the following config options in the file: <code>c:\Users\&lt;Your User Name&gt;\AppData\Roaming\wsltty\config</code></p>
+<pre class="z-code"><code><span class="z-text z-plain">ForegroundColour=248,248,242
+</span><span class="z-text z-plain">BackgroundColour=39,40,34
+</span><span class="z-text z-plain">CursorColour=253,157,79
+</span><span class="z-text z-plain">Black=39,40,34
+</span><span class="z-text z-plain">BoldBlack=117,113,94
+</span><span class="z-text z-plain">Red=180,6,78
+</span><span class="z-text z-plain">BoldRed=249,38,114
+</span><span class="z-text z-plain">Green=102,172,24
+</span><span class="z-text z-plain">BoldGreen=146,226,40
+</span><span class="z-text z-plain">Yellow=220,149,59
+</span><span class="z-text z-plain">BoldYellow=244,191,117
+</span><span class="z-text z-plain">Blue=33,159,243
+</span><span class="z-text z-plain">BoldBlue=102,187,250
+</span><span class="z-text z-plain">Magenta=126,51,255
+</span><span class="z-text z-plain">BoldMagenta=174,129,255
+</span><span class="z-text z-plain">Cyan=75,197,180
+</span><span class="z-text z-plain">BoldCyan=161,239,228
+</span><span class="z-text z-plain">White=248,248,242
+</span><span class="z-text z-plain">BoldWhite=249,248,245
+</span><span class="z-text z-plain">BoldAsFont=-1
+</span><span class="z-text z-plain">AllowBlinking=yes
+</span><span class="z-text z-plain">CursorType=block
+</span><span class="z-text z-plain">BoldAsFont=yes
+</span><span class="z-text z-plain">Transparency=low
+</span><span class="z-text z-plain">#Font=Consolas
+</span><span class="z-text z-plain">FontHeight=12
+</span><span class="z-text z-plain">FontSmoothing=full
+</span><span class="z-text z-plain">AllowBlinking=yes
+</span><span class="z-text z-plain">OpaqueWhenFocused=yes
+</span><span class="z-text z-plain">CursorType=block
+</span><span class="z-text z-plain">Transparency=low 
+</span></code></pre>
+<p>You'll end up with a terminal that looks like this:</p>
+ <img src="bash_color.png" alt="Bash Prompt with Colors" width="1150" height="672" loading="lazy" />
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/006-phoenix-fallback-controller-note/">&#8249; Tip for Phoenix 1.3 Fallback Controller error</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/002-hacking-final-fantasy-1-on-nes/"> Hacking Final Fantasy 1 on the NES &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>

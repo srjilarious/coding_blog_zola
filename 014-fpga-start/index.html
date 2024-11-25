@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://www.walknsqualk.com/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://www.walknsqualk.com/abridge.css?h=f3cf078b0dda0efcc1e1" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://www.walknsqualk.com/" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://www.walknsqualk.com/manifest.min.json" />
+  <link rel="mask-icon" href="https://www.walknsqualk.com/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.walknsqualk.com/apple-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.walknsqualk.com/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.walknsqualk.com/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Walk N&#x27; Squawk Atom Feed" href="https://www.walknsqualk.com/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>FPGA Design for Software Engineers, Part 1 - Verilog and State Machines | Walk N' Squawk</title>
+  <meta name="author" content="Jeff DeWall" />
+  <meta name="copyright" content="Walk N&#x27; Squawk" />
+  <meta name="description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <link rel="canonical" href="https://www.walknsqualk.com/014-fpga-start/" />
+  <meta name="keywords" content="Zig, Rust, Elixir, Python, Japanese, German, Coding" />
+  <meta name="google-site-verification" content="Your Google Site verification code." />
+  <meta name="msvalidate.01" content="Your Bing Site verification code." />
+  <meta property="og:url" content="https://www.walknsqualk.com/014-fpga-start/" />
+  <meta name="twitter:url" content="https://www.walknsqualk.com/014-fpga-start/" />
+  <meta property="og:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta name="twitter:description" content="A Zig and Elixir Coding Blog, with some FPGA and Japanese content as well." />
+  <meta property="og:title" content="FPGA Design for Software Engineers, Part 1 - Verilog and State Machines | Walk N&#x27; Squawk" />
+  <meta name="twitter:title" content="FPGA Design for Software Engineers, Part 1 - Verilog and State Machines | Walk N&#x27; Squawk" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:image" content="https://www.walknsqualk.com/banner.png" />
+  <meta property="og:site_name" content="Walk N&#x27; Squawk" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:updated_time" content="2019-10-16" />
+  <meta name="twitter:site" content="@your-user-name" />
+  <meta name="twitter:creator" content="@your-user-name" />
+  <script defer src="https://www.walknsqualk.com/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <noscript><link rel="stylesheet" href="https://www.walknsqualk.com/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://www.walknsqualk.com" title="Walk N&#x27; Squawk"><img src="https://www.walknsqualk.com//logo.png" alt="WalkNSqualk" width="48" height="48" /> Walk N' Squalk</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://www.walknsqualk.com/archive/"> Posts </a></li><li><a class="s110" href="https://www.walknsqualk.com/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Search" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <hr />
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://www.walknsqualk.com/014-fpga-start/">FPGA Design for Software Engineers, Part 1 - Verilog and State Machines</a></h1>
+
+      <span class="s95"> Jeff DeWall <span class="rpad"></span> 20 min read <span class="rpad"></span> October 16, 2019 <span class="rpad"></span> #<a href="https://www.walknsqualk.com/tags/fpga/">FPGA</a>  #<a href="https://www.walknsqualk.com/tags/verilog/">Verilog</a> </span>
+
+    
+
+
+<p>Over the last few years I've gotten more interested in electronics and FPGA design.  I've also noticed that a lot of other software folks seem interested in doing the same, but often don't know where to start.  So, I think I have some interesting advice for software engineers that feel like dipping their toes into the hardware world from the point of view of a software engineer.</p>
+<p>In this post I'll go over FPGAs in general, the basics of the Verilog language, simulating a design and deploying it to an inexpensive TinyFPGA-BX board.</p>
+<span id="continue-reading"></span><h3 id="article-series">Article Series</h3>
+<ol>
+<li>Verilog and State Machines</li>
+<li><a href="https://www.walknsqualk.com/015-fpga-start2/">Simulation and Build Tools</a></li>
+<li><a href="https://www.walknsqualk.com/016-fpga-start3/">Seven Segment Displays</a></li>
+<li><a href="https://www.walknsqualk.com/018-fpga-docker-build/">Docker Builds</a></li>
+<li><a href="https://www.walknsqualk.com/019-fpga-build-updates/">Build System Updates, ECP5 Support</a></li>
+<li><a href="https://www.walknsqualk.com/022-shift-reg-multiplex/">Time-Multiplexed Seven Segment Displays</a></li>
+</ol>
+<h2 id="updates-feb-23-2021">Updates Feb 23, 2021</h2>
+<p>As mentioned at the end of <a href="https://www.walknsqualk.com/018-fpga-docker-build/">this article</a>, I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from <a href="/post/018_fpga_docker_build">this article</a> can be added more easily.  The branches follow the format <code>post_N</code> so this post's branch is <code>post_1</code>.</p>
+<h2 id="updates-nov-14-2022">Updates Nov 14, 2022</h2>
+<p>In the <a href="https://www.walknsqualk.com/019-fpga-build-updates/">Build System Updates, ECP5 Support</a> article, I mentioned a number of updates that will change what you see in the repo.  In particular, with ECP5 support and Docker used as the main build system, building looks different, and is much easier in my opinion.</p>
+<p>For exampe, rather than using <code>make</code> to build blinky below, you would use <code>dev.sh build 00_blinky</code>.</p>
+<h1 id="starting-with-fpgas">Starting with FPGAs</h1>
+<p>FPGAs, short for Field Programmable Gate Arrays, are chips that contain loads of look up tables that can be programmed such that they can implement digital circuits.  Nowadays they also contain many other devices baked right into the chip, such as RAM blocks, multiplier circuits, and sometimes even whole CPUs with the ability to hook up to the lookup table/logic gates.  These programmable logic gates are sometimes referred to as the programmable fabric of the FPGA.</p>
+<p>There are many vendors, but Xilinx and Intel (formerly Altera) are the biggest.  Lattice also makes FPGAs and the best part is that due to reverse engineering efforts from <a rel="noopener" target="_blank" href="http://www.clifford.at/icestorm/">project IceStorm</a> there are open source tools for building the binary blob, called a bitstream, that is loaded onto the FPGA.</p>
+<p>FPGAs, like ASICs (Application Specific Integrated Circuit), are still most often programmed in an HDL (Hardware Description Language).  The two you'll hear about are VHDL and Verilog.  Verilog is a bit more like C and VHDL has an Ada inspired syntax.</p>
+<p>FPGAs are not (typically) programmed in a high level language like C/C++, Python, etc.  There is however work being done to use C++ on FPGAs though with support from the chip vendors themselves.  Using so-called High-Level Synthesis compilers, such as the Vivado HLS or the Intel HLS compiler, <code>#prgama</code> annotated C++ can be compiled into corresponding Verilog or VHDL modules that can then be syntehsized for use on the FPGA.</p>
+<p>Other higher level languages for hardware description exist such as a Scala derived language called <a rel="noopener" target="_blank" href="https://chisel.eecs.berkeley.edu/">Chisel</a>, and a Python based language called <a rel="noopener" target="_blank" href="https://m-labs.hk/gateware/migen/">Migen</a> although I haven't looked at using either of those personally.</p>
+<h2 id="why-choose-verilog-over-vhdl">Why choose Verilog over VHDL</h2>
+<p>I originally learned some VHDL in college and was keen to stay with that rather than learn Verilog.  I eventually bit the bullet and picked up Verilog solely because of the tool <a rel="noopener" target="_blank" href="https://www.veripool.org/wiki/verilator">Verilator</a>.  It's an open-source simulator and is really great.</p>
+<p>Most of the professional FPGA tools take ages to compile a design compared to what software engineers are used to.  I've had Quartus (Intel's toolset) take a few minutes to compile a couple of modules.  That makes the development cycle really painful.</p>
+<p>Verilator is a tool for taking Verilog code and compiling it into C++ modules in order to do simulation.  The  major benefit is that Verilator takes a couple of seconds to compile the same design that Quartus takes minutes on.  So especially when you're just learning Verilog and need to iterate while learning the syntax, I heavily recommend starting with Verilator.</p>
+<p>You also write your testbench (think unit/functional test code) in C++ rather that trying to write that in Verilog.  I find writing imperative test code in C++ far easier than doing so in Verilog.</p>
+<p>Having your code simulated in C++ also opens up some interesting possiblities to mock out portions of the system you want to test.  For example, I was able to create a VGA test pattern generator and simulate it within C++ hooking it up to a mocked VGA monitor that output to an application window using SDL2.</p>
+<h1 id="starting-with-electronics">Starting with Electronics</h1>
+<p>Although not strictly necessary for what we're doing in this article, you'll need to know some basic electronics as soon as you want to start interfacing to the outside world.  As I mentioned in my article about classic textbooks you can find at archive.org, there are tons of resources online for learning electronics.</p>
+<p>The first thing to do is grab <a rel="noopener" target="_blank" href="https://archive.org/details/TheArtOfElectronics-2ndEdition">The Art of Electronics 2nd Edition</a> from archive.org, which is a classic book that you hear recommended by many people.  There you can read up on theory and many practical details too.  The most basic things to know well are Ohm's Law, RC circuits and calculating power.</p>
+<p>If you're coming in to do digital circuits, you can skip Bipolar Junction Transistors and Op-Amps for now.  They're great to understand, but for blinking an LED or communicating with a device over I2C, they're not strictly necessary.</p>
+<p>Video-wise I definitely recommend <a href="https://www.walknsqualk.com/014-fpga-start/(https://www.youtube.com/user/eaterbc)">Ben Eater</a>'s videos on building a CPU on a breadboard.  It's a great bridge between electronics and the software world.  He describes a lot of practical details like using current limiting resistors to keep your LEDs from burning out.</p>
+<p>I also enjoy watching the <a rel="noopener" target="_blank" href="https://www.youtube.com/user/EEVblog">EEVBlog</a>.  If you want to try building things yourself, check out his video on setting up an electronics lab for cheap.  It's not totally up to date and some links are broken but you can find replacements easily enough.</p>
+<h1 id="where-to-begin">Where to begin</h1>
+<p>Before we dive into some basics of Verilog, we'll want to install some tools and if we want to test on a real device, determine which one fits our requirements.</p>
+<h2 id="software-tools">(Software) Tools</h2>
+<p>I'll be showing examples in Verilog and simulating them with Verilator.  When simulating a design on the PC, it can useful to see the waveform trace.  The trace is just the state of all signals in the design at each point in time during simulation.</p>
+<p>Verilator can be setup to write out to a standard <code>.vcd</code> format which you can view in <a rel="noopener" target="_blank" href="http://gtkwave.sourceforge.net/">GtkWave</a>.</p>
+<p>I typically run Windows Subsystem for Linux (WSL) and do all of my building/simulation in that environment and so I'll be assuming you're using that or Linux and know how to get these tools setup.</p>
+<p>You'll want to install Verilator from source, following the instructions on <a rel="noopener" target="_blank" href="https://www.veripool.org/projects/verilator/wiki/Installing">its website</a>.</p>
+<h2 id="some-interesting-boards">Some Interesting Boards</h2>
+<p>There are a lot of cheap-ish boards nowadays, such as the <a rel="noopener" target="_blank" href="https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&amp;No=1046">DE10-Nano from Terasic</a> which uses an Intel Cyclone V FPGA, or the <a rel="noopener" target="_blank" href="https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board-for-makers-and-hobbyists/">Arty A7 by Digilent</a> which uses an Artix-7 FPGA from Xilinx.</p>
+<p>Note the Cyclone V has an embedded ARM core, whereas the Artix-7 does not.  If you want a Xilinx FPGA that has one of these HPS (Hard Processing System, aka baked-in CPU), take a look at the <a rel="noopener" target="_blank" href="https://store.digilentinc.com/zybo-z7-zynq-7000-arm-fpga-soc-development-board/">Zybo-7</a> which uses a Zynq FPGA.</p>
+<h3 id="tinyfpga-bx">TinyFPGA-BX</h3>
+<p>If you want to go for a really cheap device, check out the <a rel="noopener" target="_blank" href="https://tinyfpga.com/">TinyFPGA-BX</a>.  I grabbed one for $38 and it was a great purchase.  It's based on a Lattice FPGA, and as I mentioned above, lets you use an open-source toolset.</p>
+<p>I was able to write the HelloWorld of electronics, a blinking LED, and deploy it to my TinyFPGA-BX board in about 20 minutes.  Keep in mind you probably will want to solder on pin headers to use the board on a breadboard, so remember that is doesn't come with them pre-attached.</p>
+<p>We'll use the TinyFPGA-BX board as the target board for the reset of this article.</p>
+<p>Now with all of that background on FPGAs and tools, let's go through a making a simple design with Verilator, simulating it, and then building it for the TinyFPGA-BX.</p>
+<h1 id="thinking-about-hardware-design-in-hdls">Thinking about Hardware Design in HDLs</h1>
+<p>You often hear people mention how hardware programming, more often called designing, with Verilog or VHDL is so different from normal programming.  To an extent this is true, in that it doesn't resemble a normal imperative style and certainly not an object oriented style.  On the other hand, software folks are used to doing similar types of development in different areas.</p>
+<p>In my mind it's easier to think of hardware designs as data flow graphs.  In HDLs you are declaring modules that are hooked together to implement various functionality.  Each module is made up of connections of wires and/or as processes that trigger on some condition, typically a clock signal and maybe a reset signal.  You can think of processes as logic updates that trigger based on an event such as the clock.</p>
+<p>A clock signal is just a value that toggles between 1 and 0 at some constant rate.  So you might talk about having a 200 MHz clock signal meaning it toggles between high and low 200e6 times per second.</p>
+<p>Wires that connect modules together can be thought of like wires in a circuit board and one wire corresponds to a single bit.  You can have a collection of wires, called a bus, to have larger values, e.g. a byte, flow in and out of modules.</p>
+<p>What that means is that you are laying out blocks which interconnect with each other, sort of like how you would set up a complicated shell command.  It's just that here you can have many inputs and many outputs, and can end up with much more hierarchical layouts.  That is, a module can be made up of a bunch of smaller modules and just stitches them together.</p>
+<p>Another way software engineers can relate, is that designing a hardware module is a lot like doing stream programming; you don't have general access to the next or previous items, unless you save them off in a temporary variable, you just operate on your current inputs and produce your output.</p>
+<p>So when we look at our inputs and outputs in our modules, you can look at them as streaming interfaces of bits (or booleans), some of which are grouped together to make larger values like bytes.</p>
+<h2 id="types-of-circuits">Types of Circuits</h2>
+<h3 id="combinational-circuits">Combinational Circuits</h3>
+<p>For modules that are not clock driven, called <em>combinational circuits</em> (or sometimes <em>combinatorial circuits</em>), you are just hooking inputs through various logic operations, and producing outputs.  Since our wires are just booleans, we can use all of the normal logic operations: and, or, xor and not.</p>
+<p>But enough chatting, let's see some actual Verilog code.  Here is a module that take two inputs wires and produces an <code>xor</code> of them as one ouput and an <code>and</code> of them for the other output signal:</p>
+<pre data-lang="verilog" class="language-verilog z-code"><code class="language-verilog" data-lang="verilog"><span class="z-source z-systemverilog"><span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> This declares a module named &#39;half_adder&#39;
+</span></span><span class="z-source z-systemverilog"><span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> Between the parentheses are the declaration of &#39;ports&#39; which are inputs 
+</span></span><span class="z-source z-systemverilog"><span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> and outputs to this module.  I&#39;ve prepended an i_ for inputs and o_ for outputs,
+</span></span><span class="z-source z-systemverilog"><span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> but that is just a convention.
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog"><span class="z-keyword z-control z-systemverilog">module</span> <span class="z-entity z-name z-type z-module z-systemverilog">half_adder</span>
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">    (
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">        i_a
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">        , i_b
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">        , o_value
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">        , o_carry
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">    );</span>
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> Although we named ports above, we still need to mark whether or not
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> those signals are inputs or outputs here.
+</span></span><span class="z-source z-systemverilog"><span class="z-support z-type z-systemverilog">    input</span> i_a, i_b;
+</span><span class="z-source z-systemverilog"><span class="z-support z-type z-systemverilog">    output</span> o_value, o_carry;
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> These staements hook the outputs to the results of the inputs and 
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> some logical operations. &#39;^&#39; means bitwise &#39;xor&#39; and &#39;&amp;&#39; for bitwise 
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> &#39;and&#39;
+</span></span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">assign</span> o_value <span class="z-keyword z-operator z-assignment z-systemverilog">=</span> i_a <span class="z-keyword z-operator z-bitwise z-systemverilog">^</span> i_b;
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">assign</span> o_carry <span class="z-keyword z-operator z-assignment z-systemverilog">=</span> i_a <span class="z-keyword z-operator z-bitwise z-systemverilog">&amp;</span> i_b;
+</span><span class="z-source z-systemverilog"><span class="z-meta z-object z-end z-systemverilog"><span class="z-keyword z-control z-systemverilog">endmodule</span></span>
+</span></code></pre>
+<p>This module defines a half-adder which takes two bits and produces the output of adding those two bits together also allowing for overflow and carrying the bit out to the next adder block in line.</p>
+<p>Just as an aside:  Seeing this circuit in my digital circuits course in college years ago was a big aha moment for me.  It was when I first saw how you could go from simple logic operations that you could implement pretty easily with bare transistors and start building up more complicated useful blocks.</p>
+<p>In this module there is no clock, and no memory used.  It's sort of like a pure function: The output only depends on the inputs in this case.  Things get more interesting when you store values, sometimes called storing state.</p>
+<h3 id="sequential-circuits">Sequential Circuits</h3>
+<p>For clock driven modules, called <em>sequential circuits</em>, it's a lot like having an update tick function.  You have whatever input parameters, some state/memory within your module, and on each tick you need to decide how to change your outputs.</p>
+<p>Here's a simple module that takes a clock signal and has an update block that will run every time the clock changes to a <code>1</code>.  This change from <code>0</code> to <code>1</code> is also known as the positive edge of the clock signal as it changes from a low to high value.</p>
+<pre data-lang="verilog" class="language-verilog z-code"><code class="language-verilog" data-lang="verilog"><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog"><span class="z-keyword z-control z-systemverilog">module</span> <span class="z-entity z-name z-type z-module z-systemverilog">counter</span>
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">    (
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">        i_clk
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">        , o_value
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">    );</span>
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog"><span class="z-support z-type z-systemverilog">    input</span> i_clk;
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> The array syntax here says make a collection of 8 bits (from 7 down to 0)
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> and not only is it the output, but make it a register, a.k.a store the value
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> between clock ticks.
+</span></span><span class="z-source z-systemverilog">    <span class="z-support z-type z-systemverilog">output</span> <span class="z-storage z-type z-interface z-systemverilog">reg</span> [<span class="z-constant z-numeric z-decimal z-systemverilog">7</span><span class="z-keyword z-operator z-ternary z-systemverilog">:</span><span class="z-constant z-numeric z-decimal z-systemverilog">0</span>] o_value;
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> This statement marks a block that should be run whenever the &#39;sensitivity list&#39;
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> changes.  In this case whenever the clock transitions from a &#39;0&#39; to a &#39;1&#39;
+</span></span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">always</span> <span class="z-keyword z-operator z-other z-systemverilog">@</span>(<span class="z-keyword z-control z-systemverilog">posedge</span> i_clk)
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">begin</span>
+</span><span class="z-source z-systemverilog">        <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> When o_value gets too big, it will overflow and roll back to 0
+</span></span><span class="z-source z-systemverilog">        <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> Note the different syntax for assigning a value in a sequential block with 
+</span></span><span class="z-source z-systemverilog">        <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> &#39;&lt;=&#39; instead of &#39;=&#39;
+</span></span><span class="z-source z-systemverilog">        o_value <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> o_value <span class="z-keyword z-operator z-arithmetic z-systemverilog">+</span> <span class="z-constant z-numeric z-decimal z-systemverilog">1</span>;
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-other z-block z-systemverilog">end</span>
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog"><span class="z-meta z-object z-end z-systemverilog"><span class="z-keyword z-control z-systemverilog">endmodule</span></span>
+</span></code></pre>
+<p>A module can contain multiple blocks, sequential or combinational.  The <code>assign</code> syntax in the first example is one way to lay out combinational connections, the other is with <code>always @(*)</code> blocks, which are basically the same thing.</p>
+<h3 id="why-have-a-clock">Why have a clock?</h3>
+<p>One question that might come up is why do you even need a clock signal?  Why not just let things update as fast as they can?  The problem there is that real circuits take time for their values to settle.  This is based on how they get laid out on the actual chip and how long it takes for signals to propogate around.</p>
+<p>So there is some time that the result can be bouncing between various values while the inputs stay constant.  You don't want those intermittent values to get used downstream as inputs to the next part of your design, so you need to some sort of way to decide when values are valid.  A clock signal is the way to do this.</p>
+<p>This is also why you can only run a circuit up to some maximum clock frequency.  Your design might need X nanoseconds for the worst-case path, called the <em>critical path</em>, to settle to its correct value.  If you run your circuit faster than that, you may latch (save) the wrong value and your design won't operate as you expect.</p>
+<h1 id="simulating-and-deploying-designs">Simulating and Deploying Designs</h1>
+<p>So let's create a simple blinky LED example on the TinyFPGA-BX.  This example is basically the template from the <a rel="noopener" target="_blank" href="https://tinyfpga.com/bx/guide.html">TinyFPGA-BX User Guide</a>.  The difference is that we'll simulate with Verilator first and make sure things look good before deploying to our board.</p>
+<p>You can grab the repo with the code from <strong><a rel="noopener" target="_blank" href="https://github.com/srjilarious/fpga_start/tree/post_1">Here</a></strong>.  We'll start with the <code>00_blinky</code> example.</p>
+<p>In that example, the <code>apio.ini</code>, <code>install_apio.bat</code>, <code>install_apio.sh</code> and <code>pins.pcf</code> are taken as is from the <code>apio_template</code> portion of the TinyFPGA-BX guide.  The <code>top.v</code> is our verilog module that will blink the on-board LED periodically.  <code>Main.cpp</code> is the test code that we will compile with Verilator to create a program that simulates our design on our PC before trying it on the board itself.</p>
+<p>The testbench code in <code>main.cpp</code> uses a template class for handling some basics like ticking the clock signal, and writing out waveform values.  This is based off of this <a rel="noopener" target="_blank" href="https://zipcpu.com/blog/2017/06/21/looking-at-verilator.html">ZipCPU blog article</a> and is located at <code>support/TestBench.h</code>.</p>
+<p>If we look at the <code>top.v</code> module we can see the following:</p>
+<pre data-lang="verilog" class="language-verilog z-code"><code class="language-verilog" data-lang="verilog"><span class="z-source z-systemverilog"><span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> look in pins.pcf for all the pin names on the TinyFPGA BX board
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog"><span class="z-keyword z-control z-systemverilog">module</span> <span class="z-entity z-name z-type z-module z-systemverilog">top</span> (
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog"><span class="z-support z-type z-systemverilog">    input</span> <span class="z-constant z-other z-net z-systemverilog">CLK</span>       <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> 16MHz clock
+</span></span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">    ,<span class="z-support z-type z-systemverilog"> output</span> <span class="z-constant z-other z-net z-systemverilog">LED</span>    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> User/boot LED next to power LED
+</span></span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">    ,<span class="z-support z-type z-systemverilog"> output</span> <span class="z-constant z-other z-net z-systemverilog">USBPU</span>  <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> USB pull-up resistor
+</span></span></span><span class="z-source z-systemverilog"><span class="z-meta z-module z-systemverilog">);</span>
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> drive USB pull-up resistor to &#39;0&#39; to disable USB
+</span></span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">assign</span> <span class="z-constant z-other z-net z-systemverilog">USBPU</span> <span class="z-keyword z-operator z-assignment z-systemverilog">=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">0</span>;
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> keep track of time and location in blink_pattern
+</span></span><span class="z-source z-systemverilog"><span class="z-storage z-type z-systemverilog">    reg</span> [<span class="z-constant z-numeric z-decimal z-systemverilog">27</span><span class="z-keyword z-operator z-ternary z-systemverilog">:</span><span class="z-constant z-numeric z-decimal z-systemverilog">0</span>] num_counter;
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> increment the blink_counter every clock
+</span></span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">always</span> <span class="z-keyword z-operator z-other z-systemverilog">@</span>(<span class="z-keyword z-control z-systemverilog">posedge</span> <span class="z-constant z-other z-net z-systemverilog">CLK</span>) <span class="z-keyword z-control z-systemverilog">begin</span>
+</span><span class="z-source z-systemverilog">        num_counter <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> num_counter <span class="z-keyword z-operator z-arithmetic z-systemverilog">+</span> <span class="z-constant z-numeric z-decimal z-systemverilog">1</span>;
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-other z-block z-systemverilog">end</span>
+</span><span class="z-source z-systemverilog">    
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> light up the LED, using the 20th bit of our counter.
+</span></span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">assign</span> <span class="z-constant z-other z-net z-systemverilog">LED</span> <span class="z-keyword z-operator z-assignment z-systemverilog">=</span> num_counter[<span class="z-constant z-numeric z-decimal z-systemverilog">19</span>];
+</span><span class="z-source z-systemverilog"><span class="z-meta z-object z-end z-systemverilog"><span class="z-keyword z-control z-systemverilog">endmodule</span></span>
+</span></code></pre>
+<p>The module defines an input clock signal, the LED output signal and an output for the USB Pull up resistor, which was taken as is from the TinyFPGA-BX blinky exmaple.  We have a counter that increases by one every clock cycle and we see that on the last line of the module the LED should be on whenever the counter's 20th bit is a <code>1</code> and be off whenever the bit is a <code>0</code>.  Go into your terminal and run <code>make</code> to build <code>blinky</code> and then run it.  It's compiled into a normal executable with Verilator, so you don't need the FPGA hooked up or anything at this point.</p>
+<p>It might take a few seconds for it to run, and afterwards you should see a <code>trace.vcd</code> file get created.  Let's view the waveform in GtkWave.  Open up GtkWave and choose <code>File</code> -&gt; <code>Open New Tab</code>, navigate to the <code>trace.vcd</code> file and open it.  You'll see the following if you expand the <code>TOP</code> item in the tool window on the left side:</p>
+ <img src="gtk_wave_00.png" alt="Initial Waveform view in GtkWave" width="1002" height="632" loading="lazy" />
+<p>You can then select the <code>CLK</code>, <code>LED</code>, and <code>num_counter</code> signals, right click and choose <code>Recurse Import</code> -&gt; <code>Append</code> to add the waves to the main portion of the window.</p>
+ <img src="gtk_wave_01.png" alt="Adding signals to the waveform view" width="1002" height="632" loading="lazy" />
+<p>What you'll see is the following:</p>
+ <img src="gtk_wave_02.png" alt="Initial view of waveform" width="1394" height="415" loading="lazy" />
+<p>Hmm, looks like our LED isn't blinking.  What's going on?  The problem is we're zoomed in way too close.  We designed the blinking to be based on a 16Mhz input clock, and the LED turns on with the 20th bit, which means it takes 1048576 clock ticks for the LED to change.</p>
+<p>We therefore expect in real life the LED to change states (1/16Mhz)*1,048,576 = ~0.065 seconds, so just a bit more than 10 times a second.</p>
+<p>If we zoom out our simulation we see:</p>
+ <img src="gtk_wave_03.png" alt="Zoomed out view of waveform" width="1394" height="415" loading="lazy" />
+<p>Note that in our simulation we haven't set the tracing timescale to correspond to our real world clock, so you can't trust the time values in this case.</p>
+<h2 id="deploying-to-the-tinyfpga-bx-board">Deploying to the TinyFPGA-BX board</h2>
+<p>We can now test our design on the real hardware using the <code>apio</code> program that the <a rel="noopener" target="_blank" href="https://tinyfpga.com/bx/guide.html">TinyFPGA-BX user guide</a> discusses installing and using.  Rather than using the Atom editor we'll directly use the terminal instead.</p>
+<p>When you plug the board into your computer it will initially be in a waiting state, expecting you to upload a bitstream with the user LED fading in and out:</p>
+<video controls class="ci">
+  <source src="fpga_01_waiting.mp4" type="video/mp4" />
+  Your browser doesn't support the video tag and/or the video formats in use here – sorry!
+</video>
+<p>With the board connected to your system with a USB cable, you can run <code>apio build</code> and then <code>apio upload</code>.  As I'm using windows, even though I run the simulator from a bash prompt, I run the apio commands in <code>cmd.exe</code>.  I haven't taken the time to see if I could get the USB connection working through the WSL layer.</p>
+<p>Running <code>apio upload</code> should result in output similar to the following:</p>
+ <img src="apio_upload_cmd.png" alt="Zoomed out view of waveform" width="1826" height="1166" loading="lazy" />
+<p>and you should see a rapidly blinking LED like in the video below:</p>
+<video controls class="ci">
+  <source src="fpga_02_blinky.mp4" type="video/mp4" />
+  Your browser doesn't support the video tag and/or the video formats in use here – sorry!
+</video><h1 id="performing-a-sequence-of-steps-in-hardware">Performing a sequence of steps in Hardware</h1>
+<p>So the question arises, how do you actually carry out an algorithm in hardware?  The answer is a state machine.  You have a series of steps, each one being a state, and you move from one state to the next evaluating the state per clock tick.</p>
+<p>You can imagine your algorithm as a series of steps, down to the level of instructions if you wanted, where the current state index acts as the program counter.</p>
+<p>With state machine you can create looping behavior or conditional behavior as well.  By changing what your next state is, you can create loops, or branches within your state machine's execution.</p>
+<p>So let's go through a quick example of state machines as implemented in Verilog.  We'll create a simple state machine with three states where after a numner of clock ticks we'll proceed to the next state, where in the third state we move back to the initial one.</p>
+<p>In the initial state we'll keep the LED off, move to blinking the LED in the second state, which I've called <code>A</code> and finally we'll hold the LED on in the third or <code>B</code> state.</p>
+<p>You can follow along in the <code>01_state_machine</code> example in the repo.  You can also just check out the entire verilog code on GitHub <strong><a rel="noopener" target="_blank" href="https://github.com/srjilarious/fpga_start/blob/post_1/01_state_machine/top.v">Here</a></strong>.</p>
+<p>First lets declare some constants for our states and a numbr of ticks per state.</p>
+<pre data-lang="verilog" class="language-verilog z-code"><code class="language-verilog" data-lang="verilog"><span class="z-source z-systemverilog"><span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> We&#39;ll use four update ticks per state.
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-param z-systemverilog"><span class="z-keyword z-other z-systemverilog">localparam</span> <span class="z-constant z-other z-systemverilog">NUM_CYCLES_PER_STATE</span> </span><span class="z-keyword z-operator z-assignment z-systemverilog">=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">4</span><span class="z-keyword z-operator z-arithmetic z-systemverilog">*</span><span class="z-constant z-other z-net z-systemverilog">NUM_CYCLES_PER_UPDATE</span>;
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog"><span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> Provide some names for the constant values of our states.
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-param z-systemverilog"><span class="z-keyword z-other z-systemverilog">localparam</span> <span class="z-constant z-other z-systemverilog">INIT_STATE</span> </span><span class="z-keyword z-operator z-assignment z-systemverilog">=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">0</span>;
+</span><span class="z-source z-systemverilog"><span class="z-meta z-param z-systemverilog"><span class="z-keyword z-other z-systemverilog">localparam</span> <span class="z-constant z-other z-systemverilog">A_STATE</span> </span><span class="z-keyword z-operator z-assignment z-systemverilog">=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">1</span>;
+</span><span class="z-source z-systemverilog"><span class="z-meta z-param z-systemverilog"><span class="z-keyword z-other z-systemverilog">localparam</span> <span class="z-constant z-other z-systemverilog">B_STATE</span> </span><span class="z-keyword z-operator z-assignment z-systemverilog">=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">2</span>;
+</span></code></pre>
+<p>In Verilog, you can use the <code>localparam</code> keyword to define a constant for your module.  There also exists a <code>parameter</code> keyword, but that is for adding parameterization to modules when they are instantiated, such as creating a 32 bit adder instead of an 8 bit adder.</p>
+<p>You may also notice that we're using a constant named <code>NUM_CYCLES_PER_UPDATE</code>.  In this example, we'll look at how we can use the preprocessor to define different values for constants based on whether we are simulating the circuit or for when we're running on the actual board.</p>
+<p>The preprocessor in verilog starts with a backtick, and similar to C there are the <code>idef</code>, <code>ifndef</code>, <code>else</code>, and <code>endif</code> directives.</p>
+<pre data-lang="verilog" class="language-verilog z-code"><code class="language-verilog" data-lang="verilog"><span class="z-source z-systemverilog"><span class="z-constant z-other z-preprocessor z-systemverilog">`ifdef</span> <span class="z-support z-variable z-systemverilog">SIMULATION</span>
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> When running the simulation, we will lower the number of cycles to make 
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> it easier to read the waveform output.
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-param z-systemverilog">    <span class="z-keyword z-other z-systemverilog">localparam</span> <span class="z-constant z-other z-systemverilog">NUM_CYCLES_PER_UPDATE</span> </span><span class="z-keyword z-operator z-assignment z-systemverilog">=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">1</span> <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;</span><span class="z-keyword z-operator z-comparison z-systemverilog">&lt;</span> <span class="z-constant z-numeric z-decimal z-systemverilog">4</span>;
+</span><span class="z-source z-systemverilog"><span class="z-meta z-param z-systemverilog">    <span class="z-keyword z-other z-systemverilog">localparam</span> <span class="z-constant z-other z-systemverilog">LED_BLINK_BIT</span> </span><span class="z-keyword z-operator z-assignment z-systemverilog">=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">2</span>;
+</span><span class="z-source z-systemverilog"><span class="z-constant z-other z-preprocessor z-systemverilog">`else</span>
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> On the real board, our clock is 16MHz, so in order to see the LED pattern
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> we need to consider how many cycle ticks we should have.  In our case
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> 16*1000*1000 is one second, which is roughly when the 24th bit toggles.
+</span></span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> We&#39;ll use that as our algorithm&#39;s tick delay.
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-param z-systemverilog">    <span class="z-keyword z-other z-systemverilog">localparam</span> <span class="z-constant z-other z-systemverilog">NUM_CYCLES_PER_UPDATE</span> </span><span class="z-keyword z-operator z-assignment z-systemverilog">=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">1</span> <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;</span><span class="z-keyword z-operator z-comparison z-systemverilog">&lt;</span> <span class="z-constant z-numeric z-decimal z-systemverilog">24</span>;
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog">    <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> We want the blink pattern to be 4 times per update tick, aka 2 bits less.
+</span></span><span class="z-source z-systemverilog"><span class="z-meta z-param z-systemverilog">    <span class="z-keyword z-other z-systemverilog">localparam</span> <span class="z-constant z-other z-systemverilog">LED_BLINK_BIT</span> </span><span class="z-keyword z-operator z-assignment z-systemverilog">=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">22</span>;
+</span><span class="z-source z-systemverilog"><span class="z-constant z-other z-preprocessor z-systemverilog">`endif</span>
+</span></code></pre>
+<p>In this case, we'll define the <code>SIMULATION</code> variable for the preprocessor in our <code>Makefile</code> when we call Verilator, and when we use apio to run the example on the TinyFPGA BX board, we won't have this defined and we'll synthesize the design with the values in the <code>else</code> branch.</p>
+<p>With our constants defined, we can now get to the meat of this example, which is broken up into two processes.  The first process is where we update our counter and handle state transitions.</p>
+<pre data-lang="verilog" class="language-verilog z-code"><code class="language-verilog" data-lang="verilog"><span class="z-source z-systemverilog"><span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> Handle counter and switching between state
+</span></span><span class="z-source z-systemverilog"><span class="z-keyword z-control z-systemverilog">always</span> <span class="z-keyword z-operator z-other z-systemverilog">@</span>(<span class="z-keyword z-control z-systemverilog">posedge</span> <span class="z-constant z-other z-net z-systemverilog">CLK</span>) <span class="z-keyword z-control z-systemverilog">begin</span>
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">if</span>(counter <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;</span> <span class="z-constant z-other z-net z-systemverilog">NUM_CYCLES_PER_STATE</span>) <span class="z-keyword z-control z-systemverilog">begin</span>
+</span><span class="z-source z-systemverilog">        counter <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> counter <span class="z-keyword z-operator z-arithmetic z-systemverilog">+</span> <span class="z-constant z-numeric z-decimal z-systemverilog">1</span>;
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-other z-block z-systemverilog">end</span>
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">else</span> <span class="z-keyword z-control z-systemverilog">begin</span>
+</span><span class="z-source z-systemverilog">        counter <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">0</span>;
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog">        <span class="z-keyword z-control z-systemverilog">case</span> (curr_state)
+</span><span class="z-source z-systemverilog"><span class="z-meta z-userdefined z-systemverilog">            </span><span class="z-constant z-other z-net z-systemverilog">INIT_STATE</span>, <span class="z-constant z-other z-net z-systemverilog">A_STATE</span><span class="z-keyword z-operator z-ternary z-systemverilog">:</span> 
+</span><span class="z-source z-systemverilog">                curr_state <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> curr_state <span class="z-keyword z-operator z-arithmetic z-systemverilog">+</span> <span class="z-constant z-numeric z-decimal z-systemverilog">1</span>;
+</span><span class="z-source z-systemverilog">
+</span><span class="z-source z-systemverilog">            <span class="z-keyword z-control z-systemverilog">default</span><span class="z-keyword z-operator z-ternary z-systemverilog">:</span> <span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> B_STATE too
+</span></span><span class="z-source z-systemverilog">                curr_state <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> <span class="z-constant z-other z-net z-systemverilog">INIT_STATE</span>;
+</span><span class="z-source z-systemverilog">        <span class="z-keyword z-control z-systemverilog">endcase</span>
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-other z-block z-systemverilog">end</span>
+</span><span class="z-source z-systemverilog"><span class="z-keyword z-other z-block z-systemverilog">end</span>
+</span></code></pre>
+<p>You'll notice we were able to comma separate the first two states in the case statement in order to run the same block in those cases.  You can't do the same thing with the default label though, so we just let the B_STATE fall through to the default case there.</p>
+<p>In the second process we look at the current state and assign the LED the value for that state, using a bit in our counter for the blinking case.</p>
+<pre data-lang="verilog" class="language-verilog z-code"><code class="language-verilog" data-lang="verilog"><span class="z-source z-systemverilog"><span class="z-comment z-line z-double-slash z-systemverilog"><span class="z-punctuation z-definition z-comment z-systemverilog">//</span> Determine LED behavior from the current state.
+</span></span><span class="z-source z-systemverilog"><span class="z-keyword z-control z-systemverilog">always</span> <span class="z-keyword z-operator z-other z-systemverilog">@</span>(<span class="z-keyword z-control z-systemverilog">posedge</span> <span class="z-constant z-other z-net z-systemverilog">CLK</span>) <span class="z-keyword z-control z-systemverilog">begin</span>
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">case</span> (curr_state)
+</span><span class="z-source z-systemverilog">        <span class="z-constant z-other z-net z-systemverilog">INIT_STATE</span><span class="z-keyword z-operator z-ternary z-systemverilog">:</span>
+</span><span class="z-source z-systemverilog">            <span class="z-constant z-other z-net z-systemverilog">LED</span> <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">0</span>;
+</span><span class="z-source z-systemverilog">        
+</span><span class="z-source z-systemverilog">        <span class="z-constant z-other z-net z-systemverilog">A_STATE</span><span class="z-keyword z-operator z-ternary z-systemverilog">:</span>
+</span><span class="z-source z-systemverilog">            <span class="z-constant z-other z-net z-systemverilog">LED</span> <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> counter[<span class="z-constant z-other z-net z-systemverilog">LED_BLINK_BIT</span>];
+</span><span class="z-source z-systemverilog">        
+</span><span class="z-source z-systemverilog">        <span class="z-constant z-other z-net z-systemverilog">B_STATE</span><span class="z-keyword z-operator z-ternary z-systemverilog">:</span>
+</span><span class="z-source z-systemverilog">            <span class="z-constant z-other z-net z-systemverilog">LED</span> <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">1</span>;
+</span><span class="z-source z-systemverilog">        
+</span><span class="z-source z-systemverilog">        <span class="z-keyword z-control z-systemverilog">default</span><span class="z-keyword z-operator z-ternary z-systemverilog">:</span>
+</span><span class="z-source z-systemverilog">            <span class="z-constant z-other z-net z-systemverilog">LED</span> <span class="z-keyword z-operator z-comparison z-systemverilog">&lt;=</span> <span class="z-constant z-numeric z-decimal z-systemverilog">0</span>;
+</span><span class="z-source z-systemverilog">    <span class="z-keyword z-control z-systemverilog">endcase</span>
+</span><span class="z-source z-systemverilog"><span class="z-keyword z-other z-block z-systemverilog">end</span>
+</span></code></pre>
+<p>Once we run <code>make</code> and then the resulting <code>state_machine_01</code> executable, we can view the <code>trace.vcd</code> waveform and should see the following once the relevant signals are added and we zoom out a bit:</p>
+ <img src="gtk_wave_state_machine_01.png" alt="Simple state machine waveform" width="1487" height="199" loading="lazy" />
+<p>We see our circuit runs as expected moving between states and eventually resetting back to the initial state.  We also see that the LED behavior changes as we move from one state to the other.  If we zoom in a bit, we can see the clock cycles more clearly and the LED toggling on and off in the <code>A</code> state.</p>
+ <img src="gtk_wave_state_machine_02.png" alt="Simple state machine waveform zoomed" width="653" height="209" loading="lazy" />
+<h2 id="deploying-to-the-tinyfpga-bx-board-1">Deploying to the TinyFPGA-BX board</h2>
+<p>Similarly to the LED example, we can run <code>apio build</code> and <code>apio upload</code> to synthesize and load our design onto our TinyFPGA-BX board.</p>
+<video controls class="ci">
+  <source src="fpga_03_state_machine.mp4" type="video/mp4" />
+  Your browser doesn't support the video tag and/or the video formats in use here – sorry!
+</video><h1 id="conclusion">Conclusion</h1>
+<p>We've now seen how we can build up simple designs for an inexpensive FPGA board, using Verilator to simulate our modules using C++ beforehand.  There is a lot more that we can dive into with FPGAs and in a future article I plan to show how to drive some seven segment displays as well as build up a VGA timing circuit.</p>
+<p>I hope you've enjoyed this introduction.  If anything is unclear, feel free to leave a comment below!</p>
+<p><em>EDIT: Updated term combinatorial circuits to combinational circuits as that seems to be the more often used term.  Thanks anton for the comment!</em></p>
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
+
+      <nav>
+        <div>
+          <a href="https://www.walknsqualk.com/015-fpga-start2/">&#8249; FPGA Design for Software Engineers, Part 2 - Simulation and Build Tools</a>
+        </div>
+        <div>
+          <a href="https://www.walknsqualk.com/013-bitfeld-widths-cpp/"> Bitfield widths in C&#x2F;C++ structures &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <hr />
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://www.walknsqualk.com/atom.xml" target="_blank" title="Walk N&#x27; Squawk Atom Feed"><i type="Button" class="svg rss" title="Walk N&#x27; Squawk Atom Feed"></i></a><a class="js m-protected" href="#c3JqaWxhcmlvdXNAZmFzdG1haWwubmV0" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.social/@srjilarious" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://gitlab.com/sr.jilarious/" target="_blank" title="Gitlab"><i type="Button" class="svg gitlab" title="Gitlab"></i></a><a href="https://github.com/srjilarious/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://www.walknsqualk.com/about/"> About </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/contact/"> Contact </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://www.walknsqualk.com/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2024</span> Walk N' Squawk</p>
+      <p class="s80">Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a> & <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer><span class="topout">
+<span class="topleft"> </span><a href="#" class="top" title="Back to Top"><i class="svgs svgh angu"></i></a>
+</span>
+</body>
+</html>
