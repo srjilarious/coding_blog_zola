@@ -6,7 +6,7 @@ title = "FPGA design for Software Engineers - Build System Updates, ECP5 Support
 tags = ["FPGA"]
 +++
 
-It's been a while since the [last article](@/018-fpga-docker-build.md) and I've recently come back to playing with my FPGA repo.  Given the amount of time that has passed there were some updates needed for the `Dockerfile` and a couple of improvements I wanted to make.
+It's been a while since the [last article](@/018-fpga-docker-build/index.md) and I've recently come back to playing with my FPGA repo.  Given the amount of time that has passed there were some updates needed for the `Dockerfile` and a couple of improvements I wanted to make.
 
 <!--more-->
 
@@ -15,7 +15,7 @@ It's been a while since the [last article](@/018-fpga-docker-build.md) and I've 
 1. [Verilog and State Machines](@/014-fpga-start/index.md)
 2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
 3. [Seven Segment Displays](@/016-fpga-start3/index.md)
-4. [Docker Builds](@/018-fpga-docker-build.md)
+4. [Docker Builds](@/018-fpga-docker-build/index.md)
 5. Build System Updates, ECP5 Support
 6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
 

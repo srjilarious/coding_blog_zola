@@ -17,12 +17,12 @@ tags = ["FPGA", "Verilog"]
 1. [Verilog and State Machines](@/014-fpga-start/index.md)
 2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
 3. Seven Segment Displays
-4. [Docker Builds](@/018-fpga-docker-build.md)
+4. [Docker Builds](@/018-fpga-docker-build/index.md)
 5. [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md)
 6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
 
 ## Updates Feb 23, 2021
-As mentioned at the end of [this article](@/018-fpga-docker-build.md), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.
+As mentioned at the end of [this article](@/018-fpga-docker-build/index.md), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.
 
 # Our first pass
 

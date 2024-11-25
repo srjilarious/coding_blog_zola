@@ -15,7 +15,7 @@ This time we'll continue from the [last design article](@/016-fpga-start3/index.
 1. [Verilog and State Machines](@/014-fpga-start/index.md)
 2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
 3. [Seven Segment Displays](@/016-fpga-start3/index.md)
-4. [Docker Builds](@/018-fpga-docker-build.md)
+4. [Docker Builds](@/018-fpga-docker-build/index.md)
 5. [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md)
 6. Time-Multiplexed Seven Segment Displays
 

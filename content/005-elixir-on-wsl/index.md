@@ -60,12 +60,12 @@ With that set, you can start the observer or debugger from iex:
     iex(1)> :observer.start
     :ok
 
-![Erlang Observer Running](/elixir_wsl/observer_running.png)
+{{ img(alt="Erlang Observer Running", src="observer_running.png") }}
 
     iex(2)> :debugger.start
     {:ok, #PID<0.100.0>}
 
-![Erlang Debugger Running](/elixir_wsl/debugger_running.png)
+{{ img(alt="Erlang Debugger Running", src="debugger_running.png") }}
 
 ## Better color and copy/paste support: WSLtty
 I am used to using ctrl+ins and shift+ins for copying/pasting from the shell but I wasn't able to get this working in the vanilla Bash on Windows.  Luckily there is a mintty based project called wsltty that works perfectly with WSL.  Using wsltty I now have full 256 color support and ctrl+ins/shirt+ins pasting.  You can grab wsltty from
@@ -110,7 +110,7 @@ Since WSLtty is based on mintty, you can use a mintty config file to setup nicer
 
 You'll end up with a terminal that looks like this:
 
-![Bash Prompt with Colors](/elixir_wsl/bash_color.png)
+{{ img(alt="Bash Prompt with Colors", src="bash_color.png") }}
 
 <div id="commento"></div>
 <script src="https://cdn.commento.io/js/commento.js"></script>

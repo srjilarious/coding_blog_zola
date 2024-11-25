@@ -17,12 +17,12 @@ In this post I'll go over FPGAs in general, the basics of the Verilog language, 
 1. Verilog and State Machines
 2. [Simulation and Build Tools](@/015-fpga-start2/index.md)
 3. [Seven Segment Displays](@/016-fpga-start3/index.md)
-4. [Docker Builds](@/018-fpga-docker-build.md)
+4. [Docker Builds](@/018-fpga-docker-build/index.md)
 5. [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md)
 6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
 
 ## Updates Feb 23, 2021
-As mentioned at the end of [this article](@/018-fpga-docker-build.md), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](/post/018_fpga_docker_build) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_1`.
+As mentioned at the end of [this article](@/018-fpga-docker-build/index.md), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](/post/018_fpga_docker_build) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_1`.
 
 ## Updates Nov 14, 2022
 In the [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md) article, I mentioned a number of updates that will change what you see in the repo.  In particular, with ECP5 support and Docker used as the main build system, building looks different, and is much easier in my opinion.  

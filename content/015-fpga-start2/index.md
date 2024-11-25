@@ -19,13 +19,13 @@ The next article, which is already basically written, will be back to hardware d
 1. [Verilog and State Machines](@/014-fpga-start/index.md)
 2. Simulation and Build Tools
 3. [Seven Segment Displays](@/016-fpga-start3/index.md)
-4. [Docker Builds](@/018-fpga-docker-build.md)
+4. [Docker Builds](@/018-fpga-docker-build/index.md)
 5. [Build System Updates, ECP5 Support](@/019-fpga-build-updates/index.md)
 6. [Time-Multiplexed Seven Segment Displays](@/022-shift-reg-multiplex/index.md)
 
 
 ## Updates Feb 23, 2021
-As mentioned at the end of [this article](@/018-fpga-docker-build.md), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](@/018-fpga-docker-build.md) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_2`.
+As mentioned at the end of [this article](@/018-fpga-docker-build/index.md), I've moved the main repository over to GitHub, so the article has been updated with links to that repo.  I've also switched from tags to branches so that things like the new Docker build system from [this article](@/018-fpga-docker-build/index.md) can be added more easily.  The branches follow the format `post_N` so this post's branch is `post_2`.
 
 Given the Docker build system is much easier to use, I recommend doing that instead of all the details spelled out here, which are abstracted away if you do that.
 
