@@ -1,5 +1,5 @@
 +++
-date = 2017-03-02T21:37:03+01:00
+date = 2017-03-02
 title = "Welcome to the blog"
 
 [taxonomies]

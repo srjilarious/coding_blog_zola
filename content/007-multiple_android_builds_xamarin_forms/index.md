@@ -2,7 +2,6 @@
 tags = ["Android"]
 date = 2017-07-29
 title = "Multiple Android builds on Xamarin Forms"
-slug = "multiple-android-builds-on-xamarin-forms"
 +++
 
 While working on a Xamarin.Forms based project I ran into the issue of wanting to have multiple builds of my android app differentiated by the build configuration.  For instance, I want my normal build to point to the production server, but when I'm developing locally I want a different app that points to my local dev backend.  I still want to be able to use the _current production app_ and have a _development version_ installed at the **same time**.

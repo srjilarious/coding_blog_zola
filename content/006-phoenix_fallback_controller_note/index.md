@@ -2,7 +2,6 @@
 Tags = ["Phoenix", "Elixir"]
 date = 2017-07-28
 title = "Tip for Phoenix 1.3 Fallback Controller error"
-slug = "phoenix_fallback_controller_note"
 Categories = ["Phoenix", "Elixir"]
 +++
 

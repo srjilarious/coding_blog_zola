@@ -2,9 +2,8 @@
 Tags = ["Elixir"]
 Description = "Getting Elixir with observer working on Windows Subsystem for Linux"
 menu = ""
-date = 2017-07-18T12:00:00+02:00
+date = 2017-07-18
 title = "Elixir on Windows Subsystem for Linux"
-slug = "elixir-on-wsl"
 
 [taxonomies]
 tags = ["Elixir"]

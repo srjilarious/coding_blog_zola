@@ -1,9 +1,8 @@
 +++
 Tags = ["General"]
 Description = ""
-date = 2017-03-03T15:50:39+01:00
+date = 2017-03-03
 title = "Setting up a Hugo-based Blog on GitLab"
-slug = "setting-up-hugo-blog-on-gitlab"
 menu = ""
 [taxonomies]
 tags = ["General"]
